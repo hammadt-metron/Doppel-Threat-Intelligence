@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="" section_id="3c69c9eccfaf47100138fb251d851cfa" sys_domain="global" table="sn_ti_indicator" version="3" view="doppel-ti">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>security_tags_toolbar.xml</element>
+            <position>0</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>29a98520cfef47100138fb251d851c0a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter display_value="Security Tags Toolbar">bb5ab2860b722200263a089b37673a14</sys_ui_formatter>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type>formatter</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>title</element>
+            <position>1</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>e9a98520cfef47100138fb251d851c0b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>2</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>a5a98520cfef47100138fb251d851c0c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>first_seen</element>
+            <position>3</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>61a98520cfef47100138fb251d851c0d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>last_seen</element>
+            <position>4</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>2da98520cfef47100138fb251d851c0d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>5</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>e5a98520cfef47100138fb251d851c0e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>encountered_count</element>
+            <position>6</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>a1a98520cfef47100138fb251d851c0f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sourced_count</element>
+            <position>7</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>6da98520cfef47100138fb251d851c0f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>8</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>29a98520cfef47100138fb251d851c10</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>notes</element>
+            <position>9</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>e1a98520cfef47100138fb251d851c11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>tisc_indicator</element>
+            <position>10</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>ada98520cfef47100138fb251d851c11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>tisc_indicator_source</element>
+            <position>11</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>69a98520cfef47100138fb251d851c12</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>id</element>
+            <position>12</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+            <sys_id>25a98520cfef47100138fb251d851c13</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="DELETE">
+            <caption/>
+            <header>false</header>
+            <name>sn_ti_indicator</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-22 07:29:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3c69c9eccfaf47100138fb251d851cfa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sn_ti_indicator</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+            <sys_update_name>sys_ui_section_3c69c9eccfaf47100138fb251d851cfa</sys_update_name>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-22 07:29:39</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Doppel Threat Intelligence" name="doppel-ti">dbcf377ecfd3cb100138fb251d851c55</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</application>
+        <file_path/>
+        <instance_id>d60d8da5ebdab610cbbffceacad0cd56</instance_id>
+        <instance_name>ven08841</instance_name>
+        <name>sys_ui_section_3c69c9eccfaf47100138fb251d851cfa</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="3c69c9eccfaf47100138fb251d851cfa" sys_domain="global" table="sn_ti_indicator" version="3" view="doppel-ti"><sys_ui_element action="INSERT_OR_UPDATE"><element>security_tags_toolbar.xml</element><position>0</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>29a98520cfef47100138fb251d851c0a</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter display_value="Security Tags Toolbar">bb5ab2860b722200263a089b37673a14</sys_ui_formatter><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type>formatter</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>title</element><position>1</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>e9a98520cfef47100138fb251d851c0b</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.begin_split</element><position>2</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>a5a98520cfef47100138fb251d851c0c</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type>.begin_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>first_seen</element><position>3</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>61a98520cfef47100138fb251d851c0d</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>last_seen</element><position>4</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>2da98520cfef47100138fb251d851c0d</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.split</element><position>5</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>e5a98520cfef47100138fb251d851c0e</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type>.split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>encountered_count</element><position>6</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>a1a98520cfef47100138fb251d851c0f</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>sourced_count</element><position>7</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>6da98520cfef47100138fb251d851c0f</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.end_split</element><position>8</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>29a98520cfef47100138fb251d851c10</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type>.end_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>notes</element><position>9</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>e1a98520cfef47100138fb251d851c11</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>tisc_indicator</element><position>10</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>ada98520cfef47100138fb251d851c11</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>tisc_indicator_source</element><position>11</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>69a98520cfef47100138fb251d851c12</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>id</element><position>12</position><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:30:47</sys_created_on><sys_id>25a98520cfef47100138fb251d851c13</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="sn_ti_indicator" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">3c69c9eccfaf47100138fb251d851cfa</sys_ui_section><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:30:47</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>sn_ti_indicator</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-22 07:29:39</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>3c69c9eccfaf47100138fb251d851cfa</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sn_ti_indicator</sys_name><sys_overrides/><sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package><sys_policy/><sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope><sys_update_name>sys_ui_section_3c69c9eccfaf47100138fb251d851cfa</sys_update_name><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-22 07:29:39</sys_updated_on><sys_user/><title>false</title><view display_value="Doppel Threat Intelligence" name="doppel-ti">dbcf377ecfd3cb100138fb251d851c55</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>-1866275109</payload_hash>
+        <record_name>Indicator of Compromise</record_name>
+        <reverted_from/>
+        <source>514c9732931b0b107319f2336003d632</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 07:30:47</sys_created_on>
+        <sys_id>25a98520cfef47100138fb251d851c18</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a0c8063f2a0000001</sys_recorded_at>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 07:30:47</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>e1a985200cef47106135ae69bcf2b717</update_guid>
+        <update_guid_history>e1a985200cef47106135ae69bcf2b717:-1866275109,f179cdec74af47104404452c82654b95:-1276001485,c5694decceaf47106ddfc57b6f23fc03:1269069784</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-23 11:49:30</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>35e2fcd66a22460cb3cefcd95551acb9</sys_id>
+        <sys_metadata>3c69c9eccfaf47100138fb251d851cfa</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sn_ti_indicator</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_parent display_value="Sn Ti Indicator">d5c29ffacf1b8b100138fb251d851c9b</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_scope_delete display_value="">36a8be0b3d234e28930356d857d36840</sys_scope_delete>
+        <sys_update_name>sys_ui_section_3c69c9eccfaf47100138fb251d851cfa</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_3c69c9eccfaf47100138fb251d851cfa">25a98520cfef47100138fb251d851c18</sys_update_version>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 11:49:30</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

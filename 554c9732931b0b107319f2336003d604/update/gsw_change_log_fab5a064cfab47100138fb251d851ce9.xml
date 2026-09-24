@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_change_log">
+    <gsw_change_log action="INSERT_OR_UPDATE">
+        <change_date>2026-09-22 04:53:51</change_date>
+        <changed_by display_value="Hammad Thoker">cfa9f19ecfd387100138fb251d851c7c</changed_by>
+        <content display_value="Important Notes about Integration Usage">c0b971b1cfebf6100138fb251d851c8f</content>
+        <related_change_log_entry/>
+        <related_task_entry/>
+        <sys_class_name>gsw_change_log</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 04:53:51</sys_created_on>
+        <sys_id>fab5a064cfab47100138fb251d851ce9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2026-09-22 04:53:51</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>gsw_change_log_fab5a064cfab47100138fb251d851ce9</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 04:53:51</sys_updated_on>
+        <type>1</type>
+    </gsw_change_log>
+</record_update>

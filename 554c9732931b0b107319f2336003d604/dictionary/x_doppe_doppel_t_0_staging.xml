@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="b0175c03cfd7cb100138fb251d851c84" extends="sys_import_set_row" label="Doppel Staging" max_length="40" name="x_doppe_doppel_t_0_staging" type="collection">
+        <element label="message" max_length="4000" name="message" type="string"/>
+        <element label="Alert ID" max_length="100" name="alert_id" type="string"/>
+        <element label="notes" max_length="4000" name="notes" type="string"/>
+        <element label="Queue state" max_length="100" name="queue_state" type="string"/>
+        <element label="Entity state" max_length="100" name="entity_state" type="string"/>
+        <element label="score" max_length="40" name="score" type="string"/>
+        <element label="Entity content" max_length="4000" name="entity_content" type="string"/>
+        <element label="source" max_length="100" name="source" type="string"/>
+        <element label="Created at" max_length="40" name="created_at" type="string"/>
+        <element label="assignee" max_length="100" name="assignee" type="string"/>
+        <element label="severity" max_length="40" name="severity" type="string"/>
+        <element label="tags" max_length="4000" name="tags" type="string"/>
+        <element label="Last activity timestamp" max_length="40" name="last_activity_timestamp" type="string"/>
+        <element label="Entity IP address" max_length="40" name="entity_ip_address" type="string"/>
+        <element label="Doppel link" max_length="255" name="doppel_link" type="string"/>
+        <element label="product" max_length="100" name="product" type="string"/>
+        <element label="Uploaded by" max_length="100" name="uploaded_by" type="string"/>
+        <element label="platform" max_length="100" name="platform" type="string"/>
+        <element label="Audit logs" max_length="4000" name="audit_logs" type="string"/>
+        <element label="Alert summary" max_length="4000" name="alert_summary" type="string"/>
+        <element label="brand" max_length="100" name="brand" type="string"/>
+        <element label="Screenshot URL" max_length="4000" name="screenshot_url" type="string"/>
+        <element label="entity" max_length="500" name="entity" type="string"/>
+    </element>
+</database>

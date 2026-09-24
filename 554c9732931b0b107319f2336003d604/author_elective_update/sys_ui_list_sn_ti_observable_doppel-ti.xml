@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list action="DELETE" parent="" relationship="" sys_domain="global" table="sn_ti_observable" version="2" view="doppel-ti">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>value</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>69ad49579313cb107319f2336003d6bf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>type</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>e5ad49579313cb107319f2336003d6c0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sighting_count</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>6dad49579313cb107319f2336003d6c0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>security_tags</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>e1ad49579313cb107319f2336003d6c1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_related_indicator</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>69ad49579313cb107319f2336003d6c1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_lookup_alert_id</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>edad49579313cb107319f2336003d6c1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_lookup_brand</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>65ad49579313cb107319f2336003d6c2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_lookup_entity_state</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>e9ad49579313cb107319f2336003d6c2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_lookup_last_checked</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>61ad49579313cb107319f2336003d6c3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_lookup_product_type</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>e5ad49579313cb107319f2336003d6c3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_lookup_status</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>6dad49579313cb107319f2336003d6c3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_lookup_vision_url</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>11</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>e1ad49579313cb107319f2336003d6c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_doppe_doppel_t_0_lookup_queue_state</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>12</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_id>69ad49579313cb107319f2336003d6c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sn_ti_observable</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>61ad49579313cb107319f2336003d6be</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sn_ti_observable</sys_name>
+            <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+            <sys_update_name>sys_ui_list_sn_ti_observable_doppel-ti</sys_update_name>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+            <sys_user/>
+            <view display_value="Doppel Threat Intelligence" name="doppel-ti">dbcf377ecfd3cb100138fb251d851c55</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</application>
+        <file_path/>
+        <instance_id>d60d8da5ebdab610cbbffceacad0cd56</instance_id>
+        <instance_name>ven08841</instance_name>
+        <name>sys_ui_list_sn_ti_observable_doppel-ti</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_list parent="" relationship="" sys_domain="global" table="sn_ti_observable" version="2" view="doppel-ti"><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>value</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>0</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>69ad49579313cb107319f2336003d6bf</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>type</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>1</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>e5ad49579313cb107319f2336003d6c0</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>sighting_count</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>2</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>6dad49579313cb107319f2336003d6c0</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>security_tags</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>3</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>e1ad49579313cb107319f2336003d6c1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_related_indicator</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>4</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>69ad49579313cb107319f2336003d6c1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_lookup_alert_id</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>5</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>edad49579313cb107319f2336003d6c1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_lookup_brand</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>6</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>65ad49579313cb107319f2336003d6c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_lookup_entity_state</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>7</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>e9ad49579313cb107319f2336003d6c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_lookup_last_checked</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>8</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>61ad49579313cb107319f2336003d6c3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_lookup_product_type</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>9</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>e5ad49579313cb107319f2336003d6c3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_lookup_status</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>10</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>6dad49579313cb107319f2336003d6c3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_lookup_vision_url</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>11</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>e1ad49579313cb107319f2336003d6c4</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>x_doppe_doppel_t_0_lookup_queue_state</element><list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="dbcf377ecfd3cb100138fb251d851c55">61ad49579313cb107319f2336003d6be</list_id><max_value>false</max_value><min_value>false</min_value><position>12</position><sum>false</sum><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_id>69ad49579313cb107319f2336003d6c4</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on></sys_ui_list_element><sys_ui_list action="INSERT_OR_UPDATE"><average_value>false</average_value><element/><max_value>false</max_value><min_value>false</min_value><name>sn_ti_observable</name><parent/><position/><relationship/><sum>false</sum><sys_class_name>sys_ui_list</sys_class_name><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-18 10:35:52</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>61ad49579313cb107319f2336003d6be</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sn_ti_observable</sys_name><sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package><sys_policy/><sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope><sys_update_name>sys_ui_list_sn_ti_observable_doppel-ti</sys_update_name><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-18 10:35:52</sys_updated_on><sys_user/><view display_value="Doppel Threat Intelligence" name="doppel-ti">dbcf377ecfd3cb100138fb251d851c55</view><view_name/></sys_ui_list></sys_ui_list></record_update>]]></payload>
+        <payload_hash>1554717904</payload_hash>
+        <record_name>Observable</record_name>
+        <reverted_from/>
+        <source>514c9732931b0b107319f2336003d632</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-18 10:35:52</sys_created_on>
+        <sys_id>25ad49579313cb107319f2336003d6ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a0b41641dd0000001</sys_recorded_at>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-18 10:35:52</sys_updated_on>
+        <type>List Layout</type>
+        <update_guid>61ad49575413cb10482584dcf2432bc9</update_guid>
+        <update_guid_history>61ad49575413cb10482584dcf2432bc9:1554717904,1bae7b8fb1978b106733c16b63bd463c:-282887518,a14c080b4d57cb103feab775b302f993:-693726542,c881c043bd17cb10ef847374b282479e:611703670</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-23 11:45:26</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_list">sys_ui_list</sys_db_object>
+        <sys_id>6b7113ef26924030984e5a8bfee4a944</sys_id>
+        <sys_metadata>61ad49579313cb107319f2336003d6be</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sn_ti_observable</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_parent display_value="Sn Ti Observable">29a213bacf1b8b100138fb251d851c27</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_scope_delete display_value="">36a8be0b3d234e28930356d857d36840</sys_scope_delete>
+        <sys_update_name>sys_ui_list_sn_ti_observable_doppel-ti</sys_update_name>
+        <sys_update_version display_value="sys_ui_list_sn_ti_observable_doppel-ti">25ad49579313cb107319f2336003d6ca</sys_update_version>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 11:45:26</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

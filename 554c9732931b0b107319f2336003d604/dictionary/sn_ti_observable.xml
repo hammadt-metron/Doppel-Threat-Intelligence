@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="exclude_from_antivirus_scan=true" db_object_id="29a213bacf1b8b100138fb251d851c27" label="Observable" max_length="40" name="sn_ti_observable" text_index="true" type="collection">
+        <element label="related_indicator" max_length="32" name="x_doppe_doppel_t_0_related_indicator" reference="sn_ti_indicator" type="reference"/>
+        <element label="doppel_owned" max_length="40" name="x_doppe_doppel_t_0_doppel_owned" type="boolean"/>
+    </element>
+</database>

@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_doppe_doppel_t_0.DoppelIOCImport</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>DoppelIOCImport</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var DoppelIOCImport = Class.create()
+DoppelIOCImport.prototype = {
+    initialize: function () {
+        this.BASE_URL = 'https://api.doppel.com/v1/alerts'
+        this.STAGING_TABLE = 'x_doppe_doppel_t_0_staging'
+    },
+
+    importAlerts: function (maxPages) {
+        var staged = 0
+        var failed = 0
+        var page = 0
+        var totalPages = 1
+
+        while (page < totalPages && (!maxPages || page < maxPages)) {
+            var responseBody = this._fetchPage(page)
+            if (!responseBody) {
+                gs.error('DoppelIOCImport: Failed to fetch page ' + page + ', aborting pagination')
+                break
+            }
+
+            totalPages = responseBody.metadata.total_pages
+            var alerts = responseBody.alerts || []
+
+            for (var i = 0; i < alerts.length; i++) {
+                try {
+                    this._stageAlert(alerts[i])
+                    staged++
+                } catch (e) {
+                    failed++
+                    gs.error('DoppelIOCImport: Error staging alert ' + (alerts[i].id || 'unknown') + ': ' + e.message)
+                }
+            }
+            page++
+        }
+
+        gs.info('DoppelIOCImport: Staging complete — Staged: ' + staged + ', Failed: ' + failed)
+        return staged
+    },
+
+    runTransform: function () {
+        try {
+            new global.DoppelTransformHelper().transform(this.STAGING_TABLE, 'Doppel Alert to TI Indicator')
+        } catch (e) {
+            gs.error('DoppelIOCImport: Transform failed: ' + e.message)
+        }
+    },
+
+    fetchAndTransform: function (maxPages) {
+        var stagedCount = this.importAlerts(maxPages)
+        if (stagedCount > 0) {
+            this.runTransform()
+        } else {
+            gs.info('DoppelIOCImport: No rows staged, skipping transform')
+        }
+    },
+
+    _fetchPage: function (page) {
+        var headers = this._getAuthHeaders();
+        if (!headers) {
+            gs.error('DoppelIOCImport: _fetchPage aborted for page ' + page + ' — no valid auth headers');
+            return null;
+        }
+        try {
+            var r = new sn_ws.RESTMessageV2();
+            r.setEndpoint(this._getApiBase() + '/alerts');
+            r.setHttpMethod('GET');
+            for (var key in headers) {
+                r.setRequestHeader(key, headers[key]);
+            }
+            r.setQueryParameter('page', page.toString());
+            r.setQueryParameter('page_size', '30');
+            r.setHttpTimeout(30000);
+
+            var response = r.execute();
+            var httpStatus = response.getStatusCode();
+
+            if (httpStatus != 200) {
+                gs.error('DoppelIOCImport: API returned HTTP ' + httpStatus + ' for page ' + page + ': ' + response.getBody());
+                return null;
+            }
+            return JSON.parse(response.getBody());
+        } catch (e) {
+            gs.error('DoppelIOCImport: _fetchPage exception for page ' + page + ': ' + e.message);
+            return null;
+        }
+    },
+
+    _stageAlert: function (alert) {
+        var gr = new GlideRecord(this.STAGING_TABLE)
+        gr.initialize()
+        gr.setValue('alert_id', alert.id || '')
+        gr.setValue('entity', alert.entity || '')
+        gr.setValue('brand', alert.brand || '')
+        gr.setValue('queue_state', alert.queue_state || '')
+        gr.setValue('entity_state', alert.entity_state || '')
+        gr.setValue('severity', alert.severity != null ? String(alert.severity) : '')
+        gr.setValue('score', alert.score != null ? String(alert.score) : '')
+        gr.setValue('product', alert.product || '')
+        gr.setValue('platform', alert.platform || '')
+        gr.setValue('source', alert.source || '')
+        gr.setValue('notes', alert.notes || '')
+        gr.setValue('created_at', alert.created_at || '')
+        gr.setValue('last_activity_timestamp', alert.last_activity_timestamp || '')
+        gr.setValue('doppel_link', alert.doppel_link || '')
+        gr.setValue('screenshot_url', alert.screenshot_url || '')
+        gr.setValue('message', alert.message || '')
+        gr.setValue('assignee', alert.assignee || '')
+        gr.setValue('uploaded_by', alert.uploaded_by || '')
+        gr.setValue('alert_summary', alert.alert_summary || '')
+        gr.setValue('tags', alert.tags ? JSON.stringify(alert.tags) : '')
+        gr.setValue('audit_logs', alert.audit_logs ? JSON.stringify(alert.audit_logs) : '')
+        gr.setValue('entity_content', alert.entity_content ? JSON.stringify(alert.entity_content) : '')
+
+        var ipAddress = ''
+        if (alert.entity_content && alert.entity_content.root_domain) {
+            ipAddress = alert.entity_content.root_domain.ip_address || ''
+        }
+        gr.setValue('entity_ip_address', ipAddress)
+
+        gr.insert()
+    },
+
+    searchLocal: function(value) {
+        var result = null;
+        var obsGr = new GlideRecord('sn_ti_observable');
+        obsGr.addQuery('value', value);
+        obsGr.query();
+        if (obsGr.next()) {
+            result = {
+                observable_sys_id: obsGr.getUniqueValue(),
+                has_indicator: !!obsGr.getValue('x_doppe_doppel_t_0_related_indicator')
+            };
+            if (result.has_indicator) {
+                var indSysId = obsGr.getValue('x_doppe_doppel_t_0_related_indicator');
+                var metaGr = new GlideRecord('sn_ti_indicator_metadata');
+                metaGr.addQuery('indicator', indSysId);
+                metaGr.query();
+                while (metaGr.next()) {
+                    var name = metaGr.getValue('name');
+                    if (name == 'product') {
+                        result['product_type'] = metaGr.getValue('value');
+                    } else if (['brand','queue_state','entity_state','doppel_link'].indexOf(name) > -1) {
+                        result[name] = metaGr.getValue('value');
+                    }
+                }
+                var indGr = new GlideRecord('sn_ti_indicator');
+                if (indGr.get(indSysId)) {
+                    result.alert_id = indGr.getValue('id');
+                }
+            }
+        }
+        return result;
+    },
+
+    getAlertByEntity: function(entityValue) {
+        var headers = this._getAuthHeaders();
+        if (!headers) {
+            return { success: false, error: 'No valid auth headers (check auth_version and credentials)' };
+        }
+        try {
+            var r = new sn_ws.RESTMessageV2();
+            r.setEndpoint(this._getApiBase() + '/alert');
+            r.setHttpMethod('GET');
+            for (var key in headers) {
+                r.setRequestHeader(key, headers[key]);
+            }
+            r.setQueryParameter('entity', entityValue);
+            var response = r.execute();
+            var status = response.getStatusCode();
+            var body = response.getBody();
+            if (status == 200) {
+                return { success: true, data: JSON.parse(body) };
+            } else if (status == 404) {
+                return { success: true, data: null };
+            }
+            gs.error('Doppel getAlertByEntity failed: HTTP ' + status + ' - ' + body);
+            return { success: false, error: 'HTTP ' + status, raw: body };
+        } catch (e) {
+            gs.error('Doppel getAlertByEntity exception: ' + e.message);
+            return { success: false, error: e.message };
+        }
+    },
+
+    getAlertById: function(alertId) {
+        var headers = this._getAuthHeaders();
+        if (!headers) {
+            return { success: false, error: 'No valid auth headers (check auth_version and credentials)' };
+        }
+        try {
+            var r = new sn_ws.RESTMessageV2();
+            r.setEndpoint(this._getApiBase() + '/alert');
+            r.setHttpMethod('GET');
+            for (var key in headers) {
+                r.setRequestHeader(key, headers[key]);
+            }
+            r.setQueryParameter('id', alertId);
+            var response = r.execute();
+            var status = response.getStatusCode();
+            var body = response.getBody();
+            if (status == 200) {
+                return { success: true, data: JSON.parse(body) };
+            } else if (status == 404) {
+                return { success: true, data: null };
+            }
+            gs.error('Doppel getAlertById failed: HTTP ' + status + ' - ' + body);
+            return { success: false, error: 'HTTP ' + status, raw: body };
+        } catch (e) {
+            gs.error('Doppel getAlertById exception: ' + e.message);
+            return { success: false, error: e.message };
+        }
+    },
+
+    createAlertInDoppel: function(entityValue, brand, source) {
+        var headers = this._getAuthHeaders();
+        if (!headers) {
+            return { success: false, error: 'No valid auth headers (check auth_version and credentials)' };
+        }
+        try {
+            var r = new sn_ws.RESTMessageV2();
+            r.setEndpoint(this._getApiBase() + '/alert');
+            r.setHttpMethod('POST');
+            for (var key in headers) {
+                r.setRequestHeader(key, headers[key]);
+            }
+            r.setRequestHeader('Content-Type', 'application/json');
+            var payload = { entity: entityValue };
+            if (brand) payload.brand = brand;
+            if (source) payload.source = source;
+            r.setRequestBody(JSON.stringify(payload));
+            var response = r.execute();
+            var status = response.getStatusCode();
+            var body = response.getBody();
+            if (status == 200 || status == 201) {
+                return { success: true, alreadyExisted: (status == 200), data: JSON.parse(body) };
+            } else if (status == 409) {
+                return { success: false, error: 'Entity exists under a different brand', raw: body };
+            } else if (status == 400) {
+                var errMsg = 'Invalid request';
+                try {
+                    var parsedErr = JSON.parse(body);
+                    if (parsedErr.message) errMsg = parsedErr.message;
+                } catch (e2) { /* fall back to generic message */ }
+                return { success: false, error: errMsg, raw: body };
+            }
+            gs.error('Doppel createAlertInDoppel failed: HTTP ' + status + ' - ' + body);
+            return { success: false, error: 'HTTP ' + status, raw: body };
+        } catch (e) {
+            gs.error('Doppel createAlertInDoppel exception: ' + e.message);
+            return { success: false, error: e.message };
+        }
+    },
+
+    lookupIndicator: function(value, forceRefresh) {
+        if (!forceRefresh) {
+            var local = this.searchLocal(value);
+            if (local && local.has_indicator) {
+                local.checkedDoppel = false;
+                local.hit = true;
+                return local;
+            }
+        }
+        var apiResult = this.getAlertByEntity(value);
+        if (!apiResult.success) {
+            return { hit: false, error: apiResult.error };
+        }
+        if (!apiResult.data) {
+            return { hit: false, checkedDoppel: true };
+        }
+        var a = apiResult.data;
+        return {
+            hit: true,
+            checkedDoppel: true,
+            alert_id: a.id,
+            brand: a.brand,
+            product_type: a.product,
+            queue_state: a.queue_state,
+            entity_state: a.entity_state,
+            doppel_link: a.doppel_link
+        };
+    },
+
+	testConnection: function () {
+        var version = gs.getProperty('x_doppe_doppel_t_0.auth_version', 'v1');
+        var required = (version == 'v2')
+            ? ['client_id', 'client_secret']
+            : ['api_key', 'user_api_key', 'org_code'];
+
+        var missing = [];
+        for (var i = 0; i < required.length; i++) {
+            if (!gs.getProperty('x_doppe_doppel_t_0.' + required[i])) {
+                missing.push(required[i]);
+            }
+        }
+        if (missing.length) {
+            return { success: false, auth_version: version, stage: 'config',
+                     message: 'Missing required setting(s) for ' + version + ': ' + missing.join(', ') };
+        }
+
+        // Force a fresh v2 token so the test reflects the credentials as currently saved
+        this._v2Token = null;
+        this._v2TokenExpiry = null;
+
+        var headers = this._getAuthHeaders();
+        if (!headers) {
+            return { success: false, auth_version: version, stage: 'token',
+                     message: 'Could not obtain a v2 access token. Check Client ID / Client Secret (HTTP status is in System Logs).' };
+        }
+
+        try {
+            var r = new sn_ws.RESTMessageV2();
+            r.setEndpoint(this._getApiBase() + '/alerts');
+            r.setHttpMethod('GET');
+            for (var key in headers) {
+                r.setRequestHeader(key, headers[key]);
+            }
+            r.setQueryParameter('page', '0');
+            r.setQueryParameter('page_size', '1');
+            r.setHttpTimeout(15000);
+
+            var response = r.execute();
+            var status = response.getStatusCode();
+
+            if (status == 200) {
+                return { success: true, auth_version: version, stage: 'api', http_status: status,
+                         message: 'Connected to Doppel (' + version + ').' };
+            }
+
+            gs.error('DoppelIOCImport: testConnection HTTP ' + status + ': ' + String(response.getBody()).substring(0, 300));
+            var msg;
+            if (status == 401 || status == 403) {
+                msg = 'Doppel rejected the credentials (HTTP ' + status + ').';
+            } else if (status == 429) {
+                msg = 'Rate limited by Doppel (HTTP 429). Wait a minute and retry.';
+            } else if (status >= 500) {
+                msg = 'Doppel returned a server error (HTTP ' + status + '). Retry later.';
+            } else {
+                msg = 'Unexpected response from Doppel (HTTP ' + status + ').';
+            }
+            return { success: false, auth_version: version, stage: 'api', http_status: status, message: msg };
+        } catch (e) {
+            gs.error('DoppelIOCImport: testConnection exception: ' + e.message);
+            return { success: false, auth_version: version, stage: 'network',
+                     message: 'Could not reach Doppel: ' + e.message };
+        }
+    },
+
+	runCapabilityThreatLookup: function (inputParams, executionSysId) {
+		gs.info('DOPPEL LOOKUP | exec=' + executionSysId + ' | type=' + typeof inputParams + ' | value=' + String(inputParams).substring(0, 300));
+        // Fill from sys_choice (sn_ti_observable.finding) — use the VALUE, not the label
+        var FINDING = {
+            MALICIOUS: 'Malicious',
+            SUSPICIOUS: 'Suspicious',
+            UNKNOWN: 'Unknown'
+        };
+        if (!FINDING.MALICIOUS || !FINDING.SUSPICIOUS || !FINDING.UNKNOWN) {
+            return { state: 'ERROR', status_message: 'FINDING values not configured in runCapabilityThreatLookup', summary: {} };
+        }
+
+        var params = inputParams;
+        if (typeof params == 'string') {
+            try { params = JSON.parse(params); } catch (e) { params = null; }
+        }
+        var ids = (params && params.sn_ti_observable) ? params.sn_ti_observable : [];
+        if (!ids.length) {
+            return { state: 'ERROR', status_message: 'No sn_ti_observable ids in input_parameters', summary: {} };
+        }
+		var vendorId = this._getDoppelIntegrationItemId();
+		var summary = { processed: 0, hit: 0, no_match: 0, written: 0, skipped: 0, errors: 0 };
+        var errors = [];
+        var skipped = [];
+
+        for (var i = 0; i < ids.length; i++) {
+            summary.processed++;
+            var obs = new GlideRecord('sn_ti_observable');
+            if (!obs.get(ids[i])) {
+                summary.errors++;
+                errors.push('Observable not found: ' + ids[i]);
+                continue;
+            }
+            var value = obs.getValue('value');
+			var typeName = obs.getDisplayValue('type');
+            if (!this._isDoppelSupported(typeName, value)) {
+                summary.skipped++;
+                skipped.push(value + ' (' + typeName + ')');
+                continue;
+            }
+            // Analyst-triggered lookup always checks Doppel live (TS: query Doppel when the analyst runs Threat Lookup)
+            var api = this.getAlertByEntity(value);
+            if (!api.success) {
+                summary.errors++;
+                errors.push(value + ': ' + api.error);
+                continue;
+            }
+
+            var finding, resultText, details = '', link = '', raw = '';
+            if (api.data) {
+                var a = api.data;
+                summary.hit++;
+                finding = this._mapDoppelFinding(a, FINDING);
+                resultText = 'Doppel alert ' + a.id + ' (' + a.queue_state + ' / ' + a.entity_state + ')';
+                details = 'Brand: ' + (a.brand || '-') +
+                    ' | Product: ' + (a.product || '-') +
+                    ' | Severity: ' + (a.severity || '-') +
+                    ' | Score: ' + (a.score != null ? a.score : '-') +
+                    ' | Queue: ' + (a.queue_state || '-') +
+                    ' | Entity: ' + (a.entity_state || '-');
+                link = a.doppel_link || '';
+                raw = JSON.stringify({
+                    id: a.id, entity: a.entity, brand: a.brand, product: a.product,
+                    severity: a.severity, score: a.score, queue_state: a.queue_state,
+                    entity_state: a.entity_state, doppel_link: a.doppel_link,
+                    created_at: a.created_at
+                });
+            } else {
+                summary.no_match++;
+                finding = FINDING.UNKNOWN; // absence from Doppel is not proof the value is safe
+                resultText = 'No Doppel alert for this value';
+            }
+
+			if (this._upsertLookupResult(ids[i], vendorId, finding, resultText, details, link, raw, executionSysId)) {
+                summary.written++;
+            } else {
+                summary.errors++;
+                errors.push(value + ': lookup result write failed');
+            }
+        }
+
+		var ret = {
+            state: (summary.written > 0 || summary.errors == 0) ? 'COMPLETE' : 'ERROR',
+            status_message: 'Doppel: ' + summary.hit + ' hit, ' + summary.no_match + ' no match, ' +
+                summary.skipped + ' skipped (unsupported type), ' + summary.errors + ' error(s)' +
+                (skipped.length ? ' | Skipped: ' + skipped.join('; ') : '') +
+                (errors.length ? ' | Errors: ' + errors.join('; ') : ''),
+            summary: summary
+        };
+        gs.info('DOPPEL LOOKUP | result=' + JSON.stringify(ret));
+        return ret;
+    },
+
+    _mapDoppelFinding: function (a, F) {
+        if (a.queue_state == 'archived' || a.entity_state == 'unrelated') return F.UNKNOWN;
+        if (a.queue_state == 'actioned' || a.queue_state == 'taken_down' || a.severity == 'high') return F.MALICIOUS;
+        return F.SUSPICIOUS;
+    },
+
+	_isDoppelSupported: function (typeName, value) {
+        var ALLOWED = ['URL', 'URI', 'Domain name', 'Host name', 'Email address', 'Phone number'];
+        if (ALLOWED.indexOf(typeName) > -1) return true;
+        // Rule engine classifies "domain.com/path" as File path — allow only web-shaped values
+        if (typeName == 'File path' && value) {
+            if (value.indexOf('\\') > -1 || value.charAt(0) == '/') return false;
+            return /^[^\/\s]+\.[a-z]{2,}(\/|$)/i.test(value);
+        }
+        return false;
+    },
+
+	getLatestDoppelResult: function (obsId) {
+        var r = new GlideRecord('sn_ti_lookup_result');
+        r.addQuery('observable', obsId);
+        var vendorId = this._getDoppelIntegrationItemId();
+        if (vendorId) {
+            r.addQuery('vendor', vendorId);
+        } else {
+            r.addQuery('source_engine', 'Doppel');
+        }
+        r.orderByDesc('sys_created_on');
+        r.setLimit(1);
+        r.query();
+        return r.next() ? r : null;
+    },
+
+    getLatestDoppelLink: function (obsId) {
+        var r = this.getLatestDoppelResult(obsId);
+        if (r && r.getValue('external_link')) return r.getValue('external_link');
+
+        // Fallback: link stored on the imported indicator
+        var obs = new GlideRecord('sn_ti_observable');
+        if (obs.get(obsId) && obs.getValue('x_doppe_doppel_t_0_related_indicator')) {
+            var m = new GlideRecord('sn_ti_indicator_metadata');
+            m.addQuery('indicator', obs.getValue('x_doppe_doppel_t_0_related_indicator'));
+            m.addQuery('name', 'doppel_link');
+            m.setLimit(1);
+            m.query();
+            if (m.next()) return m.getValue('value') || '';
+        }
+        return '';
+    },
+
+    canSubmitToDoppel: function (obsGr) {
+        if (!this._isDoppelSupported(obsGr.getDisplayValue('type'), obsGr.getValue('value'))) return false;
+        var r = this.getLatestDoppelResult(obsGr.getUniqueValue());
+        return !!r && !r.getValue('raw_data'); // latest Doppel lookup found no alert
+    },
+
+    _upsertLookupResult: function (obsId, vendorId, finding, resultText, details, link, raw, execId) {
+		var r = new GlideRecord('sn_ti_lookup_result');
+        r.initialize();
+
+        r.setValue('observable', obsId);
+        if (vendorId) r.setValue('vendor', vendorId);
+        r.setValue('source_engine', 'Doppel');
+        r.setValue('source_engine_version', gs.getProperty('x_doppe_doppel_t_0.auth_version', 'v1'));
+        r.setValue('finding', finding);
+        r.setValue('result', resultText);
+        r.setValue('details', details);
+        r.setValue('external_link', link);
+		r.setValue('raw_data', raw);
+        r.setValue('retrieval_date', new GlideDateTime().getDisplayValue());
+
+		if (execId) {
+            r.setValue('ref_table', 'sn_sec_cmn_capability_implementation_execution');
+            r.setValue('ref_id', execId);
+        }
+		return !!r.insert();
+    },
+
+    _getDoppelIntegrationItemId: function () {
+        var gr = new GlideRecord('sn_sec_core_integration_item');
+        gr.addQuery('name', 'Doppel');
+        gr.query();
+        return gr.next() ? gr.getUniqueValue() : '';
+    },
+
+    _getAuthHeaders: function () {
+        var version = gs.getProperty('x_doppe_doppel_t_0.auth_version', 'v1');
+        var headers = {};
+
+        if (version == 'v2') {
+            var token = this._getCachedV2AccessToken();
+            if (!token) {
+                gs.error('DoppelIOCImport: _getAuthHeaders — could not obtain v2 access token');
+                return null;
+            }
+            headers['Authorization'] = 'Bearer ' + token;
+        } else {
+            headers['x-api-key'] = gs.getProperty('x_doppe_doppel_t_0.api_key');
+            headers['x-user-api-key'] = gs.getProperty('x_doppe_doppel_t_0.user_api_key');
+            headers['x-organization-code'] = gs.getProperty('x_doppe_doppel_t_0.org_code');
+        }
+
+        headers['x-doppel-client'] = this._getClientHeaderValue();
+        return headers;
+    },
+
+    _getClientHeaderValue: function () {
+        var slug = 'servicenow'; // still unconfirmed with your lead
+        var version = '0.0.0';
+        var gr = new GlideRecord('sys_scope');
+        gr.addQuery('scope', 'x_doppe_doppel_t_0');
+        gr.query();
+        if (gr.next() && gr.getValue('version')) {
+            version = gr.getValue('version');
+        }
+        return slug + '/' + version;
+    },
+
+    _getApiBase: function () {
+        var version = gs.getProperty('x_doppe_doppel_t_0.auth_version', 'v1');
+        return version == 'v2' ? 'https://api.doppel.com/v2' : 'https://api.doppel.com/v1';
+    },
+
+    _getCachedV2AccessToken: function () {
+        var now = new GlideDateTime().getNumericValue();
+        if (this._v2Token && this._v2TokenExpiry && now < this._v2TokenExpiry) {
+            return this._v2Token;
+        }
+        var token = this._getV2AccessToken();
+        if (token) {
+            this._v2Token = token;
+            this._v2TokenExpiry = now + (86400 - 300) * 1000;
+        }
+        return token;
+    },
+
+    _getV2AccessToken: function () {
+        var clientId = gs.getProperty('x_doppe_doppel_t_0.client_id');
+        var clientSecret = gs.getProperty('x_doppe_doppel_t_0.client_secret');
+        if (!clientId || !clientSecret) {
+            gs.error('DoppelIOCImport: _getV2AccessToken failed — client_id or client_secret System Property is empty');
+            return null;
+        }
+        try {
+            var r = new sn_ws.RESTMessageV2();
+            r.setEndpoint('https://api.doppel.com/oauth/token');
+            r.setHttpMethod('POST');
+            r.setRequestHeader('Content-Type', 'application/json');
+            r.setRequestHeader('x-doppel-client', this._getClientHeaderValue());
+            var payload = {
+                client_id: clientId,
+                client_secret: clientSecret,
+                audience: 'doppel-external',
+                grant_type: 'client_credentials'
+            };
+            r.setRequestBody(JSON.stringify(payload));
+            r.setHttpTimeout(15000);
+
+            var response = r.execute();
+            var status = response.getStatusCode();
+            var body = response.getBody();
+
+            if (status != 200) {
+                gs.error('DoppelIOCImport: _getV2AccessToken failed — HTTP ' + status + ': ' + body);
+                return null;
+            }
+            var parsed = JSON.parse(body);
+            if (!parsed.access_token) {
+                gs.error('DoppelIOCImport: _getV2AccessToken failed — response missing access_token: ' + body);
+                return null;
+            }
+            return parsed.access_token;
+        } catch (e) {
+            gs.error('DoppelIOCImport: _getV2AccessToken exception: ' + e.message);
+            return null;
+        }
+    },
+
+    type: 'DoppelIOCImport',
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-17 09:15:23</sys_created_on>
+        <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>DoppelIOCImport</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 11:29:25</sys_updated_on>
+    </sys_script_include>
+</record_update>

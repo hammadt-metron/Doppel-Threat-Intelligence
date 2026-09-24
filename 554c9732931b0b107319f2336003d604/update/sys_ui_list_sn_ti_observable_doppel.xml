@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="sn_ti_observable" version="2" view="doppel">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>value</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="48274c15cfaff2100138fb251d851c97">f89c804bcf57cb100138fb251d851cb5</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-17 11:13:04</sys_created_on>
+            <sys_id>b89c804bcf57cb100138fb251d851cb6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-17 11:13:04</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>type</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="48274c15cfaff2100138fb251d851c97">f89c804bcf57cb100138fb251d851cb5</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-17 11:13:04</sys_created_on>
+            <sys_id>309c804bcf57cb100138fb251d851cb7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-17 11:13:04</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sighting_count</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="48274c15cfaff2100138fb251d851c97">f89c804bcf57cb100138fb251d851cb5</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-17 11:13:04</sys_created_on>
+            <sys_id>b49c804bcf57cb100138fb251d851cb7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-17 11:13:04</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>security_tags</element>
+            <list_id display_value="sn_ti_observable" element="NULL" name="sn_ti_observable" parent="NULL" relationship="NULL" sys_domain="global" view="48274c15cfaff2100138fb251d851c97">f89c804bcf57cb100138fb251d851cb5</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-17 11:13:04</sys_created_on>
+            <sys_id>3c9c804bcf57cb100138fb251d851cb7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-17 11:13:04</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sn_ti_observable</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-09-17 11:13:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f89c804bcf57cb100138fb251d851cb5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sn_ti_observable</sys_name>
+            <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+            <sys_update_name>sys_ui_list_sn_ti_observable_doppel</sys_update_name>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-09-17 11:13:04</sys_updated_on>
+            <sys_user/>
+            <view display_value="Doppel" name="doppel">48274c15cfaff2100138fb251d851c97</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

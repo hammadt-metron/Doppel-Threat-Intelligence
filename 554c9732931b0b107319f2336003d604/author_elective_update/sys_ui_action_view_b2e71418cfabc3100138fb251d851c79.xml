@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_action_view">
+    <sys_ui_action_view action="DELETE">
+        <sys_class_name>sys_ui_action_view</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-21 09:15:02</sys_created_on>
+        <sys_id>b2e71418cfabc3100138fb251d851c79</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Doppel Submit.Doppel Threat Intelligence</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_ui_action display_value="Doppel Submit">df93ed1f9393cb107319f2336003d603</sys_ui_action>
+        <sys_ui_view display_value="Doppel Threat Intelligence" name="doppel-ti">dbcf377ecfd3cb100138fb251d851c55</sys_ui_view>
+        <sys_update_name>sys_ui_action_view_b2e71418cfabc3100138fb251d851c79</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-21 09:15:02</sys_updated_on>
+        <visibility>include</visibility>
+    </sys_ui_action_view>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</application>
+        <file_path/>
+        <instance_id>d60d8da5ebdab610cbbffceacad0cd56</instance_id>
+        <instance_name>ven08841</instance_name>
+        <name>sys_ui_action_view_b2e71418cfabc3100138fb251d851c79</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_action_view"><sys_ui_action_view action="INSERT_OR_UPDATE"><sys_class_name>sys_ui_action_view</sys_class_name><sys_created_by>hammad-thoker</sys_created_by><sys_created_on>2026-09-21 09:15:02</sys_created_on><sys_id>b2e71418cfabc3100138fb251d851c79</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Doppel Submit.Doppel Threat Intelligence</sys_name><sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package><sys_policy/><sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope><sys_ui_action display_value="Doppel Submit">df93ed1f9393cb107319f2336003d603</sys_ui_action><sys_ui_view display_value="Doppel Threat Intelligence" name="doppel-ti">dbcf377ecfd3cb100138fb251d851c55</sys_ui_view><sys_update_name>sys_ui_action_view_b2e71418cfabc3100138fb251d851c79</sys_update_name><sys_updated_by>hammad-thoker</sys_updated_by><sys_updated_on>2026-09-21 09:15:02</sys_updated_on><visibility>include</visibility></sys_ui_action_view></record_update>]]></payload>
+        <payload_hash>1679022984</payload_hash>
+        <record_name>include</record_name>
+        <reverted_from/>
+        <source>514c9732931b0b107319f2336003d632</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-21 09:15:02</sys_created_on>
+        <sys_id>72e7dc90cfebc3100138fb251d851cc1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a0c33f52ca0000001</sys_recorded_at>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-21 09:15:02</sys_updated_on>
+        <type>UI View Action</type>
+        <update_guid>fee7dc90f5ebc3107dbd8970944cf8bf</update_guid>
+        <update_guid_history>fee7dc90f5ebc3107dbd8970944cf8bf:1679022984</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-21 09:57:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_action_view">sys_ui_action_view</sys_db_object>
+        <sys_id>176cff1566534430900411e60d1932b1</sys_id>
+        <sys_metadata>b2e71418cfabc3100138fb251d851c79</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Doppel Submit.Doppel Threat Intelligence</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_parent display_value="Doppel Submit">df93ed1f9393cb107319f2336003d603</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_scope_delete display_value="">36a8be0b3d234e28930356d857d36840</sys_scope_delete>
+        <sys_update_name>sys_ui_action_view_b2e71418cfabc3100138fb251d851c79</sys_update_name>
+        <sys_update_version display_value="sys_ui_action_view_b2e71418cfabc3100138fb251d851c79">72e7dc90cfebc3100138fb251d851cc1</sys_update_version>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-21 09:57:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

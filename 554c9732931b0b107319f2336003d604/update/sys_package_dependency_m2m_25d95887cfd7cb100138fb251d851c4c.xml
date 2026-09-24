@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="System Import Sets" source="com.glide.system_import_set">1e9311e1931232107319f2336003d697</dependency>
+        <min_version>1.0.0</min_version>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-17 12:11:00</sys_created_on>
+        <sys_id>25d95887cfd7cb100138fb251d851c4c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-17 12:11:00</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>

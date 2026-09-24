@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=86223000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>doppel__threat_lookup</internal_name>
+        <label_cache>[{"name":"subflow.capability_implementation_execution","label":"Input➛Capability Implementation Execution","reference":"sn_sec_cmn_capability_implementation_execution","reference_display":"Capability Implementation Execution","type":"reference","base_type":"reference","column_name":"","usedInstances":{"c8200847-d9b1-48b6-a636-6e911641507f":["log_message"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"3f9b328e-fa99-4771-b3e2-7875cdbb39f0","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.input_parameters","label":"Input➛Input Parameters","reference":"","reference_display":"","type":"json","base_type":"json","column_name":"","usedInstances":{"c8200847-d9b1-48b6-a636-6e911641507f":["log_message"],"1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f":["input_parameters"]},"attributes":{"uiType":"json","uiTypeLabel":"JSON","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"7e043157-4ded-4794-9037-169124db5fe6","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f.state","label":"1 - Doppel - Run Capability Threat Lookup➛state","reference_display":"state","type":"string","base_type":"string","usedInstances":{"bf95327a-34a5-44cc-aec9-c99ecaf6e447":["state-0"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"4eaf93d2-c7a0-4b12-ba17-b69850c3f1fb"}},{"name":"1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f.status_message","label":"1 - Doppel - Run Capability Threat Lookup➛status_message","reference_display":"status_message","type":"string","base_type":"string","usedInstances":{"bf95327a-34a5-44cc-aec9-c99ecaf6e447":["status_message-1"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"d462eda3-c85f-451b-88c7-783b5833eea8"}},{"name":"subflow.capability_implementation_execution.sys_id","label":"Input➛Capability Implementation Execution➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sn_sec_cmn_capability_implementation_execution","column_name":"sys_id","usedInstances":{"1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f":["execution_id"]}}]</label_cache>
+        <master_snapshot>4077a1a8cfa387100138fb251d851cd1</master_snapshot>
+        <master_snapshot_digest/>
+        <name>Doppel - Threat Lookup</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:26:42</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>23242124cfa387100138fb251d851cf9</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_name>Doppel - Threat Lookup</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_hub_flow_23242124cfa387100138fb251d851cf9</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 09:23:48</sys_updated_on>
+        <type>subflow</type>
+        <updation_source/>
+        <version>2</version>
+        <version_record>071d2eb8936703107319f2336003d681</version_record>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=23242124cfa387100138fb251d851cf9"/>
+    <sys_variable_value action="delete_multiple" query="document_key=23242124cfa387100138fb251d851cf9"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_23242124cfa387100138fb251d851cf9^id=23242124cfa387100138fb251d851cf9"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=23242124cfa387100138fb251d851cf9"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=23242124cfa387100138fb251d851cf9^sys_idNOT INef242124cfa387100138fb251d851cfc"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>23242124cfa387100138fb251d851cf9</id>
+        <name>Doppel - Threat Lookup</name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:26:42</sys_created_on>
+        <sys_id>ef242124cfa387100138fb251d851cfc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:26:42</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=ef242124cfa387100138fb251d851cfc"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=23242124cfa387100138fb251d851cf9^sys_idNOT IN26e5a960cfa387100138fb251d851c14,aee5e1e4cfa387100138fb251d851cf7,e2e5e1e4cfa387100138fb251d851cf1"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=domain_id,uiTypeLabel=Domain ID,uiUniqueId=cfbcf9bc-f308-4d59-a519-99beefcc616c</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>domain_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">domain_id</internal_type>
+        <label>Domain Id</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</model>
+        <model_id>23242124cfa387100138fb251d851cf9</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_23242124cfa387100138fb251d851cf9</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>26e5a960cfa387100138fb251d851c14</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:55</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=26e5a960cfa387100138fb251d851c14"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON,uiUniqueId=7e043157-4ded-4794-9037-169124db5fe6</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>input_parameters</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>Input Parameters</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</model>
+        <model_id>23242124cfa387100138fb251d851cf9</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_23242124cfa387100138fb251d851cf9</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>aee5e1e4cfa387100138fb251d851cf7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:55</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=aee5e1e4cfa387100138fb251d851cf7"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=reference,uiTypeLabel=Reference,uiUniqueId=3f9b328e-fa99-4771-b3e2-7875cdbb39f0</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table>sn_sec_cmn_capability_implementation_execution</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>capability_implementation_execution</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Reference">reference</internal_type>
+        <label>Capability Implementation Execution</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</model>
+        <model_id>23242124cfa387100138fb251d851cf9</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_23242124cfa387100138fb251d851cf9</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="sn_sec_cmn_capability_implementation_execution">sn_sec_cmn_capability_implementation_execution</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>e2e5e1e4cfa387100138fb251d851cf1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:34:17</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e2e5e1e4cfa387100138fb251d851cf1"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=23242124cfa387100138fb251d851cf9^sys_idNOT IN26e525e4cfa387100138fb251d851c45,a2e525e4cfa387100138fb251d851c4c,fee525e4cfa387100138fb251d851c50"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=42dd149e-63fc-467a-a0f6-fcbb4a4408f2</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>status_message</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Status Message</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</model>
+        <model_id>23242124cfa387100138fb251d851cf9</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_output_23242124cfa387100138fb251d851cf9</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>26e525e4cfa387100138fb251d851c45</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:55</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=26e525e4cfa387100138fb251d851c45"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=19034ec7-4529-41b3-8951-22a367580a8f</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>state</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>State</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</model>
+        <model_id>23242124cfa387100138fb251d851cf9</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_output_23242124cfa387100138fb251d851cf9</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>a2e525e4cfa387100138fb251d851c4c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:55</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a2e525e4cfa387100138fb251d851c4c"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON,uiUniqueId=7a8ef719-4a33-4472-a48b-4131833547f2</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>results</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>Results</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</model>
+        <model_id>23242124cfa387100138fb251d851cf9</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_output_23242124cfa387100138fb251d851cf9</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>fee525e4cfa387100138fb251d851c50</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:55</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=fee525e4cfa387100138fb251d851c50"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=23242124cfa387100138fb251d851cf9"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=23242124cfa387100138fb251d851cf9"/>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=23242124cfa387100138fb251d851cf9^sys_idNOT IN2b99f16ccf2787100138fb251d851c03"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Doppel - Run Capability Threat Lookup">e049752ccf2787100138fb251d851cef</action_type>
+        <action_type_parent display_value="Doppel - Run Capability Threat Lookup">3a9831e8cf2787100138fb251d851cac</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>e049752ccf2787100138fb251d851cef</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 11:00:22</sys_created_on>
+        <sys_id>2b99f16ccf2787100138fb251d851c03</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2026-09-23 09:25:03</sys_updated_on>
+        <ui_id>1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1TTU/cMBD9Lz5vIudrE7hVIKRKbZFKywWhaOIP1pLjhNgGtqv97x1vsqFdlgoOvVQ9zpsPv/c8c7MhipNTAnl+UhYpYzItqzKhNMkq2aRFwqsiYbIgC2KgFVipTO9d3cOAoRODxcwDaB9Sm431jdTdY3xYtN1iGVe217C+fls1WynNB2HI6c3tgsxJcro5SL2Vv4ZG6OMCXpfm1n3IWDcoczfFn6ZBV3uwG3ggliyIeHLCcIGMJGgrFqQFw8F1w3pGBgH80uhnYKWMw2kkFD9Z9QPfqyiloVIKVMnEmJ3DejJyhOU5OEAqnjk/TKVs1Skm7OgPFxK8dme/YmPBZe9UZ8YWB43ed3fat+bL6AmZB+z/DRFvkYTog9TAfRIir1bd49c9ywtldq5MSd0x0HMEDr1rvAt8NsSrbwc2j8gLo4UWLb5Yt9D3iNT90D2o3StIuo3vNAZxWClkZ9WdiYEFhTF+AcQXiJ/v4GsYVJD7Gcdgc3juu1H3XnwMq1QUDEqo8kgUNI1yloioqgoaFSWnDIAlzXJJtgti1/ZMg7XPRuEP1fc+yBxtmwyqR49DCxtU7z4gqQcxezGCwYcX+4fYkZbtdruYzrbhEoQo85NsWdIsoWWWnMg0y5aUZnwJ8nm3xZNgPphRY+Oxk2XQQ6O0cutatf1oNOwa5tYYJWP7n4/5nXPed+Zv0Ls/8wPBx214z3mn/8/7XzhvybKUlVUV5YUUUU6rImpyYFHZFFzKMmnSRv6d8/5t91497duficCnr5MHAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=2b99f16ccf2787100138fb251d851c03"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=23242124cfa387100138fb251d851cf9"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=23242124cfa387100138fb251d851cf9^sys_idNOT INbef6e168cfa387100138fb251d851c6d"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">8077a1a8cfa387100138fb251d851c98</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>2</order>
+        <outputs_assigned>state,status_message</outputs_assigned>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:38:56</sys_created_on>
+        <sys_id>bef6e168cfa387100138fb251d851c6d</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 09:23:45</sys_updated_on>
+        <ui_id>bf95327a-34a5-44cc-aec9-c99ecaf6e447</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1VTWvbQBD9K2XPltHHypZ9C5RAoGmgSXMpRYx2Z+2lq49oV3Zc4//eWUuxHUNKcHvoocd5mo/33s6gLas713TOPtRX1upFxebftkxLNmcQYxqnyIWCJJtGYRglmSriNJJZGgku2IhVUCJlWgcOKVyB6Xy83UbFBDhmEMRTkAGXchYUEmVQJIAKUyFkpMb7st2OCqW2jYHN46X1YqmNbNGT/z5iDbTEy2HL5tuzT27TYG6gQENj7l2rqwWVv1fusbDXeybfN9+HQ9u6lZ5DPGL47LAi/myuwFgcsRIqCa5uNwekRZB3lTkCS1056sZ88rPVP6l1Foahz1RIggT2Xw9hPrjYw2JZa4F3jdN11SMOCjPUiNp0ZfW5p+/9RwWdcS/+E9JZ6oeNZ+1pDJzU/bJef3kZeK2rvcDho6kFmEMEjmwoOofWv0KnH87M6ZFP50+BBkuamJfQNITkTVuv9H4KkS7HC0PBWJl6Tez8uo5BeIVjchPG14R/3MOP0Gov95baULEf97XSTx3e+KeOZmHCUUwDnsazgEdFEmSzNAriGJLJNM1CyBTb7a3NnzovqjdpsCPvHaUEK1rduCuisMJB+W40nE88+e0+pa/3p7N5idbC4sI7Otb/4UGdNfobl/UOJ04vq7Mfbg9WvGXRG7eW/L+1f+zWeCxlxGcYTBIlAj6ZQgChmgRKFAUHzsNMxRffGu2drvzfq9/B1cBkCCUKbYnwg8duTvLkhtZKi1NoXbc/vNQjtvsFCNLCqxsHAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=23242124cfa387100138fb251d851cf9"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=23242124cfa387100138fb251d851cf9"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>capability_implementation_execution</element>
+        <help/>
+        <hint/>
+        <label>Capability Implementation Execution</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_23242124cfa387100138fb251d851cf9</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>2ae5e1e4cfa387100138fb251d851cf6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:34:17</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>input_parameters</element>
+        <help/>
+        <hint/>
+        <label>Input Parameters</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_23242124cfa387100138fb251d851cf9</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>66e5e1e4cfa387100138fb251d851cfb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:34:17</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>domain_id</element>
+        <help/>
+        <hint/>
+        <label>Domain Id</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_23242124cfa387100138fb251d851cf9</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>eae5e1e4cfa387100138fb251d851cef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:34:17</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_23242124cfa387100138fb251d851cf9"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>status_message</element>
+        <help/>
+        <hint/>
+        <label>Status Message</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_23242124cfa387100138fb251d851cf9</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>2ee525e4cfa387100138fb251d851c4a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:34:17</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>state</element>
+        <help/>
+        <hint/>
+        <label>State</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_23242124cfa387100138fb251d851cf9</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>7ae525e4cfa387100138fb251d851c4f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:34:17</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>results</element>
+        <help/>
+        <hint/>
+        <label>Results</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_23242124cfa387100138fb251d851cf9</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:34:17</sys_created_on>
+        <sys_id>b6e525e4cfa387100138fb251d851c54</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:34:17</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_23242124cfa387100138fb251d851cf9"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>doppel__threat_lookup</internal_name>
+        <label_cache>[{"name":"subflow.capability_implementation_execution","label":"Input➛Capability Implementation Execution","reference":"sn_sec_cmn_capability_implementation_execution","reference_display":"Capability Implementation Execution","type":"reference","base_type":"reference","column_name":"","usedInstances":{"c8200847-d9b1-48b6-a636-6e911641507f":["log_message"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"3f9b328e-fa99-4771-b3e2-7875cdbb39f0","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.input_parameters","label":"Input➛Input Parameters","reference":"","reference_display":"","type":"json","base_type":"json","column_name":"","usedInstances":{"c8200847-d9b1-48b6-a636-6e911641507f":["log_message"],"1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f":["input_parameters"]},"attributes":{"uiType":"json","uiTypeLabel":"JSON","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"7e043157-4ded-4794-9037-169124db5fe6","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f.state","label":"1 - Doppel - Run Capability Threat Lookup➛state","reference_display":"state","type":"string","base_type":"string","usedInstances":{"bf95327a-34a5-44cc-aec9-c99ecaf6e447":["state-0"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"4eaf93d2-c7a0-4b12-ba17-b69850c3f1fb"}},{"name":"1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f.status_message","label":"1 - Doppel - Run Capability Threat Lookup➛status_message","reference_display":"status_message","type":"string","base_type":"string","usedInstances":{"bf95327a-34a5-44cc-aec9-c99ecaf6e447":["status_message-1"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"d462eda3-c85f-451b-88c7-783b5833eea8"}},{"name":"subflow.capability_implementation_execution.sys_id","label":"Input➛Capability Implementation Execution➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sn_sec_cmn_capability_implementation_execution","column_name":"sys_id","usedInstances":{"1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f":["execution_id"]}}]</label_cache>
+        <master>true</master>
+        <name>Doppel - Threat Lookup</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4077a1a8cfa387100138fb251d851cd1</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 09:23:47</sys_updated_on>
+        <type>subflow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_variable_value action="delete_multiple" query="document_key=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_4077a1a8cfa387100138fb251d851cd1^id=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=4077a1a8cfa387100138fb251d851cd1^sys_idNOT IN8c77a1a8cfa387100138fb251d851cd2"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>4077a1a8cfa387100138fb251d851cd1</id>
+        <name>Doppel - Threat Lookup</name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:56</sys_created_on>
+        <sys_id>8c77a1a8cfa387100138fb251d851cd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:56</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=8c77a1a8cfa387100138fb251d851cd2"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=4077a1a8cfa387100138fb251d851cd1^sys_idNOT IN0077a1a8cfa387100138fb251d851cf6,0877a1a8cfa387100138fb251d851cd4,c077e1a8cfa387100138fb251d851c0d"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=domain_id,uiTypeLabel=Domain ID,uiUniqueId=cfbcf9bc-f308-4d59-a519-99beefcc616c</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>domain_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">domain_id</internal_type>
+        <label>Domain Id</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Doppel - Threat Lookup">4077a1a8cfa387100138fb251d851cd1</model>
+        <model_id>4077a1a8cfa387100138fb251d851cd1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_4077a1a8cfa387100138fb251d851cd1</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:56</sys_created_on>
+        <sys_id>0077a1a8cfa387100138fb251d851cf6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:56</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=0077a1a8cfa387100138fb251d851cf6"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=reference,uiTypeLabel=Reference,uiUniqueId=3f9b328e-fa99-4771-b3e2-7875cdbb39f0</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table>sn_sec_cmn_capability_implementation_execution</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>capability_implementation_execution</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Reference">reference</internal_type>
+        <label>Capability Implementation Execution</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Doppel - Threat Lookup">4077a1a8cfa387100138fb251d851cd1</model>
+        <model_id>4077a1a8cfa387100138fb251d851cd1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_4077a1a8cfa387100138fb251d851cd1</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="sn_sec_cmn_capability_implementation_execution">sn_sec_cmn_capability_implementation_execution</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:56</sys_created_on>
+        <sys_id>0877a1a8cfa387100138fb251d851cd4</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:56</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=0877a1a8cfa387100138fb251d851cd4"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON,uiUniqueId=7e043157-4ded-4794-9037-169124db5fe6</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>input_parameters</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>Input Parameters</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Doppel - Threat Lookup">4077a1a8cfa387100138fb251d851cd1</model>
+        <model_id>4077a1a8cfa387100138fb251d851cd1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_4077a1a8cfa387100138fb251d851cd1</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:56</sys_created_on>
+        <sys_id>c077e1a8cfa387100138fb251d851c0d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:56</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=c077e1a8cfa387100138fb251d851c0d"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=4077a1a8cfa387100138fb251d851cd1^sys_idNOT IN1877e1a8cfa387100138fb251d851c1b,5c77e1a8cfa387100138fb251d851c26,9877e1a8cfa387100138fb251d851c31"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON,uiUniqueId=7a8ef719-4a33-4472-a48b-4131833547f2</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>results</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>Results</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Doppel - Threat Lookup">4077a1a8cfa387100138fb251d851cd1</model>
+        <model_id>4077a1a8cfa387100138fb251d851cd1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_output_4077a1a8cfa387100138fb251d851cd1</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_id>1877e1a8cfa387100138fb251d851c1b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:57</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=1877e1a8cfa387100138fb251d851c1b"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=19034ec7-4529-41b3-8951-22a367580a8f</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>state</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>State</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Doppel - Threat Lookup">4077a1a8cfa387100138fb251d851cd1</model>
+        <model_id>4077a1a8cfa387100138fb251d851cd1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_output_4077a1a8cfa387100138fb251d851cd1</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_id>5c77e1a8cfa387100138fb251d851c26</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:57</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=5c77e1a8cfa387100138fb251d851c26"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=42dd149e-63fc-467a-a0f6-fcbb4a4408f2</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>status_message</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Status Message</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Doppel - Threat Lookup">4077a1a8cfa387100138fb251d851cd1</model>
+        <model_id>4077a1a8cfa387100138fb251d851cd1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_output_4077a1a8cfa387100138fb251d851cd1</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_id>9877e1a8cfa387100138fb251d851c31</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:57</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=9877e1a8cfa387100138fb251d851c31"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=4077a1a8cfa387100138fb251d851cd1^sys_idNOT IN918abdaccf2787100138fb251d851c3d"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Doppel - Run Capability Threat Lookup">e049752ccf2787100138fb251d851cef</action_type>
+        <action_type_parent display_value="Doppel - Run Capability Threat Lookup">3a9831e8cf2787100138fb251d851cac</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>e049752ccf2787100138fb251d851cef</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Doppel - Threat Lookup">4077a1a8cfa387100138fb251d851cd1</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 11:04:18</sys_created_on>
+        <sys_id>918abdaccf2787100138fb251d851c3d</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 09:23:47</sys_updated_on>
+        <ui_id>1b6a4e8a-27ad-4dd9-bded-b3aefe5ccd1f</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1TTU/cMBD9Lz5vIudrE7hVIKRKbZFKywWhaOIP1pLjhNgGtqv97x1vsqFdlgoOvVQ9zpsPv/c8c7MhipNTAnl+UhYpYzItqzKhNMkq2aRFwqsiYbIgC2KgFVipTO9d3cOAoRODxcwDaB9Sm431jdTdY3xYtN1iGVe217C+fls1WynNB2HI6c3tgsxJcro5SL2Vv4ZG6OMCXpfm1n3IWDcoczfFn6ZBV3uwG3ggliyIeHLCcIGMJGgrFqQFw8F1w3pGBgH80uhnYKWMw2kkFD9Z9QPfqyiloVIKVMnEmJ3DejJyhOU5OEAqnjk/TKVs1Skm7OgPFxK8dme/YmPBZe9UZ8YWB43ed3fat+bL6AmZB+z/DRFvkYTog9TAfRIir1bd49c9ywtldq5MSd0x0HMEDr1rvAt8NsSrbwc2j8gLo4UWLb5Yt9D3iNT90D2o3StIuo3vNAZxWClkZ9WdiYEFhTF+AcQXiJ/v4GsYVJD7Gcdgc3juu1H3XnwMq1QUDEqo8kgUNI1yloioqgoaFSWnDIAlzXJJtgti1/ZMg7XPRuEP1fc+yBxtmwyqR49DCxtU7z4gqQcxezGCwYcX+4fYkZbtdruYzrbhEoQo85NsWdIsoWWWnMg0y5aUZnwJ8nm3xZNgPphRY+Oxk2XQQ6O0cutatf1oNOwa5tYYJWP7n4/5nXPed+Zv0Ls/8wPBx214z3mn/8/7XzhvybKUlVUV5YUUUU6rImpyYFHZFFzKMmnSRv6d8/5t91497duficCnr5MHAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=918abdaccf2787100138fb251d851c3d"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=4077a1a8cfa387100138fb251d851cd1^sys_idNOT INd477e1a8cfa387100138fb251d851c4e"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">8077a1a8cfa387100138fb251d851c98</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Doppel - Threat Lookup">4077a1a8cfa387100138fb251d851cd1</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>2</order>
+        <outputs_assigned>state,status_message</outputs_assigned>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_id>d477e1a8cfa387100138fb251d851c4e</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 09:23:47</sys_updated_on>
+        <ui_id>bf95327a-34a5-44cc-aec9-c99ecaf6e447</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1VTW/bMAz9K4POceDPxMmtaFGgQLsCa7fLMAS0RKVC5Y9aUtosyH8fFTtO1mJD1+407GY+kdJ7jyS8YbWzjbPmtj4xRi0rNv+6YUqwOYMYszjDlEtI8mkUhlGSyyLOIpFnEU85G7EKSqRMY8EihSvQzsebTVRMIMUcgngKIkiFmAWFQBEUCaDEjHMRyfGubLulQqFMo2H95a31/E5p0aIn/23EGmiJl8WWzUlKRR8V6EtV3dPVL5JfK1VDgZpSb3qtz6TbddOFraqWfXw5lPRg3QpPKh4xfLJYkSA2l6ANjlgJlQBbt+sBaRHEdaUPwB1J6RSU8GTUd3ovD8PQZ0okPRy70yFc9LZ2sDwDC0TFceta3FtRK46mc0KgBKft6THWJVw3VtVVV2Kh0PvqWruy+tgZwYYL9l0kxBkigY2X6rn3QuTNXf34ac/yXFU7V/pDXXPQQwSWvCuc9Xw2zKnbZzZ3yAujUWNJLy5KaBpCFk1br9TuFSJdjpeagrHU9SOx80M/Bu4VjqkFMD4n/GwHf4FWeblXdA0V++c+V+rB4YUfmmgWJinyaZBm8SxIoyIJ8lkWBXEMyWSa5SHkkm1HzKzNqQZjDkZRhxYPzsvsbOsNWnQe+xLeqsaeEKkV9l5sR/1axpPfzmr282w6syjRGFi+cT8P9e9c1GcXvXdjX+HC8cY68+FqsOFX9vzJDif/d/hf2OE0FiJKZxhMEsmDdDKFAEI5CSQvihTSNMxl/Bd32E9v5f+2XWdWPbeheVwZknDrsYujPLGmkVX8GHqs23sv/oBtfwAfbvFlywcAAA==</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>domain_id</element>
+        <help/>
+        <hint/>
+        <label>Domain Id</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_4077a1a8cfa387100138fb251d851cd1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:56</sys_created_on>
+        <sys_id>0077a1a8cfa387100138fb251d851cfd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:56</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>capability_implementation_execution</element>
+        <help/>
+        <hint/>
+        <label>Capability Implementation Execution</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_4077a1a8cfa387100138fb251d851cd1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:56</sys_created_on>
+        <sys_id>0477a1a8cfa387100138fb251d851cf2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:56</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>input_parameters</element>
+        <help/>
+        <hint/>
+        <label>Input Parameters</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_4077a1a8cfa387100138fb251d851cd1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_id>5477e1a8cfa387100138fb251d851c14</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:57</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>status_message</element>
+        <help/>
+        <hint/>
+        <label>Status Message</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_4077a1a8cfa387100138fb251d851cd1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_id>1c77e1a8cfa387100138fb251d851c38</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:57</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>results</element>
+        <help/>
+        <hint/>
+        <label>Results</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_4077a1a8cfa387100138fb251d851cd1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_id>5077e1a8cfa387100138fb251d851c23</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:57</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>state</element>
+        <help/>
+        <hint/>
+        <label>State</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_4077a1a8cfa387100138fb251d851cd1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_id>9c77e1a8cfa387100138fb251d851c2d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-22 09:40:57</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>23242124cfa387100138fb251d851cf9</sys_id>
+        <latest_snapshot>4077a1a8cfa387100138fb251d851cd1</latest_snapshot>
+        <compiler_build>glide-zurich-07-01-2025__patch10-hotfix4bw38-09-10-2026_09-16-2026_0928.zip</compiler_build>
+        <version_record/>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=23242124cfa387100138fb251d851cf9"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=23242124cfa387100138fb251d851cf9^sys_idNOT IN5077e1a8cfa387100138fb251d851c60"/>
+    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"5077e1a8cfa387100138fb251d851c60","name":"plan","plan_signature":null}}</plan>
+        <plan_id display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</plan_id>
+        <snapshot>456de6b4cfa703100138fb251d851cd5</snapshot>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-22 09:40:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5077e1a8cfa387100138fb251d851c60</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-23 09:23:48</sys_updated_on>
+    </sys_flow_subflow_plan>
+</record_update>

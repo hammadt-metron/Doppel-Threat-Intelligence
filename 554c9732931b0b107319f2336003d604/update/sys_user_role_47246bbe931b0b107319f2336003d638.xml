@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description/>
+        <elevated_privilege>false</elevated_privilege>
+        <encryption_context/>
+        <federated_id>UW5w/MIJTHDBjAmijU7Wmrr5skCZmj5AOyVZmAjVAHA=</federated_id>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_doppe_doppel_t_0.doppel_staging_user</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>doppel_staging_user</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-17 08:16:33</sys_created_on>
+        <sys_id>47246bbe931b0b107319f2336003d638</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_doppe_doppel_t_0.doppel_staging_user</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_user_role_47246bbe931b0b107319f2336003d638</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-17 08:16:33</sys_updated_on>
+    </sys_user_role>
+</record_update>

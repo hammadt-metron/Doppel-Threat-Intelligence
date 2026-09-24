@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="Doppel Alert to TI Indicator">40ba580bcfd7cb100138fb251d851ce8</map>
+        <order>100</order>
+        <script><![CDATA[(function runTransformScript(source, map, log, target) {
+
+    // -- Constants --
+    var RELATED_INDICATOR_FIELD = 'x_doppe_doppel_t_0_related_indicator';
+	if (!target || !target.sys_id) {
+        log.info('DoppelTransformHelper onAfter: no target record (row was likely ignored onBefore) — skipping.');
+        return;
+    }
+    var indicatorSysId = target.sys_id.toString();
+
+    // ---------------------------------------------------------------
+    // (a) Link this indicator back to the observable onBefore created
+    //     Match on: type_category (url) AND value (entity)
+    // ---------------------------------------------------------------
+    var entity = source.entity ? source.entity.toString() : '';
+    if (entity) {
+		var obs = new GlideRecord('sn_ti_observable');
+		obs.addQuery('value', entity);
+		obs.query();
+		if (obs.next()) {
+			obs.setValue(RELATED_INDICATOR_FIELD, indicatorSysId);
+			obs.update();
+		} else {
+			log.error('Observable not found for ' + entity + ' while linking ' + indicatorSysId);
+		}
+    }
+
+    // ---------------------------------------------------------------
+    // (b) Extract entity_content into individual metadata fields
+    //     instead of one truncated JSON blob. Shape varies by alert
+    //     type — root_domain (URLs/domains) vs telco (phone numbers).
+    // ---------------------------------------------------------------
+    var entityContent = null;
+    try {
+        entityContent = source.entity_content ? JSON.parse(source.entity_content.toString()) : null;
+    } catch (e) {
+        log.error('Failed to parse entity_content for indicator ' + indicatorSysId + ': ' + e.message);
+    }
+
+    var extractedEntityFields = {};
+
+    if (entityContent && entityContent.root_domain) {
+        var rd = entityContent.root_domain;
+        extractedEntityFields.entity_domain = rd.domain;
+        extractedEntityFields.entity_registrar = rd.registrar;
+        extractedEntityFields.entity_ip_address = rd.ip_address;
+        extractedEntityFields.entity_country_code = rd.country_code;
+        extractedEntityFields.entity_hosting_provider = rd.hosting_provider;
+        extractedEntityFields.entity_contact_email = rd.contact_email;
+        if (rd.mx_records && rd.mx_records.length > 0) {
+            extractedEntityFields.entity_mx_records = rd.mx_records
+                .map(function(mx) { return mx.exchange + ' (pref ' + mx.preference + ')'; })
+                .join(', ');
+        }
+        if (rd.nameservers && rd.nameservers.length > 0) {
+            extractedEntityFields.entity_nameservers = rd.nameservers.join(', ');
+        }
+    } else if (entityContent && entityContent.telco) {
+        var tc = entityContent.telco;
+        extractedEntityFields.entity_telco_provider = tc.telco_provider;
+        extractedEntityFields.entity_country_code = tc.country_code;
+        extractedEntityFields.entity_telco_created_at = tc.entity_created_at;
+        extractedEntityFields.entity_telco_updated_at = tc.entity_updated_at;
+    } else if (entityContent) {
+        log.warn('Unrecognized entity_content shape for indicator ' + indicatorSysId +
+                  ' — keys: ' + Object.keys(entityContent).join(', '));
+    }
+
+    // ---------------------------------------------------------------
+    // (c) Upsert sn_ti_indicator_metadata
+    //     One name/value row per Doppel field, linked to the indicator.
+    //     Skip null/empty values.
+    // ---------------------------------------------------------------
+    var metaFields = {
+        severity: source.severity,
+        score: source.score,
+        brand: source.brand,
+        product: source.product,
+        queue_state: source.queue_state,
+        entity_state: source.entity_state,
+        doppel_link: source.doppel_link,
+        platform: source.platform,
+        source: source.source,
+        last_activity_timestamp: source.last_activity_timestamp,
+        assignee: source.assignee,
+        uploaded_by: source.uploaded_by,
+        created_at: source.created_at,
+        screenshot_url: source.screenshot_url,
+        message: source.message,
+        alert_summary: source.alert_summary,
+        tags: source.tags,
+        audit_logs: source.audit_logs
+    };
+
+    for (var extractedKey in extractedEntityFields) {
+        metaFields[extractedKey] = extractedEntityFields[extractedKey];
+    }
+
+    for (var fieldName in metaFields) {
+        var rawVal = metaFields[fieldName];
+        if (rawVal == null || rawVal.toString() === '') {
+            continue;
+        }
+        var val = rawVal.toString();
+
+        var meta = new GlideRecord('sn_ti_indicator_metadata');
+        meta.addQuery('indicator', indicatorSysId);
+        meta.addQuery('name', fieldName);
+        meta.query();
+
+        if (meta.next()) {
+            meta.setValue('value', val);
+            meta.update();
+        } else {
+            meta.initialize();
+            meta.setValue('indicator', indicatorSysId);
+            meta.setValue('name', fieldName);
+            meta.setValue('value', val);
+            meta.insert();
+        }
+    }
+
+})(source, map, log, target);]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-09-17 12:21:08</sys_created_on>
+        <sys_id>6a1cd00fcfd7cb100138fb251d851c91</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>onAfter</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_transform_script_6a1cd00fcfd7cb100138fb251d851c91</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-09-20 04:33:27</sys_updated_on>
+        <when>onAfter</when>
+    </sys_transform_script>
+</record_update>
