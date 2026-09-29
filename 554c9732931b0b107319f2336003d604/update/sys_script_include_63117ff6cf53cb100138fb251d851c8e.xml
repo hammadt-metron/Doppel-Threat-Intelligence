@@ -16,84 +16,145 @@ DoppelIOCImport.prototype = {
         this.STAGING_TABLE = 'x_doppe_doppel_t_0_staging'
     },
 
-    importAlerts: function (maxPages) {
-        var staged = 0
-        var failed = 0
-        var page = 0
-        var totalPages = 1
+	importAlerts: function (maxPages) {
+        var since = this._getImportSince();
+        var pageSize = parseInt(gs.getProperty('x_doppe_doppel_t_0.import_page_size', '100'), 10) || 100;
+        var staged = 0, failed = 0, page = 0, totalPages = 1;
+        var complete = true;
+        var maxActivity = '';
 
-        while (page < totalPages && (!maxPages || page < maxPages)) {
-            var responseBody = this._fetchPage(page)
-            if (!responseBody) {
-                gs.error('DoppelIOCImport: Failed to fetch page ' + page + ', aborting pagination')
-                break
+        gs.info('DoppelIOCImport: import started | since=' + since + ' | page_size=' + pageSize);
+
+        while (page < totalPages) {
+            if (maxPages && page >= maxPages) { complete = false; break; } // test runs never move the watermark
+            var body = this._fetchPage(page, since, pageSize);
+            if (!body) {
+                complete = false;
+                gs.error('DoppelIOCImport: failed to fetch page ' + page + ', stopping this run');
+                break;
             }
-
-            totalPages = responseBody.metadata.total_pages
-            var alerts = responseBody.alerts || []
-
+            totalPages = (body.metadata && body.metadata.total_pages) || 0;
+            var alerts = body.alerts || [];
             for (var i = 0; i < alerts.length; i++) {
                 try {
-                    this._stageAlert(alerts[i])
-                    staged++
+                    this._stageAlert(alerts[i]);
+                    staged++;
+                    var ts = alerts[i].last_activity_timestamp || alerts[i].created_at || '';
+                    if (ts > maxActivity) maxActivity = ts; // same ISO format, so string compare works
                 } catch (e) {
-                    failed++
-                    gs.error('DoppelIOCImport: Error staging alert ' + (alerts[i].id || 'unknown') + ': ' + e.message)
+                    failed++;
+                    gs.error('DoppelIOCImport: error staging alert ' + (alerts[i].id || 'unknown') + ': ' + e.message);
                 }
             }
-            page++
+            page++;
         }
 
-        gs.info('DoppelIOCImport: Staging complete — Staged: ' + staged + ', Failed: ' + failed)
-        return staged
-    },
-
-    runTransform: function () {
-        try {
-            new global.DoppelTransformHelper().transform(this.STAGING_TABLE, 'Doppel Alert to TI Indicator')
-        } catch (e) {
-            gs.error('DoppelIOCImport: Transform failed: ' + e.message)
-        }
-    },
-
-    fetchAndTransform: function (maxPages) {
-        var stagedCount = this.importAlerts(maxPages)
-        if (stagedCount > 0) {
-            this.runTransform()
+        if (complete) {
+            if (maxActivity) this._setProperty('x_doppe_doppel_t_0.import_watermark', maxActivity);
+            gs.info('DoppelIOCImport: watermark ' + (maxActivity ? 'advanced to ' + maxActivity : 'unchanged (no alerts)'));
         } else {
-            gs.info('DoppelIOCImport: No rows staged, skipping transform')
+            gs.warn('DoppelIOCImport: run incomplete, watermark NOT advanced; next run retries from ' + since);
         }
+        gs.info('DoppelIOCImport: staging complete | staged=' + staged + ' | failed=' + failed);
+        return staged;
     },
 
-    _fetchPage: function (page) {
+    _getImportSince: function () {
+        var wm = gs.getProperty('x_doppe_doppel_t_0.import_watermark', '');
+        if (wm) return wm;
+        var days = parseInt(gs.getProperty('x_doppe_doppel_t_0.import_historical_days', '7'), 10) || 7;
+        var gdt = new GlideDateTime();
+        gdt.addDaysUTC(-days);
+        return gdt.getValue().replace(' ', 'T'); // UTC, same shape as Doppel's timestamps
+    },
+
+    _setProperty: function (name, value) {
+        var p = new GlideRecord('sys_properties');
+        p.addQuery('name', name);
+        p.query();
+        if (p.next()) {
+            p.setValue('value', value);
+            p.update();
+            return true;
+        }
+        gs.error('DoppelIOCImport: property not found: ' + name);
+        return false;
+    },
+
+	getIndicatorDecision: function (queueState, entityState, severity) {
+        var q = String(queueState || '').toLowerCase();
+        var e = String(entityState || '').toLowerCase();
+        var s = String(severity || '').toLowerCase();
+
+        if (q == 'archived' || e == 'unrelated')
+            return { action: 'revoke', reason: 'dismissed or unrelated (queue=' + q + ', entity=' + e + ')' };
+        if (q == 'taken_down' || e == 'down')
+            return { action: 'deactivate', reason: 'threat no longer live (queue=' + q + ', entity=' + e + ')' };
+
+        var qs = this._listProp('x_doppe_doppel_t_0.promote_queue_states', 'needs_confirmation,monitoring,actioned');
+        var es = this._listProp('x_doppe_doppel_t_0.promote_entity_states', 'active,suspicious');
+        var ss = this._listProp('x_doppe_doppel_t_0.promote_severities', 'high');
+        if (qs.indexOf(q) > -1 && es.indexOf(e) > -1 && ss.indexOf(s) > -1)
+            return { action: 'promote', reason: 'meets promotion criteria' };
+
+        return { action: 'none', reason: 'does not meet promotion criteria (queue=' + q + ', entity=' + e + ', severity=' + s + ')' };
+    },
+
+	isProductIngested: function (product) {
+        var list = this._listProp('x_doppe_doppel_t_0.ingest_products', 'domains,email,telco');
+        return list.indexOf(String(product || '').toLowerCase()) > -1;
+    },
+
+    _listProp: function (name, dflt) {
+        return String(gs.getProperty(name, dflt)).split(',')
+            .map(function (x) { return x.trim().toLowerCase(); })
+            .filter(function (x) { return x; });
+    },
+
+	fetchAndTransform: function (maxPages) {
+        // Staging rows are transformed synchronously as they are inserted (import set mode: Synchronous),
+        // so no separate transform call and no Global-scope helper is needed.
+        return this.importAlerts(maxPages);
+    },
+
+	_fetchPage: function (page, since, pageSize) {
         var headers = this._getAuthHeaders();
         if (!headers) {
             gs.error('DoppelIOCImport: _fetchPage aborted for page ' + page + ' — no valid auth headers');
             return null;
         }
-        try {
-            var r = new sn_ws.RESTMessageV2();
-            r.setEndpoint(this._getApiBase() + '/alerts');
-            r.setHttpMethod('GET');
-            for (var key in headers) {
-                r.setRequestHeader(key, headers[key]);
-            }
-            r.setQueryParameter('page', page.toString());
-            r.setQueryParameter('page_size', '30');
-            r.setHttpTimeout(30000);
+        var MAX_ATTEMPTS = 3;
+        for (var attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+            try {
+                var r = new sn_ws.RESTMessageV2();
+                r.setEndpoint(this._getApiBase() + '/alerts');
+                r.setHttpMethod('GET');
+                for (var key in headers) {
+                    r.setRequestHeader(key, headers[key]);
+                }
+                r.setQueryParameter('page', page.toString());
+                r.setQueryParameter('page_size', String(pageSize || 30));
+                if (since) r.setQueryParameter('last_activity_timestamp', since);
+                r.setHttpTimeout(30000);
 
-            var response = r.execute();
-            var httpStatus = response.getStatusCode();
+                var response = r.execute();
+                var httpStatus = response.getStatusCode();
+                if (httpStatus == 200) {
+                    return JSON.parse(response.getBody());
+                }
 
-            if (httpStatus != 200) {
-                gs.error('DoppelIOCImport: API returned HTTP ' + httpStatus + ' for page ' + page + ': ' + response.getBody());
-                return null;
+                // 429 (rate limit), 5xx (Doppel server error) and 0 (no response) are worth retrying
+                var retryable = (httpStatus == 429 || httpStatus >= 500 || httpStatus == 0);
+                gs.warn('DoppelIOCImport: page ' + page + ' attempt ' + attempt + '/' + MAX_ATTEMPTS +
+                        ' → HTTP ' + httpStatus + ': ' + String(response.getBody()).substring(0, 300));
+                if (!retryable) return null; // e.g. 400/401/403: retrying won't help
+            } catch (e) {
+                gs.warn('DoppelIOCImport: page ' + page + ' attempt ' + attempt + '/' + MAX_ATTEMPTS +
+                        ' → exception: ' + e.message);
             }
-            return JSON.parse(response.getBody());
-        } catch (e) {
-            gs.error('DoppelIOCImport: _fetchPage exception for page ' + page + ': ' + e.message);
-            return null;
         }
+        gs.error('DoppelIOCImport: page ' + page + ' failed after ' + MAX_ATTEMPTS + ' attempts');
+        return null;
     },
 
     _stageAlert: function (alert) {
@@ -258,6 +319,72 @@ DoppelIOCImport.prototype = {
         } catch (e) {
             gs.error('Doppel createAlertInDoppel exception: ' + e.message);
             return { success: false, error: e.message };
+        }
+    },
+
+	updateAlertInDoppel: function (alertId, changes) {
+        var QUEUE = ['doppel_review', 'needs_confirmation', 'actioned', 'taken_down', 'monitoring', 'archived'];
+        var ENTITY = ['active', 'down', 'parked', 'suspicious', 'unclassified', 'unrelated', 'related', 'unknown'];
+        changes = changes || {};
+        alertId = String(alertId || '').trim();
+        if (!alertId) return { success: false, error: 'alert_id is required' };
+
+        var body = {};
+        var q = String(changes.queue_state || '').trim();
+        var e = String(changes.entity_state || '').trim();
+        var c = String(changes.comment || '').trim();
+        var ta = String(changes.tag_action || '').trim();
+        var tn = String(changes.tag_name || '').trim();
+
+        if (q) { if (QUEUE.indexOf(q) < 0) return { success: false, error: 'Invalid queue_state: ' + q }; body.queue_state = q; }
+        if (e) { if (ENTITY.indexOf(e) < 0) return { success: false, error: 'Invalid entity_state: ' + e }; body.entity_state = e; }
+        if (c) body.comment = c;
+        if (ta || tn) {
+            if (!ta || !tn) return { success: false, error: 'tag_action and tag_name must be provided together' };
+            if (ta != 'add' && ta != 'remove') return { success: false, error: 'Invalid tag_action: ' + ta };
+            body.tag_action = ta;
+            body.tag_name = tn;
+        }
+        if (!Object.keys(body).length) return { success: false, error: 'Nothing to update: provide queue_state, entity_state, comment or a tag' };
+
+        var headers = this._getAuthHeaders();
+        if (!headers) return { success: false, error: 'No valid auth headers (check auth_version and credentials)' };
+
+        try {
+            var r = new sn_ws.RESTMessageV2();
+            r.setEndpoint(this._getApiBase() + '/alert');
+            r.setHttpMethod('PUT');
+            for (var key in headers) r.setRequestHeader(key, headers[key]);
+            r.setRequestHeader('Content-Type', 'application/json');
+            r.setQueryParameter('id', alertId);
+            r.setRequestBody(JSON.stringify(body));
+            r.setHttpTimeout(15000);
+
+            var response = r.execute();
+            var status = response.getStatusCode();
+            var respBody = response.getBody();
+
+            if (status == 200) {
+                var alert = null;
+                try { var parsed = JSON.parse(respBody); if (parsed && parsed.id) alert = parsed; } catch (e1) { /* not an alert body */ }
+                if (!alert) { var fresh = this.getAlertById(alertId); alert = fresh.success ? fresh.data : null; }
+                var synced = false;
+                if (alert) {
+					try { this._stageAlert(alert); synced = true; }
+                    catch (e2) { gs.warn('DoppelIOCImport: updated ' + alertId + ' in Doppel but local sync failed: ' + e2.message); }
+                }
+                gs.info('DoppelIOCImport: updated alert ' + alertId + ' in Doppel ' + JSON.stringify(body) + ' | synced locally=' + synced);
+                return { success: true, synced: synced, data: alert };
+            }
+
+            var msg = 'HTTP ' + status;
+            try { var err = JSON.parse(respBody); if (err && err.message) msg = err.message + ' (HTTP ' + status + ')'; } catch (e3) { /* keep generic */ }
+            if (status == 404) msg = 'Alert or tag not found (HTTP 404)';
+            gs.error('DoppelIOCImport: updateAlertInDoppel ' + alertId + ' failed: ' + msg + ' | ' + String(respBody).substring(0, 300));
+            return { success: false, error: msg };
+        } catch (ex) {
+            gs.error('DoppelIOCImport: updateAlertInDoppel exception for ' + alertId + ': ' + ex.message);
+            return { success: false, error: ex.message };
         }
     },
 
@@ -448,9 +575,15 @@ DoppelIOCImport.prototype = {
         return ret;
     },
 
-    _mapDoppelFinding: function (a, F) {
-        if (a.queue_state == 'archived' || a.entity_state == 'unrelated') return F.UNKNOWN;
-        if (a.queue_state == 'actioned' || a.queue_state == 'taken_down' || a.severity == 'high') return F.MALICIOUS;
+	_mapDoppelFinding: function (a, F) {
+        var q = String(a.queue_state || '').toLowerCase();
+        var e = String(a.entity_state || '').toLowerCase();
+        // Dismissed, or Doppel says it isn't a threat to the brand
+        if (q == 'archived' || e == 'unrelated' || e == 'related') return F.UNKNOWN;
+        // Doppel confirmed and acted
+        var malicious = this._listProp('x_doppe_doppel_t_0.lookup_malicious_queue_states', 'actioned,taken_down');
+        if (malicious.indexOf(q) > -1) return F.MALICIOUS;
+        // Flagged by Doppel but not confirmed
         return F.SUSPICIOUS;
     },
 
@@ -460,7 +593,7 @@ DoppelIOCImport.prototype = {
         // Rule engine classifies "domain.com/path" as File path — allow only web-shaped values
         if (typeName == 'File path' && value) {
             if (value.indexOf('\\') > -1 || value.charAt(0) == '/') return false;
-            return /^[^\/\s]+\.[a-z]{2,}(\/|$)/i.test(value);
+			return /^(https?:\/\/)?[^\/\s]+\.[a-z]{2,}(\/|$)/i.test(value);
         }
         return false;
     },
@@ -543,10 +676,17 @@ DoppelIOCImport.prototype = {
                 return null;
             }
             headers['Authorization'] = 'Bearer ' + token;
-        } else {
-            headers['x-api-key'] = gs.getProperty('x_doppe_doppel_t_0.api_key');
-            headers['x-user-api-key'] = gs.getProperty('x_doppe_doppel_t_0.user_api_key');
-            headers['x-organization-code'] = gs.getProperty('x_doppe_doppel_t_0.org_code');
+		} else {
+            var apiKey = gs.getProperty('x_doppe_doppel_t_0.api_key');
+            var userKey = gs.getProperty('x_doppe_doppel_t_0.user_api_key');
+            var orgCode = gs.getProperty('x_doppe_doppel_t_0.org_code');
+            if (!apiKey || !userKey || !orgCode) {
+                gs.error('DoppelIOCImport: v1 credentials missing (api_key / user_api_key / org_code), request not sent');
+                return null;
+            }
+            headers['x-api-key'] = apiKey;
+            headers['x-user-api-key'] = userKey;
+            headers['x-organization-code'] = orgCode;
         }
 
         headers['x-doppel-client'] = this._getClientHeaderValue();
@@ -631,13 +771,13 @@ DoppelIOCImport.prototype = {
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-09-23 11:29:25</sys_updated_on>
+        <sys_updated_on>2026-09-29 09:54:28</sys_updated_on>
     </sys_script_include>
 </record_update>

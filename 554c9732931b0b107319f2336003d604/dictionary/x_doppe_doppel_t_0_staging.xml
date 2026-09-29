@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="b0175c03cfd7cb100138fb251d851c84" extends="sys_import_set_row" label="Doppel Staging" max_length="40" name="x_doppe_doppel_t_0_staging" type="collection">
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="b0175c03cfd7cb100138fb251d851c84" extends="sys_import_set_row" label="Doppel Staging" max_length="40" name="x_doppe_doppel_t_0_staging" type="collection">
         <element label="message" max_length="4000" name="message" type="string"/>
         <element label="Alert ID" max_length="100" name="alert_id" type="string"/>
         <element label="notes" max_length="4000" name="notes" type="string"/>

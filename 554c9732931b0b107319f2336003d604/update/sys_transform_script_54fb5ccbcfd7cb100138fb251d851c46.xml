@@ -6,61 +6,78 @@
         <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
 
     var URL_TYPE_CATEGORY_SYSID = 'cc8d30c3d70322007a6de294de610322';
+    var imp = new x_doppe_doppel_t_0.DoppelIOCImport();
 
-    // Always upsert the observable — every alert becomes one, regardless
-    // of whether it goes on to become an indicator.
+    var alertId = source.alert_id ? source.alert_id.toString() : '';
+    var product = source.product ? source.product.toString().toLowerCase() : '';
+    var ingested = imp.isProductIngested(product);
+
+    // Observable: only for products that are real IOCs (see ingest_products)
     var entity = source.entity ? source.entity.toString() : '';
-    if (entity) {
+    if (entity && ingested) {
         var obs = new GlideRecord('sn_ti_observable');
-		obs.addQuery('value', entity);
-		obs.query();
-		if (!obs.next()) {
-			obs.initialize();
-			obs.setValue('type_category', URL_TYPE_CATEGORY_SYSID);
-			obs.setValue('value', entity);
-			obs.setValue('finding', 'Suspicious');
-			obs.setValue('x_doppe_doppel_t_0_doppel_owned', true);
-			if (!obs.insert()) {
-				log.error('Failed to insert observable for entity: ' + entity);
-			}
-		}
+        obs.addQuery('value', entity);
+        obs.query();
+        if (!obs.next()) {
+            obs.initialize();
+            if (product == 'domains') {
+                obs.setValue('type_category', URL_TYPE_CATEGORY_SYSID); // email/telco: let ServiceNow classify
+            }
+            obs.setValue('value', entity);
+            obs.setValue('finding', 'Suspicious');
+            obs.setValue('x_doppe_doppel_t_0_doppel_owned', true);
+            if (!obs.insert()) {
+                log.error('Failed to insert observable for entity: ' + entity);
+            }
+        }
     }
 
-    // Only create an indicator when ALL of the following match:
-    //   severity == "high"
-    //   entity_state == "suspicious"
-    //   queue_state == "monitoring" OR "needs_confirmation"
-    var severity = source.severity ? source.severity.toString() : '';
-    var entityState = source.entity_state ? source.entity_state.toString() : '';
-    var queueState = source.queue_state ? source.queue_state.toString() : '';
+    // Indicator decision
+    var decision = ingested
+        ? imp.getIndicatorDecision(source.queue_state, source.entity_state, source.severity)
+        : { action: 'exclude', reason: 'product "' + product + '" is not in ingest_products' };
 
-    var qualifies =
-        (severity === 'high') &&
-        (entityState === 'suspicious') &&
-        (queueState === 'monitoring' || queueState === 'needs_confirmation');
+    var existing = new GlideRecord('sn_ti_indicator');
+    existing.addQuery('id', alertId);
+    existing.setLimit(1);
+    existing.query();
+    var hasIndicator = !!alertId && existing.hasNext();
 
-    if (!qualifies) {
-        log.info('Skipping indicator for ' + source.alert_id +
-                  ' — severity=' + severity +
-                  ', entity_state=' + entityState +
-                  ', queue_state=' + queueState +
-                  ' (needs severity=high AND entity_state=suspicious AND queue_state=monitoring/needs_confirmation)');
+    if (decision.action == 'promote') {
+        target.active = true;
+        target.revoked = false;
+    } else if (hasIndicator && (decision.action == 'deactivate' || decision.action == 'exclude')) {
+        target.active = false;          // taken down, or product no longer ingested
+    } else if (hasIndicator && decision.action == 'revoke') {
+        target.active = false;
+        target.revoked = true;
+    } else if (!hasIndicator) {
+        log.info('Skipping indicator for ' + alertId + ' — ' + decision.reason);
         ignore = true;
+        return;
     }
+
+    var created = source.created_at ? source.created_at.toString().substring(0, 10) : '';
+    var lastAct = source.last_activity_timestamp ? source.last_activity_timestamp.toString().substring(0, 10) : '';
+    if (created && !target.first_seen) target.first_seen = created;
+    if (lastAct) target.last_seen = lastAct;
+
+    log.info('Indicator ' + (hasIndicator ? 'update' : 'create') + ' for ' + alertId +
+             ' — ' + decision.action + ': ' + decision.reason);
 
 })(source, map, log, target);]]></script>
         <sys_class_name>sys_transform_script</sys_class_name>
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 12:20:29</sys_created_on>
         <sys_id>54fb5ccbcfd7cb100138fb251d851c46</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>onBefore</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_transform_script_54fb5ccbcfd7cb100138fb251d851c46</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-09-21 12:14:01</sys_updated_on>
+        <sys_updated_on>2026-09-28 12:44:17</sys_updated_on>
         <when>onBefore</when>
     </sys_transform_script>
 </record_update>

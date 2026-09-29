@@ -4,24 +4,24 @@
         <description/>
         <ignore_cache>true</ignore_cache>
         <is_private>false</is_private>
-        <name>x_doppe_doppel_t_0.client_id</name>
+        <name>x_doppe_doppel_t_0.import_watermark</name>
         <read_roles/>
-        <suffix>client_id</suffix>
+        <suffix>import_watermark</suffix>
         <sys_class_name>sys_properties</sys_class_name>
         <sys_created_by>hammad-thoker</sys_created_by>
-        <sys_created_on>2026-09-17 07:57:16</sys_created_on>
-        <sys_id>f4bf5bb6931b0b107319f2336003d6e8</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>x_doppe_doppel_t_0.client_id</sys_name>
+        <sys_created_on>2026-09-28 07:46:14</sys_created_on>
+        <sys_id>3886c8aacf2fc3100138fb251d851ca2</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>x_doppe_doppel_t_0.import_watermark</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
-        <sys_update_name>sys_properties_f4bf5bb6931b0b107319f2336003d6e8</sys_update_name>
+        <sys_update_name>sys_properties_3886c8aacf2fc3100138fb251d851ca2</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-09-28 08:08:51</sys_updated_on>
+        <sys_updated_on>2026-09-29 09:07:21</sys_updated_on>
         <type>string</type>
-        <value>tpc_oBhSfrkZSGUwDfQ25V7NWL</value>
+        <value>2026-09-29T09:05:34.040542</value>
         <write_roles/>
     </sys_properties>
-    <sys_translated_text action="delete_multiple" query="documentkey=f4bf5bb6931b0b107319f2336003d6e8"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=3886c8aacf2fc3100138fb251d851ca2"/>
 </record_update>
