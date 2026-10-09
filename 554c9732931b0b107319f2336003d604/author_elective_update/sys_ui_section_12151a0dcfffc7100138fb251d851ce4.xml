@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="Status" section_id="12151a0dcfffc7100138fb251d851ce4" sys_domain="global" table="sn_ti_indicator" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>revoked</element>
+            <position>0</position>
+            <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
+            <sys_created_on>2026-10-06 12:33:44</sys_created_on>
+            <sys_id>3735d24dcfffc7100138fb251d851c30</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Status" display_value="Status" name="sn_ti_indicator" sys_domain="global" view="Default view">12151a0dcfffc7100138fb251d851ce4</sys_ui_section>
+            <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
+            <sys_updated_on>2026-10-06 12:33:44</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="DELETE">
+            <caption>Status</caption>
+            <header>false</header>
+            <name>sn_ti_indicator</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
+            <sys_created_on>2026-10-06 12:33:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>12151a0dcfffc7100138fb251d851ce4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sn_ti_indicator</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+            <sys_update_name>sys_ui_section_12151a0dcfffc7100138fb251d851ce4</sys_update_name>
+            <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
+            <sys_updated_on>2026-10-06 12:33:05</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</application>
+        <file_path/>
+        <instance_id>d60d8da5ebdab610cbbffceacad0cd56</instance_id>
+        <instance_name>ven08841</instance_name>
+        <name>sys_ui_section_12151a0dcfffc7100138fb251d851ce4</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="Status" section_id="12151a0dcfffc7100138fb251d851ce4" sys_domain="global" table="sn_ti_indicator" version="3" view=""><sys_ui_element action="INSERT_OR_UPDATE"><element>revoked</element><position>0</position><sys_created_by>tanvi.karale@metronlabs.com</sys_created_by><sys_created_on>2026-10-06 12:33:44</sys_created_on><sys_id>3735d24dcfffc7100138fb251d851c30</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="Status" display_value="Status" name="sn_ti_indicator" sys_domain="global" view="Default view">12151a0dcfffc7100138fb251d851ce4</sys_ui_section><sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by><sys_updated_on>2026-10-06 12:33:44</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption>Status</caption><header>false</header><name>sn_ti_indicator</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>tanvi.karale@metronlabs.com</sys_created_by><sys_created_on>2026-10-06 12:33:05</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>12151a0dcfffc7100138fb251d851ce4</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sn_ti_indicator</sys_name><sys_overrides/><sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package><sys_policy/><sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope><sys_update_name>sys_ui_section_12151a0dcfffc7100138fb251d851ce4</sys_update_name><sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by><sys_updated_on>2026-10-06 12:33:05</sys_updated_on><sys_user/><title>false</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>100669261</payload_hash>
+        <record_name>Indicator of Compromise</record_name>
+        <reverted_from/>
+        <source>bd4ed105cf3bc7100138fb251d851cb4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
+        <sys_created_on>2026-10-06 12:33:44</sys_created_on>
+        <sys_id>3335d24dcfffc7100138fb251d851c35</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a11134a3300000001</sys_recorded_at>
+        <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
+        <sys_updated_on>2026-10-06 12:33:44</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>ff35d24de8ffc710bcf24d8acd526a33</update_guid>
+        <update_guid_history>ff35d24de8ffc710bcf24d8acd526a33:100669261,2f151e0d46ffc7106204442721fcc67a:188331968</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
+        <sys_created_on>2026-10-07 17:09:35</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>1a943aa139674fa0861f77caf1f1c400</sys_id>
+        <sys_metadata>12151a0dcfffc7100138fb251d851ce4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Status</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_parent display_value="Sn Ti Indicator">d5c29ffacf1b8b100138fb251d851c9b</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_scope_delete display_value="">36a8be0b3d234e28930356d857d36840</sys_scope_delete>
+        <sys_update_name>sys_ui_section_12151a0dcfffc7100138fb251d851ce4</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_12151a0dcfffc7100138fb251d851ce4">3335d24dcfffc7100138fb251d851c35</sys_update_version>
+        <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
+        <sys_updated_on>2026-10-07 17:09:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

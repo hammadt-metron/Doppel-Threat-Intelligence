@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="564660c5cf33c7100138fb251d851c5e" label="Doppel TI Configuration" max_length="40" name="x_doppe_doppel_t_0_doppel_configuration" type="collection">
+        <element label="Last test result" max_length="500" name="last_test_result" read_only="true" type="string"/>
+        <element default="true" label="Promote severity high" max_length="40" name="promote_severity_high" type="boolean"/>
+        <element label="Import paid ads" max_length="40" name="import_paid_ads" type="boolean"/>
+        <element default="true" label="Import domains" max_length="40" name="import_domains" type="boolean"/>
+        <element label="User API key" max_length="255" name="user_api_key" type="password2"/>
+        <element label="Import mobile apps" max_length="40" name="import_mobile_apps" type="boolean"/>
+        <element default="true" label="Malicious queue taken down" max_length="40" name="malicious_queue_taken_down" type="boolean"/>
+        <element label="Malicious queue monitoring" max_length="40" name="malicious_queue_monitoring" type="boolean"/>
+        <element default="true" label="Promote entity active" max_length="40" name="promote_entity_active" type="boolean"/>
+        <element default="true" label="Promote queue monitoring" max_length="40" name="promote_queue_monitoring" type="boolean"/>
+        <element default="true" label="Import email" max_length="40" name="import_email" type="boolean"/>
+        <element label="Promote severity medium" max_length="40" name="promote_severity_medium" type="boolean"/>
+        <element label="API key" max_length="255" name="api_key" type="password2"/>
+        <element label="Connectivity verified" max_length="40" name="connectivity_verified" read_only="true" type="boolean"/>
+        <element label="Promote entity parked" max_length="40" name="promote_entity_parked" type="boolean"/>
+        <element label="Client secret" max_length="255" name="client_secret" type="password2"/>
+        <element label="Client ID" max_length="100" name="client_id" type="string"/>
+        <element default="true" label="Promote queue actioned" max_length="40" name="promote_queue_actioned" type="boolean"/>
+        <element default="60" label="Import interval (minutes)" mandatory="true" max_length="40" name="import_interval_minutes" type="integer"/>
+        <element default="true" label="Import telco" max_length="40" name="import_telco" type="boolean"/>
+        <element label="Import dark web" max_length="40" name="import_dark_web" type="boolean"/>
+        <element default="true" label="Promote queue needs confirmation" max_length="40" name="promote_queue_needs_confirmation" type="boolean"/>
+        <element default="true" label="Malicious queue actioned" max_length="40" name="malicious_queue_actioned" type="boolean"/>
+        <element label="Import social media" max_length="40" name="import_social_media" type="boolean"/>
+        <element label="Last tested" max_length="40" name="last_tested" read_only="true" type="glide_date_time"/>
+        <element label="Import crypto" max_length="40" name="import_crypto" type="boolean"/>
+        <element default="true" label="Promote entity suspicious" max_length="40" name="promote_entity_suspicious" type="boolean"/>
+        <element label="Malicious queue doppel review" max_length="40" name="malicious_queue_doppel_review" type="boolean"/>
+        <element choice="3" default="v1" label="API version" mandatory="true" max_length="10" name="api_version" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Version 1 (API keys)" sequence="100" value="v1"/>
+                <element inactive_on_update="false" label="Version 2 (OAuth client credentials)" sequence="200" value="v2"/>
+            </choice>
+        </element>
+        <element default="7" hint="Days of past alerts fetched by the first import only (1–30). Later imports fetch only new or changed alerts." label="Historical days" mandatory="true" max_length="40" name="historical_days" type="integer"/>
+        <element label="Malicious queue needs confirmation" max_length="40" name="malicious_queue_needs_confirmation" type="boolean"/>
+        <element label="Organisation code" max_length="40" name="organisation_code" type="string"/>
+    </element>
+</database>

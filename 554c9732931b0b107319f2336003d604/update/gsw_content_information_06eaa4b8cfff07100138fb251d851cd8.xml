@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_content_information">
+    <gsw_content_information action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <article><![CDATA[<ul><li>Every imported Doppel alert for a selected product becomes an <strong>observable</strong>, marked as Doppel owned.</li><li>Alerts that match your indicator rules also become <strong>indicators</strong>, with the alert ID, brand, states and a link to Doppel stored as metadata.</li><li>When Doppel archives an alert or marks it unrelated, its indicator is <strong>revoked</strong>. When the threat is taken down or the site is down, the indicator is <strong>deactivated</strong>. Records are never deleted.</li><li><strong>Threat Lookup</strong> checks Doppel live. Queue states you selected under Threat Lookup give <strong>Malicious</strong>; other open alerts give <strong>Suspicious</strong>; archived, unrelated or unknown values give <strong>Unknown</strong>.</li><li>On an observable, <strong>Open in Doppel Vision</strong> opens the alert in Doppel, and <strong>Doppel Submit</strong> reports a value Doppel doesn&#39;t know yet.</li></ul>]]></article>
+        <best_practice_acceptable>false</best_practice_acceptable>
+        <dependent_on_contents/>
+        <dependent_on_plugins/>
+        <dependent_on_plugins_ids/>
+        <description/>
+        <embedded_help_qualifier/>
+        <end_point/>
+        <end_point_open_mode/>
+        <end_point_type/>
+        <field/>
+        <filter/>
+        <filter_result/>
+        <implicit_dependent_on/>
+        <implicit_plugin_dependencies/>
+        <is_dynamic>false</is_dynamic>
+        <more_info_available>false</more_info_available>
+        <more_info_html/>
+        <order>300</order>
+        <parent display_value="Configure the Doppel integration">b1ea64b8cfff07100138fb251d851cb5</parent>
+        <parents>b1ea64b8cfff07100138fb251d851cb5,c96820f0cfff07100138fb251d851ce7</parents>
+        <plugin_id/>
+        <property_name/>
+        <property_value/>
+        <quick_startable>false</quick_startable>
+        <root_parent display_value="Doppel Threat Intelligence Setup">c96820f0cfff07100138fb251d851ce7</root_parent>
+        <skippable>true</skippable>
+        <supports_child_content>false</supports_child_content>
+        <sys_class_name>gsw_content_information</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-05 10:10:39</sys_created_on>
+        <sys_id>06eaa4b8cfff07100138fb251d851cd8</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>How Doppel data appears in ServiceNow</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>gsw_content_information_06eaa4b8cfff07100138fb251d851cd8</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-06 08:33:46</sys_updated_on>
+        <table/>
+        <title>How Doppel data appears in ServiceNow</title>
+        <weight>1</weight>
+    </gsw_content_information>
+    <sys_translated_text action="delete_multiple" query="documentkey=06eaa4b8cfff07100138fb251d851cd8"/>
+</record_update>

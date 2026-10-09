@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_content_information">
+    <gsw_content_information action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <article><![CDATA[<p>You need Doppel API credentials. Ask your Doppel contact for one of these sets:</p>
+<ul><li><strong>Version 1 (API keys)</strong>: API key and user API key, plus the organisation code if your Doppel user belongs to more than one organisation.</li><li><strong>Version 2 (OAuth client credentials)</strong>: Client ID and Client secret.</li></ul>
+<p>You need the <strong>x_doppe_doppel_t_0.admin</strong> role to configure the integration.</p>]]></article>
+        <best_practice_acceptable>false</best_practice_acceptable>
+        <dependent_on_contents/>
+        <dependent_on_plugins/>
+        <dependent_on_plugins_ids/>
+        <description/>
+        <embedded_help_qualifier/>
+        <end_point/>
+        <end_point_open_mode/>
+        <end_point_type/>
+        <field/>
+        <filter/>
+        <filter_result/>
+        <implicit_dependent_on/>
+        <implicit_plugin_dependencies/>
+        <is_dynamic>false</is_dynamic>
+        <more_info_available>false</more_info_available>
+        <more_info_html/>
+        <order>100</order>
+        <parent display_value="Configure the Doppel integration">b1ea64b8cfff07100138fb251d851cb5</parent>
+        <parents>b1ea64b8cfff07100138fb251d851cb5,c96820f0cfff07100138fb251d851ce7</parents>
+        <plugin_id/>
+        <property_name/>
+        <property_value/>
+        <quick_startable>false</quick_startable>
+        <root_parent display_value="Doppel Threat Intelligence Setup">c96820f0cfff07100138fb251d851ce7</root_parent>
+        <skippable>false</skippable>
+        <supports_child_content>false</supports_child_content>
+        <sys_class_name>gsw_content_information</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-05 10:10:39</sys_created_on>
+        <sys_id>8eeaa4b8cfff07100138fb251d851c85</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Before you start</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>gsw_content_information_8eeaa4b8cfff07100138fb251d851c85</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-06 08:32:26</sys_updated_on>
+        <table/>
+        <title>Before you start</title>
+        <weight>1</weight>
+    </gsw_content_information>
+    <sys_translated_text action="delete_multiple" query="documentkey=8eeaa4b8cfff07100138fb251d851c85"/>
+</record_update>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="6d55c1c9cf37c7100138fb251d851c25" sys_domain="global" table="x_doppe_doppel_t_0_doppel_configuration" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-06 06:44:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e555c1c9cf37c7100138fb251d851c28</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_doppe_doppel_t_0_doppel_configuration" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">6d55c1c9cf37c7100138fb251d851c25</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-06 06:44:36</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-06 06:44:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a55585c9cf37c7100138fb251d851c79</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_doppe_doppel_t_0_doppel_configuration" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">6d55c1c9cf37c7100138fb251d851c25</sys_ui_form>
+            <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-06 06:44:36</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-06 06:46:47</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1dd5c50dcf37c7100138fb251d851c30</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_doppe_doppel_t_0_doppel_configuration" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">6d55c1c9cf37c7100138fb251d851c25</sys_ui_form>
+            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-06 06:46:47</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-06 06:49:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f256494dcf37c7100138fb251d851c7d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_doppe_doppel_t_0_doppel_configuration" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">6d55c1c9cf37c7100138fb251d851c25</sys_ui_form>
+            <sys_ui_section caption="Threat Lookup" display_value="Threat Lookup" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">3e56494dcf37c7100138fb251d851c78</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-06 06:49:04</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_doppe_doppel_t_0_doppel_configuration</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-06 06:44:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6d55c1c9cf37c7100138fb251d851c25</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_doppe_doppel_t_0_doppel_configuration</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+            <sys_update_name>sys_ui_form_sections_6d55c1c9cf37c7100138fb251d851c25</sys_update_name>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-06 06:44:36</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

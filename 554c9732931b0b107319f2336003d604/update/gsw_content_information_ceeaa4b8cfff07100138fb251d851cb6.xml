@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_content_information">
+    <gsw_content_information action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <article><![CDATA[<p>Open the <strong>Doppel TI Configuration</strong> list. If it is empty, click <strong>New</strong>; otherwise open the existing record (only one is allowed).</p>
+<ol><li><strong>Connection</strong>: choose the API version, enter the credentials and click <strong>Test Connectivity</strong>. Changed connection settings can only be saved after a successful test.</li><li><strong>Import</strong>: choose which Doppel products to import, how many days of past alerts the first import fetches, and how often the import runs. The scheduled import switches on automatically once the configuration is saved with a successful connection test.</li><li><strong>Indicator rules</strong>: choose which alerts also become Threat Intelligence indicators.</li><li><strong>Threat Lookup</strong>: choose which Doppel queue states make a lookup result Malicious.</li></ol>
+<p><strong>Caution:</strong> the import runs as a scheduled job. Choose an interval that suits your data volume and instance load; every 60 minutes is a sensible start.</p>
+<p>Click <strong>Submit</strong> or <strong>Update</strong>, then mark this task complete.</p>]]></article>
+        <best_practice_acceptable>false</best_practice_acceptable>
+        <dependent_on_contents>8eeaa4b8cfff07100138fb251d851c85</dependent_on_contents>
+        <dependent_on_plugins/>
+        <dependent_on_plugins_ids/>
+        <description/>
+        <embedded_help_qualifier/>
+        <end_point>x_doppe_doppel_t_0_doppel_configuration_list.do</end_point>
+        <end_point_open_mode>3</end_point_open_mode>
+        <end_point_type>1</end_point_type>
+        <field/>
+        <filter/>
+        <filter_result/>
+        <implicit_dependent_on/>
+        <implicit_plugin_dependencies/>
+        <is_dynamic>false</is_dynamic>
+        <more_info_available>false</more_info_available>
+        <more_info_html/>
+        <order>200</order>
+        <parent display_value="Configure the Doppel integration">b1ea64b8cfff07100138fb251d851cb5</parent>
+        <parents>b1ea64b8cfff07100138fb251d851cb5,c96820f0cfff07100138fb251d851ce7</parents>
+        <plugin_id/>
+        <property_name/>
+        <property_value/>
+        <quick_startable>false</quick_startable>
+        <root_parent display_value="Doppel Threat Intelligence Setup">c96820f0cfff07100138fb251d851ce7</root_parent>
+        <skippable>false</skippable>
+        <supports_child_content>false</supports_child_content>
+        <sys_class_name>gsw_content_information</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-05 10:10:39</sys_created_on>
+        <sys_id>ceeaa4b8cfff07100138fb251d851cb6</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Configure Doppel</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>gsw_content_information_ceeaa4b8cfff07100138fb251d851cb6</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-07 06:03:51</sys_updated_on>
+        <table/>
+        <title>Configure Doppel</title>
+        <weight>1</weight>
+    </gsw_content_information>
+    <sys_translated_text action="delete_multiple" query="documentkey=ceeaa4b8cfff07100138fb251d851cb6"/>
+</record_update>

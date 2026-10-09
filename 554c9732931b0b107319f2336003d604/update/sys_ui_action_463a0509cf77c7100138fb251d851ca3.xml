@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>test_connectivity</action_name>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition>gs.hasRole('x_doppe_doppel_t_0.admin')</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Test Connectivity</name>
+        <onclick>doppelTestConnectivity()</onclick>
+        <order>100</order>
+        <script><![CDATA[function doppelTestConnectivity() {
+    g_form.clearMessages();
+    var ga = new GlideAjax('x_doppe_doppel_t_0.DoppelUIHelper');
+    ga.addParam('sysparm_name', 'testConnectionWithValues');
+    ga.addParam('sysparm_api_version', g_form.getValue('api_version') || 'v1');
+    ga.addParam('sysparm_org_code', g_form.getValue('organisation_code') || '');
+    ga.addParam('sysparm_client_id', g_form.getValue('client_id') || '');
+    var secrets = ['api_key', 'user_api_key', 'client_secret'];
+    for (var i = 0; i < secrets.length; i++) {
+        var v = g_form.getValue(secrets[i]);
+        if (v) ga.addParam('sysparm_' + secrets[i], v); // blank = use the stored value
+    }
+    g_form.addInfoMessage('Testing the connection to Doppel...');
+    ga.getXMLAnswer(function (answer) {
+        g_form.clearMessages();
+        var r;
+        try { r = JSON.parse(answer); } catch (e) { r = { success: false, message: 'Unexpected response from the server.' }; }
+        g_form.setValue('connectivity_verified', r.success ? 'true' : 'false');
+        g_form.setValue('last_test_result', (r.success ? 'Success: ' : 'Failed: ') + (r.message || ''));
+        if (r.tested_at) g_form.setValue('last_tested', r.tested_at);
+        if (r.success) {
+            g_scratchpad.doppelTestedSig = JSON.stringify([
+                g_form.getValue('api_version') || 'v1', g_form.getValue('organisation_code') || '',
+                g_form.getValue('client_id') || '', g_form.getValue('api_key') || '',
+                g_form.getValue('user_api_key') || '', g_form.getValue('client_secret') || '']);
+            g_form.addInfoMessage((r.message || 'Connected.') + ' Click Update (or Submit) to save.');
+        } else {
+            g_form.addErrorMessage(r.message || 'Connection failed.');
+        }
+    });
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-06 07:07:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>463a0509cf77c7100138fb251d851ca3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Test Connectivity</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_ui_action_463a0509cf77c7100138fb251d851ca3</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-06 07:07:30</sys_updated_on>
+        <table>x_doppe_doppel_t_0_doppel_configuration</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

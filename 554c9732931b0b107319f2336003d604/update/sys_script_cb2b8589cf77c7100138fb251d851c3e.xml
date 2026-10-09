@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_doppe_doppel_t_0_doppel_configuration</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Doppel TI - validate configuration</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+    function isTrue(v) { return v == '1' || v == 'true'; }
+    function stop(msg) { gs.addErrorMessage(msg); current.setAbortAction(true); }
+
+    var other = new GlideRecord(current.getTableName());
+    other.addQuery('sys_id', '!=', current.getUniqueValue());
+    other.setLimit(1);
+    other.query();
+    if (other.hasNext()) return stop('Only one Doppel TI Configuration is allowed. Open the existing record and edit it instead.');
+
+    var v2 = current.getValue('api_version') == 'v2';
+    var missing = [];
+    if (v2) {
+        if (!String(current.getValue('client_id') || '').trim()) missing.push('Client ID');
+        if (current.client_secret.nil()) missing.push('Client secret');
+    } else {
+        if (current.api_key.nil()) missing.push('API key');
+        if (current.user_api_key.nil()) missing.push('User API key');
+    }
+    if (missing.length) return stop('Required for ' + (v2 ? 'v2' : 'v1') + ': ' + missing.join(', ') + '.');
+
+    // NEW: at least one product must be imported
+    var PRODUCT_FIELDS = ['import_domains', 'import_email', 'import_telco', 'import_social_media', 'import_dark_web',
+                          'import_mobile_apps', 'import_ecommerce', 'import_crypto', 'import_paid_ads'];
+    var anyProduct = false;
+    for (var p = 0; p < PRODUCT_FIELDS.length; p++) {
+        if (isTrue(current.getValue(PRODUCT_FIELDS[p]))) anyProduct = true;
+    }
+    if (!anyProduct) return stop('Select at least one product to import (Import tab).');
+
+    var credFields = ['api_version', 'api_key', 'user_api_key', 'organisation_code', 'client_id', 'client_secret'];
+    var credChanged = current.isNewRecord();
+    for (var i = 0; i < credFields.length; i++) {
+        if (current[credFields[i]].changes()) credChanged = true;
+    }
+    var verified = isTrue(current.getValue('connectivity_verified'));
+    if (credChanged && (!verified || !current.last_tested.changes()))
+        return stop('Click Test Connectivity and get a successful result before saving changed connection settings.');
+	var days = parseInt(current.getValue('historical_days'), 10) || 0;
+    if (days < 1 || days > 30) return stop('Historical days must be between 1 and 30.');
+    if ((parseInt(current.getValue('import_interval_minutes'), 10) || 0) < 5) return stop('Import interval must be at least 5 minutes.');
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-06 07:11:07</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cb2b8589cf77c7100138fb251d851c3e</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Doppel TI - validate configuration</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_script_cb2b8589cf77c7100138fb251d851c3e</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-08 05:09:58</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=cb2b8589cf77c7100138fb251d851c3e"/>
+</record_update>

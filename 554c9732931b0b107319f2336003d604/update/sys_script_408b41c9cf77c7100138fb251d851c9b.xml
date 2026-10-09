@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_doppe_doppel_t_0_doppel_configuration</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Doppel TI - sync import schedule</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+    var s = new GlideRecord('scheduled_import_set');
+    if (!s.get('7447f353932fcb107319f2336003d636')) {
+        gs.error('Doppel TI: Doppel Alert Import schedule not found');
+        return;
+    }
+    var v = current.getValue('connectivity_verified');
+    var verified = (v == '1' || v == 'true');
+    var minutes = parseInt(current.getValue('import_interval_minutes'), 10) || 60;
+    var periodMs = minutes * 60 * 1000;
+    var wasActive = s.getValue('active') == '1';
+    var changed = false;
+
+    if (wasActive != verified) {
+        s.setValue('active', verified);
+        if (verified) s.run_start = new GlideDateTime(); // first run starts counting from now
+        changed = true;
+    }
+    if (s.run_period.dateNumericValue() != periodMs) {
+        s.run_period.setDateNumericValue(periodMs);
+        changed = true;
+    }
+    if (changed) {
+        s.update();
+        gs.addInfoMessage(verified
+            ? 'Scheduled import is active and runs every ' + minutes + ' minutes.'
+            : 'Scheduled import is inactive until the connection is verified.');
+    }
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-06 07:13:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>408b41c9cf77c7100138fb251d851c9b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Doppel TI - sync import schedule</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_script_408b41c9cf77c7100138fb251d851c9b</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-07 05:58:39</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=408b41c9cf77c7100138fb251d851c9b"/>
+</record_update>

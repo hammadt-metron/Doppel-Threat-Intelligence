@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_content_group">
+    <gsw_content_group action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <checksum>RAhGxwhkd0mFFxXoi1cMcXIlqU4=</checksum>
+        <child_can_have_roles>false</child_can_have_roles>
+        <children_layout>0</children_layout>
+        <dependent_on_contents/>
+        <dependent_on_plugins/>
+        <dependent_on_plugins_ids/>
+        <description><![CDATA[<p><span style="font-size: 10pt;">Connect ServiceNow Threat Intelligence to Doppel: enter your credentials, test the connection, choose what to import and which alerts become indicators, then switch on the scheduled import. </span></p>]]></description>
+        <display_child_max_num>10</display_child_max_num>
+        <done_status_text/>
+        <hide_getting_started>false</hide_getting_started>
+        <icon/>
+        <implicit_dependent_on/>
+        <implicit_plugin_dependencies/>
+        <is_root_content>true</is_root_content>
+        <order>0</order>
+        <parent/>
+        <parents/>
+        <progress_text/>
+        <roles>x_doppe_doppel_t_0.admin</roles>
+        <root_intro_frame_link/>
+        <root_parent/>
+        <skippable>true</skippable>
+        <supports_child_content>true</supports_child_content>
+        <sys_class_name>gsw_content_group</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-05 10:02:23</sys_created_on>
+        <sys_id>c96820f0cfff07100138fb251d851ce7</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Doppel Threat Intelligence Setup</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>gsw_content_group_c96820f0cfff07100138fb251d851ce7</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-05 10:10:40</sys_updated_on>
+        <title>Doppel Threat Intelligence Setup</title>
+        <weight>1</weight>
+    </gsw_content_group>
+    <sys_translated_text action="delete_multiple" query="documentkey=c96820f0cfff07100138fb251d851ce7"/>
+</record_update>

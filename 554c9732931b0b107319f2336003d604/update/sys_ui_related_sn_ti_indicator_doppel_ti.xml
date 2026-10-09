@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="sn_ti_indicator" version="2" view="doppel_ti">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>sn_ti_m2m_observable_indicator.indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>6cf243d1cf3b8b100138fb251d851c10</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>sn_ti_m2m_indicator_attack_mode.indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>e0f243d1cf3b8b100138fb251d851c11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>sn_ti_m2m_indicator_indicator_type.indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>68f243d1cf3b8b100138fb251d851c11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>3</position>
+            <related_list>sn_ti_m2m_indicator_source.indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>ecf243d1cf3b8b100138fb251d851c11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>4</position>
+            <related_list>sn_ti_m2m_task_indicator.indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>64f243d1cf3b8b100138fb251d851c12</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>5</position>
+            <related_list>sn_ti_indicator_metadata.indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>e8f243d1cf3b8b100138fb251d851c12</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>6</position>
+            <related_list>REL:e7d372513ba322005a9149a4d2efc4d7</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>60f243d1cf3b8b100138fb251d851c13</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>7</position>
+            <related_list>sn_ti_stix2_indicator_external_reference.indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>e4f243d1cf3b8b100138fb251d851c13</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>8</position>
+            <related_list>sn_ti_stix2_m2m_indicator_kill_chain_phase.indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>6cf243d1cf3b8b100138fb251d851c13</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>9</position>
+            <related_list>REL:773cbda55312101081fdddeeff7b12fa</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>e0f243d1cf3b8b100138fb251d851c14</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>10</position>
+            <related_list>REL:333cbda55312101081fdddeeff7b12fd</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>68f243d1cf3b8b100138fb251d851c14</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>11</position>
+            <related_list>REL:b73cfda55312101081fdddeeff7b1202</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>ecf243d1cf3b8b100138fb251d851c14</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>12</position>
+            <related_list>REL:733cfda55312101081fdddeeff7b1205</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>64f243d1cf3b8b100138fb251d851c15</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>13</position>
+            <related_list>REL:3f3cfda55312101081fdddeeff7b1207</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>e8f243d1cf3b8b100138fb251d851c15</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>14</position>
+            <related_list>sn_ti_stix2_indicator_sighting.sighting_of</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>60f243d1cf3b8b100138fb251d851c16</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Indicator of Compromise - Doppel TI" name="sn_ti_indicator" related_list="NULL" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">2cf243d1cf3b8b100138fb251d851c0f</list_id>
+            <order_by/>
+            <position>15</position>
+            <related_list>sn_ti_observable.x_doppe_doppel_t_0_related_indicator</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_id>e4f243d1cf3b8b100138fb251d851c16</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Indicator of Compromise - Doppel TI</calculated_name>
+            <filter/>
+            <name>sn_ti_indicator</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-07 10:31:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2cf243d1cf3b8b100138fb251d851c0f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Indicator of Compromise - Doppel TI</sys_name>
+            <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+            <sys_update_name>sys_ui_related_sn_ti_indicator_doppel_ti</sys_update_name>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-07 10:31:53</sys_updated_on>
+            <sys_user/>
+            <view display_value="Doppel TI" name="doppel_ti">bd1cb215cff78b100138fb251d851c2f</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

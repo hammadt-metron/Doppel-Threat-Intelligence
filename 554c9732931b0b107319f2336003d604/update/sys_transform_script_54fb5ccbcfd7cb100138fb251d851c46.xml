@@ -8,33 +8,67 @@
     var URL_TYPE_CATEGORY_SYSID = 'cc8d30c3d70322007a6de294de610322';
     var imp = new x_doppe_doppel_t_0.DoppelIOCImport();
 
-    var alertId = source.alert_id ? source.alert_id.toString() : '';
-    var product = source.product ? source.product.toString().toLowerCase() : '';
+    var alertId = source.u_alert_id ? source.u_alert_id.toString() : '';
+    var product = source.u_product ? source.u_product.toString().toLowerCase() : '';
     var ingested = imp.isProductIngested(product);
 
-    // Observable: only for products that are real IOCs (see ingest_products)
-    var entity = source.entity ? source.entity.toString() : '';
+	// Observable: only for products that are real IOCs (see ingest_products)
+    var entity = source.u_entity ? source.u_entity.toString() : '';
     if (entity && ingested) {
+        var F = {   // observable column names (check against sys_dictionary)
+            owned: 'x_doppe_doppel_t_0_doppel_owned',
+            alertId: 'x_doppe_doppel_t_0_alert_id',
+            brand: 'x_doppe_doppel_t_0_brand',
+            product: 'x_doppe_doppel_t_0_product',
+            platform: 'x_doppe_doppel_t_0_platform',
+            queue: 'x_doppe_doppel_t_0_queue_state',
+            entityState: 'x_doppe_doppel_t_0_entity_state',
+            link: 'x_doppe_doppel_t_0_doppel_link',
+            lastActivity: 'x_doppe_doppel_t_0_last_activity',
+            domain: 'x_doppe_doppel_t_0_domain'
+        };
         var obs = new GlideRecord('sn_ti_observable');
         obs.addQuery('value', entity);
         obs.query();
-        if (!obs.next()) {
+        var isNewObs = !obs.next();
+        if (isNewObs) {
             obs.initialize();
             if (product == 'domains') {
                 obs.setValue('type_category', URL_TYPE_CATEGORY_SYSID); // email/telco: let ServiceNow classify
             }
             obs.setValue('value', entity);
             obs.setValue('finding', 'Suspicious');
-            obs.setValue('x_doppe_doppel_t_0_doppel_owned', true);
-            if (!obs.insert()) {
-                log.error('Failed to insert observable for entity: ' + entity);
-            }
+            obs.setValue(F.owned, true);
+        }
+
+        // Root domain from entity_content (domains alerts only)
+        var rootDomain = '';
+        try {
+            var ec = source.u_entity_content ? JSON.parse(source.u_entity_content.toString()) : null;
+            if (ec && ec.root_domain && ec.root_domain.domain) rootDomain = String(ec.root_domain.domain);
+        } catch (eEc) { /* unparseable entity_content: leave domain empty */ }
+
+        // Doppel details from the latest alert for this value
+        obs.setValue(F.alertId, alertId);
+        obs.setValue(F.brand, source.u_brand.toString());
+        obs.setValue(F.product, product);
+        obs.setValue(F.platform, source.u_platform.toString());
+        obs.setValue(F.queue, source.u_queue_state.toString());
+        obs.setValue(F.entityState, source.u_entity_state.toString());
+        obs.setValue(F.link, source.u_doppel_link.toString());
+        obs.setValue(F.lastActivity, source.u_last_activity_timestamp.toString());
+        obs.setValue(F.domain, rootDomain);
+
+        if (isNewObs) {
+            if (!obs.insert()) log.error('Failed to insert observable for entity: ' + entity);
+        } else {
+            obs.update(); // skipped by the platform when nothing changed
         }
     }
 
     // Indicator decision
     var decision = ingested
-        ? imp.getIndicatorDecision(source.queue_state, source.entity_state, source.severity)
+        ? imp.getIndicatorDecision(source.u_queue_state, source.u_entity_state, source.u_severity)
         : { action: 'exclude', reason: 'product "' + product + '" is not in ingest_products' };
 
     var existing = new GlideRecord('sn_ti_indicator');
@@ -47,7 +81,7 @@
         target.active = true;
         target.revoked = false;
     } else if (hasIndicator && (decision.action == 'deactivate' || decision.action == 'exclude')) {
-        target.active = false;          // taken down, or product no longer ingested
+        target.active = false;
     } else if (hasIndicator && decision.action == 'revoke') {
         target.active = false;
         target.revoked = true;
@@ -57,8 +91,10 @@
         return;
     }
 
-    var created = source.created_at ? source.created_at.toString().substring(0, 10) : '';
-    var lastAct = source.last_activity_timestamp ? source.last_activity_timestamp.toString().substring(0, 10) : '';
+	target.x_doppe_doppel_t_0_doppel_owned = true;
+
+    var created = source.u_created_at ? source.u_created_at.toString().substring(0, 10) : '';
+    var lastAct = source.u_last_activity_timestamp ? source.u_last_activity_timestamp.toString().substring(0, 10) : '';
     if (created && !target.first_seen) target.first_seen = created;
     if (lastAct) target.last_seen = lastAct;
 
@@ -70,14 +106,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 12:20:29</sys_created_on>
         <sys_id>54fb5ccbcfd7cb100138fb251d851c46</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>onBefore</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_transform_script_54fb5ccbcfd7cb100138fb251d851c46</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-09-28 12:44:17</sys_updated_on>
+        <sys_updated_on>2026-10-07 08:45:37</sys_updated_on>
         <when>onBefore</when>
     </sys_transform_script>
 </record_update>
