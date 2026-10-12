@@ -634,6 +634,7 @@
     </sys_hub_flow_logic_instance_v2>
     <sys_hub_pill_compound action="delete_multiple" query="attached_to=23242124cfa387100138fb251d851cf9"/>
     <sys_hub_flow_variable action="delete_multiple" query="model=23242124cfa387100138fb251d851cf9"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_variable_23242124cfa387100138fb251d851cf9"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>capability_implementation_execution</element>
         <help/>
@@ -1401,6 +1402,7 @@
     </sys_hub_flow_logic_instance_v2>
     <sys_hub_pill_compound action="delete_multiple" query="attached_to=4077a1a8cfa387100138fb251d851cd1"/>
     <sys_hub_flow_variable action="delete_multiple" query="model=4077a1a8cfa387100138fb251d851cd1"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_variable_4077a1a8cfa387100138fb251d851cd1"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>domain_id</element>
         <help/>
@@ -1544,7 +1546,7 @@
     <sys_hub_flow action="UPDATE">
         <sys_id>23242124cfa387100138fb251d851cf9</sys_id>
         <latest_snapshot>4077a1a8cfa387100138fb251d851cd1</latest_snapshot>
-        <compiler_build>glide-zurich-07-01-2025__patch10-hotfix4bw38-09-10-2026_09-16-2026_0928.zip</compiler_build>
+        <compiler_build>glide-zurich-07-01-2025__patch12w41-10-02-2026_10-06-2026_0230.zip</compiler_build>
         <version_record/>
     </sys_hub_flow>
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=23242124cfa387100138fb251d851cf9"/>
@@ -1552,7 +1554,7 @@
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
         <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"5077e1a8cfa387100138fb251d851c60","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Doppel - Threat Lookup">23242124cfa387100138fb251d851cf9</plan_id>
-        <snapshot>456de6b4cfa703100138fb251d851cd5</snapshot>
+        <snapshot>04eee732cf3383100138fb251d851c30</snapshot>
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-22 09:40:57</sys_created_on>
         <sys_domain>global</sys_domain>

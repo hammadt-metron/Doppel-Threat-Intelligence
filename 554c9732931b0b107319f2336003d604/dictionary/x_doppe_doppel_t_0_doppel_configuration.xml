@@ -22,6 +22,7 @@
         <element default="true" label="Import telco" max_length="40" name="import_telco" type="boolean"/>
         <element label="Import dark web" max_length="40" name="import_dark_web" type="boolean"/>
         <element default="true" label="Promote queue needs confirmation" max_length="40" name="promote_queue_needs_confirmation" type="boolean"/>
+        <element label="Import ecommerce" max_length="40" name="import_ecommerce" type="boolean"/>
         <element default="true" label="Malicious queue actioned" max_length="40" name="malicious_queue_actioned" type="boolean"/>
         <element label="Import social media" max_length="40" name="import_social_media" type="boolean"/>
         <element label="Last tested" max_length="40" name="last_tested" read_only="true" type="glide_date_time"/>

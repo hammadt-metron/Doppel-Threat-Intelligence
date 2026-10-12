@@ -4,13 +4,13 @@
             <element>import_email</element>
             <position>0</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>3a3c9e95cfb38b100138fb251d851cdb</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>9ee58182937f0f107319f2336003d606</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>import_telco</element>
             <position>1</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>f23c9e95cfb38b100138fb251d851cdc</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>5ae58182937f0f107319f2336003d607</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>import_domains</element>
             <position>2</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>be3c9e95cfb38b100138fb251d851cdc</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>16e58182937f0f107319f2336003d608</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,83 +46,97 @@
             <element>import_social_media</element>
             <position>3</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>7a3c9e95cfb38b100138fb251d851cdd</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>dee58182937f0f107319f2336003d608</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>import_ecommerce</element>
+            <position>4</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>9ae58182937f0f107319f2336003d609</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>4</position>
+            <position>5</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>363c9e95cfb38b100138fb251d851cde</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>56e58182937f0f107319f2336003d60a</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>import_dark_web</element>
-            <position>5</position>
+            <position>6</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>fe3c9e95cfb38b100138fb251d851cde</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>12e58182937f0f107319f2336003d60b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>import_crypto</element>
-            <position>6</position>
+            <position>7</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>ba3c9e95cfb38b100138fb251d851cdf</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>dae58182937f0f107319f2336003d60b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>import_mobile_apps</element>
-            <position>7</position>
+            <position>8</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>763c9e95cfb38b100138fb251d851ce0</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>96e58182937f0f107319f2336003d60c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>import_paid_ads</element>
-            <position>8</position>
+            <position>9</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:42:44</sys_created_on>
-            <sys_id>323c9e95cfb38b100138fb251d851ce1</sys_id>
+            <sys_created_on>2026-10-09 09:21:02</sys_created_on>
+            <sys_id>52e58182937f0f107319f2336003d60d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Import" display_value="Import" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">e555c1c9cf37c7100138fb251d851c29</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:42:44</sys_updated_on>
+            <sys_updated_on>2026-10-09 09:21:02</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
