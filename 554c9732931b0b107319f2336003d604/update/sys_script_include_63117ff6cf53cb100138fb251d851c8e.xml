@@ -78,14 +78,17 @@ DoppelIOCImport.prototype = {
     },
 
     // Test Connectivity: use values typed on the form (not yet saved) on top of the stored ones.
-    withConfig: function (override) {
+	withConfig: function (override) {
         var c = this._cfg();
+        var storedClientId = c.clientId;
         for (var k in override) {
             if (override.hasOwnProperty(k)) c[k] = override[k];
         }
         this._config = c;
         this._v2Token = null;
         this._v2TokenExpiry = null;
+        // Mint a new v2 token only if new v2 credentials are being tested
+        this._forceNewToken = !!(override.clientSecret || (override.clientId && override.clientId != storedClientId));
         return this;
     },
 
@@ -515,14 +518,12 @@ DoppelIOCImport.prototype = {
                               'Missing required setting(s) for ' + version + ': ' + missing.join(', ') };
         }
 
-        // Force a fresh v2 token so the test reflects the credentials being tested
-        this._v2Token = null;
-        this._v2TokenExpiry = null;
-
         var headers = this._getAuthHeaders();
-        if (!headers) {
+		if (!headers) {
             return { success: false, auth_version: version, stage: 'token',
-                     message: 'Could not obtain a v2 access token. Check Client ID / Client secret (HTTP status is in System Logs).' };
+                     message: this._v2RetryAfterMs
+                         ? 'Doppel\'s token limit was reached (HTTP 429). Try again in about ' + Math.ceil(this._v2RetryAfterMs / 60000) + ' minutes.'
+                         : 'Could not obtain a v2 access token. Check Client ID / Client secret (HTTP status is in System Logs).' };
         }
 
         try {
@@ -780,7 +781,7 @@ DoppelIOCImport.prototype = {
         var headers = {};
 
         if (c.version == 'v2') {
-            var token = this._getCachedV2AccessToken();
+            var token = this._getCachedV2AccessToken(this._forceNewToken);
             if (!token) {
                 gs.error('DoppelIOCImport: _getAuthHeaders — could not obtain v2 access token');
                 return null;
@@ -817,21 +818,43 @@ DoppelIOCImport.prototype = {
         return this._cfg().version == 'v2' ? 'https://api.doppel.com/v2' : 'https://api.doppel.com/v1';
     },
 
-    _getCachedV2AccessToken: function () {
+	// v2 token is cached on the configuration record (24 h validity) so runs don't each mint one.
+    // Doppel allows only a few token requests per client per hour.
+    _getCachedV2AccessToken: function (forceNew) {
         var now = new GlideDateTime().getNumericValue();
-        if (this._v2Token && this._v2TokenExpiry && now < this._v2TokenExpiry) {
-            return this._v2Token;
+        var c = this._cfg();
+        this._v2RetryAfterMs = 0;
+        if (!forceNew) {
+            if (this._v2Token && this._v2TokenExpiry && now < this._v2TokenExpiry) return this._v2Token;
+            var cache = this._readTokenCache();
+            if (cache.clientId == c.clientId) {
+                if (cache.token && now < cache.expires) {
+                    this._v2Token = cache.token;
+                    this._v2TokenExpiry = cache.expires;
+                    return cache.token;
+                }
+                if (cache.retryAfter && now < cache.retryAfter) {
+                    this._v2RetryAfterMs = cache.retryAfter - now;
+                    gs.warn('DoppelIOCImport: Doppel token limit reached; no token request for another ' +
+                            Math.ceil(this._v2RetryAfterMs / 60000) + ' min');
+                    return null;
+                }
+            }
         }
         var token = this._getV2AccessToken();
         if (token) {
             this._v2Token = token;
             this._v2TokenExpiry = now + (86400 - 300) * 1000;
+            this._writeTokenCache(c.clientId, token, this._v2TokenExpiry, 0);
+        } else if (this._v2RetryAfterMs) {
+            this._writeTokenCache(c.clientId, null, 0, now + this._v2RetryAfterMs);
         }
         return token;
     },
 
     _getV2AccessToken: function () {
         var c = this._cfg();
+        this._v2RetryAfterMs = 0;
         if (!c.clientId || !c.clientSecret) {
             gs.error('DoppelIOCImport: _getV2AccessToken failed — Client ID or Client secret is empty');
             return null;
@@ -842,13 +865,12 @@ DoppelIOCImport.prototype = {
             r.setHttpMethod('POST');
             r.setRequestHeader('Content-Type', 'application/json');
             r.setRequestHeader('x-doppel-client', this._getClientHeaderValue());
-            var payload = {
+            r.setRequestBody(JSON.stringify({
                 client_id: c.clientId,
                 client_secret: c.clientSecret,
                 audience: 'doppel-external',
                 grant_type: 'client_credentials'
-            };
-            r.setRequestBody(JSON.stringify(payload));
+            }));
             r.setHttpTimeout(15000);
 
             var response = r.execute();
@@ -856,6 +878,14 @@ DoppelIOCImport.prototype = {
             var body = response.getBody();
 
             if (status != 200) {
+                if (status == 429) {
+                    var secs = parseInt(response.getHeader('Retry-After'), 10);
+                    if (!secs) {
+                        var m = /retry after (\d+) seconds/i.exec(String(body));
+                        secs = m ? parseInt(m[1], 10) : 3600;
+                    }
+                    this._v2RetryAfterMs = secs * 1000;
+                }
                 gs.error('DoppelIOCImport: _getV2AccessToken failed — HTTP ' + status + ': ' + String(body).substring(0, 300));
                 return null;
             }
@@ -871,19 +901,50 @@ DoppelIOCImport.prototype = {
         }
     },
 
+    _configRecord: function () {
+        var gr = new GlideRecord(this.CONFIG_TABLE);
+        gr.orderBy('sys_created_on');
+        gr.setLimit(1);
+        gr.query();
+        return gr.next() ? gr : null;
+    },
+
+    _readTokenCache: function () {
+        var out = { token: '', clientId: '', expires: 0, retryAfter: 0 };
+        var gr = this._configRecord();
+        if (!gr) return out;
+        try {
+            var meta = JSON.parse(gr.getValue('v2_token_meta') || '{}');
+            out.clientId = meta.clientId || '';
+            out.expires = meta.expires || 0;
+            out.retryAfter = meta.retryAfter || 0;
+        } catch (e) { /* empty or invalid meta: no cache */ }
+        out.token = gr.v2_token.getDecryptedValue() || '';
+        return out;
+    },
+
+    _writeTokenCache: function (clientId, token, expires, retryAfter) {
+        var gr = this._configRecord();
+        if (!gr) return;   // nothing saved yet (e.g. testing a brand-new record)
+        if (token !== null) gr.v2_token.setDisplayValue(token);
+        gr.setValue('v2_token_meta', JSON.stringify({ clientId: clientId, expires: expires, retryAfter: retryAfter }));
+        gr.setWorkflow(false);   // don't run the validate / schedule-sync business rules
+        gr.update();
+    },
+
     type: 'DoppelIOCImport'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 07:15:15</sys_updated_on>
+        <sys_updated_on>2026-10-14 06:00:17</sys_updated_on>
     </sys_script_include>
 </record_update>
