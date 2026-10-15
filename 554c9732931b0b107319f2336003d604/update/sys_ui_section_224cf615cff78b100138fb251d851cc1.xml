@@ -4,13 +4,13 @@
             <element>.begin_split</element>
             <position>0</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>162143ddcff78b100138fb251d851cbf</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>2a9a2cf3cff30b100138fb251d851c5c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>x_doppe_doppel_t_0_alert_id</element>
             <position>1</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>de2143ddcff78b100138fb251d851cbf</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>2e9a2cf3cff30b100138fb251d851c5d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>x_doppe_doppel_t_0_brand</element>
             <position>2</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>9a2143ddcff78b100138fb251d851cc0</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>e69a2cf3cff30b100138fb251d851c5e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>x_doppe_doppel_t_0_product</element>
             <position>3</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>562143ddcff78b100138fb251d851cc1</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>a29a2cf3cff30b100138fb251d851c5f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>x_doppe_doppel_t_0_platform</element>
             <position>4</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>122143ddcff78b100138fb251d851cc2</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>6e9a2cf3cff30b100138fb251d851c5f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -74,97 +74,97 @@
             <element>x_doppe_doppel_t_0_domain</element>
             <position>5</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>da2143ddcff78b100138fb251d851cc2</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>2a9a2cf3cff30b100138fb251d851c60</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>x_doppe_doppel_t_0_doppel_owned</element>
+            <position>6</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>e29a2cf3cff30b100138fb251d851c61</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>6</position>
+            <position>7</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>962143ddcff78b100138fb251d851cc3</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>ae9a2cf3cff30b100138fb251d851c61</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>x_doppe_doppel_t_0_queue_state</element>
-            <position>7</position>
+            <position>8</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>522143ddcff78b100138fb251d851cc4</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>6a9a2cf3cff30b100138fb251d851c62</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>x_doppe_doppel_t_0_entity_state</element>
-            <position>8</position>
+            <position>9</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>1e2143ddcff78b100138fb251d851cc4</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>269a2cf3cff30b100138fb251d851c63</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>x_doppe_doppel_t_0_last_activity</element>
-            <position>9</position>
+            <position>10</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>d62143ddcff78b100138fb251d851cc5</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>ee9a2cf3cff30b100138fb251d851c63</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>x_doppe_doppel_t_0_doppel_link</element>
-            <position>10</position>
-            <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>922143ddcff78b100138fb251d851cc6</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
-            <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>x_doppe_doppel_t_0_related_indicator</element>
             <position>11</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>5e2143ddcff78b100138fb251d851cc6</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>aa9a2cf3cff30b100138fb251d851c64</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -172,13 +172,13 @@
             <element>.end_split</element>
             <position>12</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 10:24:05</sys_created_on>
-            <sys_id>1a2143ddcff78b100138fb251d851cc7</sys_id>
+            <sys_created_on>2026-10-14 17:51:05</sys_created_on>
+            <sys_id>669a2cf3cff30b100138fb251d851c65</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Doppel" display_value="Doppel" name="sn_ti_observable" sys_domain="global" view="bd1cb215cff78b100138fb251d851c2f">224cf615cff78b100138fb251d851cc1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 10:24:05</sys_updated_on>
+            <sys_updated_on>2026-10-14 17:51:05</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>

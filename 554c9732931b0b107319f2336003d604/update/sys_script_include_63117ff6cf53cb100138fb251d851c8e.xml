@@ -292,9 +292,14 @@ DoppelIOCImport.prototype = {
         obs.setLimit(1);
         obs.query();
         if (!obs.next()) return null;
+        var link = new GlideRecord('sn_ti_m2m_observable_indicator');
+        link.addQuery('observable', obs.getUniqueValue());
+        link.addQuery('indicator.' + P + 'doppel_owned', true);
+        link.setLimit(1);
+        link.query();
         return {
             observable_sys_id: obs.getUniqueValue(),
-            has_indicator: !!obs.getValue(P + 'related_indicator'),
+            has_indicator: link.hasNext(),
             alert_id: obs.getValue(P + 'alert_id') || '',
             brand: obs.getValue(P + 'brand') || '',
             product_type: obs.getValue(P + 'product') || '',
@@ -719,20 +724,13 @@ DoppelIOCImport.prototype = {
         return r.next() ? r : null;
     },
 
-    getLatestDoppelLink: function (obsId) {
+	getLatestDoppelLink: function (obsId) {
         var r = this.getLatestDoppelResult(obsId);
         if (r && r.getValue('external_link')) return r.getValue('external_link');
 
-        // Fallback: link stored on the imported indicator
+        // Fallback: Doppel link stored on the imported observable
         var obs = new GlideRecord('sn_ti_observable');
-        if (obs.get(obsId) && obs.getValue('x_doppe_doppel_t_0_related_indicator')) {
-            var m = new GlideRecord('sn_ti_indicator_metadata');
-            m.addQuery('indicator', obs.getValue('x_doppe_doppel_t_0_related_indicator'));
-            m.addQuery('name', 'doppel_link');
-            m.setLimit(1);
-            m.query();
-            if (m.next()) return m.getValue('value') || '';
-        }
+        if (obs.get(obsId)) return obs.getValue('x_doppe_doppel_t_0_doppel_link') || '';
         return '';
     },
 
@@ -938,13 +936,13 @@ DoppelIOCImport.prototype = {
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>35</sys_mod_count>
+        <sys_mod_count>36</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-14 06:00:17</sys_updated_on>
+        <sys_updated_on>2026-10-14 17:47:53</sys_updated_on>
     </sys_script_include>
 </record_update>
