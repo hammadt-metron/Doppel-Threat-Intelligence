@@ -127,6 +127,9 @@ DoppelIOCImport.prototype = {
             }
             totalPages = (body.metadata && body.metadata.total_pages) || 0;
             var alerts = body.alerts || [];
+			// NEW: one line per page so the run's progress is visible
+            gs.info('DoppelIOCImport: page ' + (page + 1) + '/' + totalPages + ' fetched | alerts on page=' + alerts.length +
+                    (page == 0 && body.metadata ? ' | total alerts in window=' + body.metadata.count : ''));
             for (var i = 0; i < alerts.length; i++) {
                 try {
                     if (importSetTable) importSetTable.insert(this._toStagingRow(alerts[i]));
@@ -148,7 +151,8 @@ DoppelIOCImport.prototype = {
         } else {
             gs.warn('DoppelIOCImport: run incomplete, watermark NOT advanced; next run retries from ' + since);
         }
-        gs.info('DoppelIOCImport: staging complete | staged=' + staged + ' | failed=' + failed);
+        gs.info('DoppelIOCImport: staging complete | staged=' + staged + ' | failed=' + failed +
+                ' | pages=' + page + (totalPages ? '/' + totalPages : ''));   // NEW: pages fetched
         return staged;
     },
 
@@ -936,13 +940,13 @@ DoppelIOCImport.prototype = {
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>36</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-14 17:47:53</sys_updated_on>
+        <sys_updated_on>2026-10-15 07:29:19</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -30,7 +30,7 @@
         <script><![CDATA[(function executeRule(current, previous) {
     var s = new GlideRecord('scheduled_import_set');
     if (!s.get('7447f353932fcb107319f2336003d636')) {
-        gs.error('Doppel TI: Doppel Alert Import schedule not found');
+        gs.error('DoppelIOCImport: configuration saved, but the "Doppel Alert Import" schedule was not found');
         return;
     }
     var v = current.getValue('connectivity_verified');
@@ -40,16 +40,16 @@
     var wasActive = s.getValue('active') == '1';
     var changed = false;
     var startingNow = false;
+    var startDisplay = '';
 
     if (wasActive != verified) {
         s.setValue('active', verified);
         if (verified) {
             // First import about a minute after the connection is verified, then every <minutes>.
-            // (Starting = now is already in the past when the scheduler reads it, which pushed
-            //  the first run out by a full interval.)
             var start = new GlideDateTime();
             start.addSeconds(60);
             s.run_start = start;
+            startDisplay = start.getDisplayValue();
             startingNow = true;
         }
         changed = true;
@@ -58,13 +58,25 @@
         s.run_period.setDateNumericValue(periodMs);
         changed = true;
     }
-    if (changed) {
-        s.update();
+    if (changed) s.update();
+
+    // Log every save so the admin can see what happens next
+    if (!verified) {
+        gs.info('DoppelIOCImport: configuration saved | scheduled import is inactive until the connection is verified');
+    } else if (startingNow) {
+        gs.info('DoppelIOCImport: configuration saved | first import starts in about a minute (at ' + startDisplay +
+                '), then every ' + minutes + ' minutes');
+    } else {
+        gs.info('DoppelIOCImport: configuration saved | scheduled import continues every ' + minutes + ' minutes' +
+                (changed ? ' (interval updated)' : '') + '; changes apply from the next run');
+    }
+
+    if (changed || startingNow) {
         gs.addInfoMessage(!verified
             ? 'Scheduled import is inactive until the connection is verified.'
             : startingNow
-                ? 'The first import starts in about a minute, then runs every ' + minutes + ' minutes.'
-                : 'Scheduled import runs every ' + minutes + ' minutes.');
+                ? 'Configuration saved. The first import starts in about a minute, then runs every ' + minutes + ' minutes.'
+                : 'Configuration saved. Scheduled import runs every ' + minutes + ' minutes.');
     }
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -73,7 +85,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>408b41c9cf77c7100138fb251d851c9b</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Doppel TI - sync import schedule</sys_name>
         <sys_overrides/>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
@@ -81,7 +93,7 @@
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_408b41c9cf77c7100138fb251d851c9b</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-14 06:54:27</sys_updated_on>
+        <sys_updated_on>2026-10-15 06:15:25</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>
