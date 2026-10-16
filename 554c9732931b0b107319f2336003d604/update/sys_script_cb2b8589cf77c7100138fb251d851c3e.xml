@@ -48,14 +48,30 @@
     }
     if (missing.length) return stop('Required for ' + (v2 ? 'v2' : 'v1') + ': ' + missing.join(', ') + '.');
 
-    // NEW: at least one product must be imported
-    var PRODUCT_FIELDS = ['import_domains', 'import_email', 'import_telco', 'import_social_media', 'import_dark_web',
-                          'import_mobile_apps', 'import_ecommerce', 'import_crypto', 'import_paid_ads'];
-    var anyProduct = false;
-    for (var p = 0; p < PRODUCT_FIELDS.length; p++) {
-        if (isTrue(current.getValue(PRODUCT_FIELDS[p]))) anyProduct = true;
+    // Products: only checked when "Import all Doppel products" is unticked
+    if (!isTrue(current.getValue('import_all_products'))) {
+        var PRODUCT_FIELDS = ['import_domains', 'import_email', 'import_telco', 'import_social_media', 'import_dark_web',
+                              'import_mobile_apps', 'import_ecommerce', 'import_crypto', 'import_paid_ads'];
+        var anyProduct = false;
+        for (var p = 0; p < PRODUCT_FIELDS.length; p++) {
+            if (isTrue(current.getValue(PRODUCT_FIELDS[p]))) anyProduct = true;
+        }
+        if (!anyProduct) return stop('Select at least one product to import, or tick "Import all Doppel products" (Import tab).');
     }
-    if (!anyProduct) return stop('Select at least one product to import (Import tab).');
+
+	// Indicator rules: each group needs at least one ticked value, otherwise nothing can ever be promoted
+    var GROUPS = {
+        'Queue state': ['promote_queue_needs_confirmation', 'promote_queue_monitoring', 'promote_queue_actioned'],
+        'Entity state': ['promote_entity_active', 'promote_entity_suspicious', 'promote_entity_parked'],
+        'Severity': ['promote_severity_high', 'promote_severity_medium']
+    };
+    for (var g in GROUPS) {
+        var anyTicked = false;
+        for (var f = 0; f < GROUPS[g].length; f++) {
+            if (isTrue(current.getValue(GROUPS[g][f]))) anyTicked = true;
+        }
+        if (!anyTicked) return stop('Indicator rules: tick at least one value under ' + g + '.');
+    }
 
     var credFields = ['api_version', 'api_key', 'user_api_key', 'organisation_code', 'client_id', 'client_secret'];
     var credChanged = current.isNewRecord();
@@ -65,7 +81,8 @@
     var verified = isTrue(current.getValue('connectivity_verified'));
     if (credChanged && (!verified || !current.last_tested.changes()))
         return stop('Click Test Connectivity and get a successful result before saving changed connection settings.');
-	var days = parseInt(current.getValue('historical_days'), 10) || 0;
+
+    var days = parseInt(current.getValue('historical_days'), 10) || 0;
     if (days < 1 || days > 30) return stop('Historical days must be between 1 and 30.');
     if ((parseInt(current.getValue('import_interval_minutes'), 10) || 0) < 5) return stop('Import interval must be at least 5 minutes.');
 })(current, previous);]]></script>
@@ -75,7 +92,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>cb2b8589cf77c7100138fb251d851c3e</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Doppel TI - validate configuration</sys_name>
         <sys_overrides/>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
@@ -83,7 +100,7 @@
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_cb2b8589cf77c7100138fb251d851c3e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 05:09:58</sys_updated_on>
+        <sys_updated_on>2026-10-15 18:10:15</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

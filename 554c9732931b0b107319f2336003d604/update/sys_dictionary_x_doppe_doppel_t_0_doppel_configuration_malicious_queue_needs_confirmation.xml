@@ -13,7 +13,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Malicious queue needs confirmation</column_label>
+        <column_label>Needs confirmation</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -52,13 +52,13 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-06 05:23:57</sys_created_on>
-        <sys_name>Malicious queue needs confirmation</sys_name>
+        <sys_name>Needs confirmation</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_dictionary_x_doppe_doppel_t_0_doppel_configuration_malicious_queue_needs_confirmation</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-06 05:29:08</sys_updated_on>
+        <sys_updated_on>2026-10-16 04:25:32</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

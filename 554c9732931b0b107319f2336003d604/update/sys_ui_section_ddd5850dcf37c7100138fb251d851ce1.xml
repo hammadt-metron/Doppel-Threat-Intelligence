@@ -1,128 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_section caption="Indicator rules" section_id="ddd5850dcf37c7100138fb251d851ce1" sys_domain="global" table="x_doppe_doppel_t_0_doppel_configuration" version="3" view="">
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <name/>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:02</sys_created_on>
+            <sys_id>1b4d441093485f107319f2336003d669</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:02</sys_updated_on>
+            <text>An imported alert becomes an active indicator only when it matches one ticked value in each group below (queue AND entity AND severity). Dismissed alerts are revoked and taken-down alerts are deactivated. Changes apply to alerts that are new or updated after saving.</text>
+            <type display_value="Info Box Blue">753f88a80f930000b12e6903cfe01206</type>
+        </sys_ui_annotation>
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <name/>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:02</sys_created_on>
+            <sys_id>5f4d441093485f107319f2336003d669</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:02</sys_updated_on>
+            <text>Queue state</text>
+            <type display_value="Section Separator">443e806c0fd30000b12e6903cfe01281</type>
+        </sys_ui_annotation>
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <name/>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:02</sys_created_on>
+            <sys_id>934d441093485f107319f2336003d66a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:02</sys_updated_on>
+            <text>Entity state</text>
+            <type display_value="Section Separator">443e806c0fd30000b12e6903cfe01281</type>
+        </sys_ui_annotation>
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <name/>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:02</sys_created_on>
+            <sys_id>d74d441093485f107319f2336003d66a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:02</sys_updated_on>
+            <text>Severity</text>
+            <type display_value="Section Separator">443e806c0fd30000b12e6903cfe01281</type>
+        </sys_ui_annotation>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>promote_entity_active</element>
+            <element>1b4d441093485f107319f2336003d669</element>
             <position>0</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>e55c92d5cfb38b100138fb251d851c0c</sys_id>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>eb4d441093485f107319f2336003d6a7</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
             <sys_user/>
-            <type/>
+            <type>annotation</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>promote_entity_suspicious</element>
+            <element>5f4d441093485f107319f2336003d669</element>
             <position>1</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>a15c92d5cfb38b100138fb251d851c0d</sys_id>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>a74d441093485f107319f2336003d6a8</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
             <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>promote_entity_parked</element>
-            <position>2</position>
-            <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>6d5c92d5cfb38b100138fb251d851c0d</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
-            <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>promote_severity_high</element>
-            <position>3</position>
-            <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>295c92d5cfb38b100138fb251d851c0e</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
-            <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>promote_severity_medium</element>
-            <position>4</position>
-            <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>e15c92d5cfb38b100138fb251d851c0f</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
-            <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>.split</element>
-            <position>5</position>
-            <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>ad5c92d5cfb38b100138fb251d851c0f</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
-            <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
-            <sys_user/>
-            <type>.split</type>
+            <type>annotation</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>promote_queue_actioned</element>
-            <position>6</position>
+            <position>2</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>695c92d5cfb38b100138fb251d851c10</sys_id>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>634d441093485f107319f2336003d6a9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>promote_queue_monitoring</element>
-            <position>7</position>
+            <position>3</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>255c92d5cfb38b100138fb251d851c11</sys_id>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>2f4d441093485f107319f2336003d6a9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>promote_queue_needs_confirmation</element>
-            <position>8</position>
+            <position>4</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-07 07:43:12</sys_created_on>
-            <sys_id>ed5c92d5cfb38b100138fb251d851c11</sys_id>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>e74d441093485f107319f2336003d6aa</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-07 07:43:12</sys_updated_on>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>934d441093485f107319f2336003d66a</element>
+            <position>5</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>a34d441093485f107319f2336003d6ab</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <sys_user/>
+            <type>annotation</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>promote_entity_active</element>
+            <position>6</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>6f4d441093485f107319f2336003d6ab</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>promote_entity_suspicious</element>
+            <position>7</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>2b4d441093485f107319f2336003d6ac</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>promote_entity_parked</element>
+            <position>8</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>e34d441093485f107319f2336003d6ad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>d74d441093485f107319f2336003d66a</element>
+            <position>9</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>af4d441093485f107319f2336003d6ad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <sys_user/>
+            <type>annotation</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>promote_severity_high</element>
+            <position>10</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>e74d441093485f107319f2336003d6c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>promote_severity_medium</element>
+            <position>11</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>a34d441093485f107319f2336003d6c8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Indicator rules" display_value="Indicator rules" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">ddd5850dcf37c7100138fb251d851ce1</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

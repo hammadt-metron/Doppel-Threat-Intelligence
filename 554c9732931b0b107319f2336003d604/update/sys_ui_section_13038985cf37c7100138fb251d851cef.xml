@@ -4,13 +4,13 @@
             <element>api_version</element>
             <position>0</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>d12683a793734b107319f2336003d65a</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>8520ddcc93401f107319f2336003d6cc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>api_key</element>
             <position>1</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>d52683a793734b107319f2336003d65b</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>4120ddcc93401f107319f2336003d6cd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>user_api_key</element>
             <position>2</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>912683a793734b107319f2336003d65c</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>0d20ddcc93401f107319f2336003d6cd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>organisation_code</element>
             <position>3</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>5d2683a793734b107319f2336003d65c</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>c520ddcc93401f107319f2336003d6ce</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>client_id</element>
             <position>4</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>192683a793734b107319f2336003d65d</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>8120ddcc93401f107319f2336003d6cf</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -74,13 +74,13 @@
             <element>client_secret</element>
             <position>5</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>d12683a793734b107319f2336003d65e</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>4d20ddcc93401f107319f2336003d6cf</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -88,13 +88,13 @@
             <element>connectivity_verified</element>
             <position>6</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>ad2683a793734b107319f2336003d65e</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>0920ddcc93401f107319f2336003d6d0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -102,69 +102,41 @@
             <element>.split</element>
             <position>7</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>692683a793734b107319f2336003d65f</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>c120ddcc93401f107319f2336003d6d1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>historical_days</element>
+            <element>last_test_result</element>
             <position>8</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>252683a793734b107319f2336003d660</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>8d20ddcc93401f107319f2336003d6d1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>import_interval_minutes</element>
-            <position>9</position>
-            <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>ed2683a793734b107319f2336003d660</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
-            <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>last_test_result</element>
-            <position>10</position>
-            <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>a92683a793734b107319f2336003d661</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
-            <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>last_tested</element>
-            <position>11</position>
+            <position>9</position>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-14 10:32:12</sys_created_on>
-            <sys_id>652683a793734b107319f2336003d662</sys_id>
+            <sys_created_on>2026-10-15 15:13:35</sys_created_on>
+            <sys_id>4920ddcc93401f107319f2336003d6d2</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">13038985cf37c7100138fb251d851cef</sys_ui_section>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-14 10:32:12</sys_updated_on>
+            <sys_updated_on>2026-10-15 15:13:35</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

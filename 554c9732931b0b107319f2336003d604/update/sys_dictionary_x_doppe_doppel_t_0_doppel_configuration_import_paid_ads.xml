@@ -13,10 +13,10 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Import paid ads</column_label>
+        <column_label>Paid ads</column_label>
         <comments/>
         <create_roles/>
-        <default_value>false</default_value>
+        <default_value>true</default_value>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
@@ -52,13 +52,13 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-07 07:34:52</sys_created_on>
-        <sys_name>Import paid ads</sys_name>
+        <sys_name>Paid ads</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_dictionary_x_doppe_doppel_t_0_doppel_configuration_import_paid_ads</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-07 07:34:52</sys_updated_on>
+        <sys_updated_on>2026-10-15 18:14:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_documentation element="promote_queue_needs_confirmation" label="Promote queue needs confirmation" language="en" table="x_doppe_doppel_t_0_doppel_configuration">
+    <sys_documentation element="promote_queue_needs_confirmation" label="Needs confirmation" language="en" table="x_doppe_doppel_t_0_doppel_configuration">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>promote_queue_needs_confirmation</element>
             <help/>
             <hint/>
-            <label>Promote queue needs confirmation</label>
+            <label>Needs confirmation</label>
             <language>en</language>
             <name>x_doppe_doppel_t_0_doppel_configuration</name>
-            <plural>Promote queue needs confirmations</plural>
+            <plural>Needs confirmations</plural>
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>hammad-thoker</sys_created_by>
             <sys_created_on>2026-10-06 05:23:58</sys_created_on>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_name>Promote queue needs confirmation</sys_name>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>Needs confirmation</sys_name>
             <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
             <sys_policy/>
             <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
             <sys_update_name>sys_documentation_x_doppe_doppel_t_0_doppel_configuration_promote_queue_needs_confirmation_en</sys_update_name>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-06 05:23:58</sys_updated_on>
+            <sys_updated_on>2026-10-15 17:52:38</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>

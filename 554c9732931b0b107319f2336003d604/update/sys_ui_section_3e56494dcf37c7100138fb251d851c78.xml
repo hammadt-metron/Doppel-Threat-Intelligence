@@ -1,72 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_section caption="Threat Lookup" section_id="3e56494dcf37c7100138fb251d851c78" sys_domain="global" table="x_doppe_doppel_t_0_doppel_configuration" version="3" view="">
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <name/>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>2f4d441093485f107319f2336003d6d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <text>Malicious when the Doppel queue state is</text>
+            <type display_value="Section Separator">443e806c0fd30000b12e6903cfe01281</type>
+        </sys_ui_annotation>
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <name/>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:03</sys_created_on>
+            <sys_id>e74d441093485f107319f2336003d6d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:03</sys_updated_on>
+            <text>When an analyst runs Threat Lookup, Doppel's verdict comes from the alert's queue
+  state. Queue states ticked below → Malicious. Any other open Doppel alert →
+  Suspicious. Dismissed or unrelated alerts, or no Doppel alert → Unknown.
+  Doppel never marks a value as Clean.</text>
+            <type display_value="Info Box Blue">753f88a80f930000b12e6903cfe01206</type>
+        </sys_ui_annotation>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>malicious_queue_actioned</element>
+            <element>e74d441093485f107319f2336003d6d3</element>
             <position>0</position>
-            <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
-            <sys_created_on>2026-10-06 12:55:22</sys_created_on>
-            <sys_id>a43adac5cf330b100138fb251d851c11</sys_id>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:04</sys_created_on>
+            <sys_id>a34d441093485f107319f2336003d6e7</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Threat Lookup" display_value="Threat Lookup" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">3e56494dcf37c7100138fb251d851c78</sys_ui_section>
-            <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
-            <sys_updated_on>2026-10-06 12:55:22</sys_updated_on>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:04</sys_updated_on>
+            <sys_user/>
+            <type>annotation</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>2f4d441093485f107319f2336003d6d3</element>
+            <position>1</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:04</sys_created_on>
+            <sys_id>6f4d441093485f107319f2336003d6e7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Threat Lookup" display_value="Threat Lookup" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">3e56494dcf37c7100138fb251d851c78</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:04</sys_updated_on>
+            <sys_user/>
+            <type>annotation</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>malicious_queue_actioned</element>
+            <position>2</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:04</sys_created_on>
+            <sys_id>2b4d441093485f107319f2336003d6e8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Threat Lookup" display_value="Threat Lookup" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">3e56494dcf37c7100138fb251d851c78</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>malicious_queue_taken_down</element>
-            <position>1</position>
-            <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
-            <sys_created_on>2026-10-06 12:55:22</sys_created_on>
-            <sys_id>603adac5cf330b100138fb251d851c12</sys_id>
+            <position>3</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:04</sys_created_on>
+            <sys_id>e34d441093485f107319f2336003d6e9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Threat Lookup" display_value="Threat Lookup" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">3e56494dcf37c7100138fb251d851c78</sys_ui_section>
-            <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
-            <sys_updated_on>2026-10-06 12:55:22</sys_updated_on>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>.split</element>
-            <position>2</position>
-            <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
-            <sys_created_on>2026-10-06 12:55:22</sys_created_on>
-            <sys_id>2c3adac5cf330b100138fb251d851c12</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="Threat Lookup" display_value="Threat Lookup" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">3e56494dcf37c7100138fb251d851c78</sys_ui_section>
-            <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
-            <sys_updated_on>2026-10-06 12:55:22</sys_updated_on>
-            <sys_user/>
-            <type>.split</type>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
             <element>malicious_queue_needs_confirmation</element>
-            <position>3</position>
-            <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
-            <sys_created_on>2026-10-06 12:55:22</sys_created_on>
-            <sys_id>e43adac5cf330b100138fb251d851c13</sys_id>
+            <position>4</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:04</sys_created_on>
+            <sys_id>af4d441093485f107319f2336003d6e9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Threat Lookup" display_value="Threat Lookup" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">3e56494dcf37c7100138fb251d851c78</sys_ui_section>
-            <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
-            <sys_updated_on>2026-10-06 12:55:22</sys_updated_on>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>malicious_queue_monitoring</element>
-            <position>4</position>
-            <sys_created_by>tanvi.karale@metronlabs.com</sys_created_by>
-            <sys_created_on>2026-10-06 12:55:22</sys_created_on>
-            <sys_id>a03adac5cf330b100138fb251d851c14</sys_id>
+            <position>5</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-16 05:00:04</sys_created_on>
+            <sys_id>6b4d441093485f107319f2336003d6ea</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Threat Lookup" display_value="Threat Lookup" name="x_doppe_doppel_t_0_doppel_configuration" sys_domain="global" view="Default view">3e56494dcf37c7100138fb251d851c78</sys_ui_section>
-            <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
-            <sys_updated_on>2026-10-06 12:55:22</sys_updated_on>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-16 05:00:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

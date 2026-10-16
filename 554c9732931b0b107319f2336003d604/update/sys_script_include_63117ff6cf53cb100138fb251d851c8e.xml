@@ -26,11 +26,13 @@ DoppelIOCImport.prototype = {
     // Doppel TI Configuration record; defaults apply when no record exists.
     _cfg: function () {
         if (this._config) return this._config;
+		var ALL_PRODUCTS = ['domains', 'email', 'telco', 'social_media', 'darkweb',
+                            'mobile_apps', 'ecommerce', 'crypto', 'paid_ads'];
         var c = {
             found: false,
             version: 'v1',
             apiKey: '', userKey: '', orgCode: '', clientId: '', clientSecret: '',
-            products: ['domains', 'email', 'telco'],
+			products: ALL_PRODUCTS.slice(),
             historicalDays: 7,
             pageSize: 200,
             promoteQueue: ['needs_confirmation', 'monitoring', 'actioned'],
@@ -50,12 +52,15 @@ DoppelIOCImport.prototype = {
             c.orgCode = String(gr.getValue('organisation_code') || '').trim();
             c.clientId = String(gr.getValue('client_id') || '').trim();
             c.clientSecret = gr.client_secret.getDecryptedValue() || '';
-			c.products = this._checked(gr, {
-                domains: 'import_domains', email: 'import_email', telco: 'import_telco',
-                social_media: 'import_social_media', darkweb: 'import_dark_web',
-                mobile_apps: 'import_mobile_apps', ecommerce: 'import_ecommerce',
-                crypto: 'import_crypto', paid_ads: 'import_paid_ads'
-            });
+			// "Import all Doppel products" ticked → every product; otherwise only the ticked ones
+            c.products = this._isTrue(gr.getValue('import_all_products'))
+                ? ALL_PRODUCTS.slice()
+                : this._checked(gr, {
+                    domains: 'import_domains', email: 'import_email', telco: 'import_telco',
+                    social_media: 'import_social_media', darkweb: 'import_dark_web',
+                    mobile_apps: 'import_mobile_apps', ecommerce: 'import_ecommerce',
+                    crypto: 'import_crypto', paid_ads: 'import_paid_ads'
+                });
 			c.historicalDays = Math.min(parseInt(gr.getValue('historical_days'), 10) || 7, 30);
 			c.promoteQueue = this._checked(gr, {
                 needs_confirmation: 'promote_queue_needs_confirmation',
@@ -844,10 +849,15 @@ DoppelIOCImport.prototype = {
             }
         }
         var token = this._getV2AccessToken();
-        if (token) {
+		if (token) {
             this._v2Token = token;
             this._v2TokenExpiry = now + (86400 - 300) * 1000;
             this._writeTokenCache(c.clientId, token, this._v2TokenExpiry, 0);
+            var until = new GlideDateTime();
+            until.setNumericValue(this._v2TokenExpiry);
+            gs.info('DoppelIOCImport: new v2 access token obtained' +
+                    (forceNew ? ' (testing new credentials)' : ' (no valid cached token)') +
+                    ' | reused until ' + until.getValue() + ' UTC');
         } else if (this._v2RetryAfterMs) {
             this._writeTokenCache(c.clientId, null, 0, now + this._v2RetryAfterMs);
         }
@@ -940,13 +950,13 @@ DoppelIOCImport.prototype = {
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-15 07:29:19</sys_updated_on>
+        <sys_updated_on>2026-10-15 14:57:40</sys_updated_on>
     </sys_script_include>
 </record_update>
