@@ -49,7 +49,7 @@
     if (missing.length) return stop('Required for ' + (v2 ? 'v2' : 'v1') + ': ' + missing.join(', ') + '.');
 
     // Products: only checked when "Import all Doppel products" is unticked
-    if (!isTrue(current.getValue('import_all_products'))) {
+    if (!isTrue(current.getValue('import_all_doppel_products'))) {
         var PRODUCT_FIELDS = ['import_domains', 'import_email', 'import_telco', 'import_social_media', 'import_dark_web',
                               'import_mobile_apps', 'import_ecommerce', 'import_crypto', 'import_paid_ads'];
         var anyProduct = false;
@@ -92,7 +92,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>cb2b8589cf77c7100138fb251d851c3e</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Doppel TI - validate configuration</sys_name>
         <sys_overrides/>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
@@ -100,7 +100,7 @@
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_cb2b8589cf77c7100138fb251d851c3e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-15 18:10:15</sys_updated_on>
+        <sys_updated_on>2026-10-17 18:18:31</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
