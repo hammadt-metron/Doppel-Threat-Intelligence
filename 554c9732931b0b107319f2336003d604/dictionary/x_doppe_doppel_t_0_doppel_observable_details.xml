@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="c017501dcf84d3100138fb251d851c42" label="Doppel Observable Details" max_length="40" name="x_doppe_doppel_t_0_doppel_observable_details" type="collection">
+        <element label="Brand" max_length="100" name="brand" type="string"/>
+        <element label="Queue state" max_length="40" name="queue_state" type="string"/>
+        <element label="Product" max_length="40" name="product" type="string"/>
+        <element label="Domain" max_length="255" name="domain" type="string"/>
+        <element label="Entity state" max_length="40" name="entity_state" type="string"/>
+        <element display="true" label="Observable" mandatory="true" max_length="32" name="observable" reference="sn_ti_observable" reference_cascade_rule="delete" type="reference"/>
+        <element label="Platform" max_length="40" name="platform" type="string"/>
+        <element label="Alert ID" max_length="40" name="alert_id" type="string"/>
+        <element label="Doppel link" max_length="1024" name="doppel_link" type="url"/>
+        <element label="Last activity" max_length="40" name="last_activity" type="string"/>
+        <index name="index">
+            <element name="observable"/>
+        </index>
+    </element>
+</database>

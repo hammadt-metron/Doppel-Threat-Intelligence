@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_ti_source">
+    <sn_ti_source action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <advanced>false</advanced>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <delta_start_time>2026-10-19 08:03:01</delta_start_time>
+        <description>Doppel digital risk protection alerts, imported by the Doppel-Threat-Intelligence app. Used as the source label only; fetching is done by the app's Scheduled Data Import.</description>
+        <endpoint>https://api.doppel.com</endpoint>
+        <entered_run_end/>
+        <entered_run_start/>
+        <entered_time/>
+        <instance/>
+        <integration/>
+        <integration_factory_script><![CDATA[/**
+  * This function serves to construct the integration script.
+  * The integration process record (integrationProcessGr) is provided in the event that stateful information is required. 
+  * The function should return the newly constructed script.  
+  */
+(function(integrationProcessGr){ 
+    // Add any logic here to construct your integration script as necessary.
+    return new sn_sec_cmn.SimpleRESTSecurityDataIntegration();
+})(integrationProcessGr);]]></integration_factory_script>
+        <integration_script display_value="SimpleRESTSecurityDataIntegration">46238ce69f01120034c6b6a0942e70a4</integration_script>
+        <is_oob_template>false</is_oob_template>
+        <max_drift/>
+        <maximum_processing_time>120</maximum_processing_time>
+        <name>Doppel</name>
+        <next_integration/>
+        <offset/>
+        <offset_type>0</offset_type>
+        <processor_factory_script><![CDATA[/**
+  * This function serves to construct the report processor script.
+  * The integration process record (integrationProcessGr) is provided in the event that stateful information is required. 
+  * The function should return the newly constructed script.  
+  */
+(function(integrationProcessGr){ 
+    // Add any logic here to construct your report processor script as necessary.
+    return new sn_ti.SimpleBlocklistProcessor();
+})(integrationProcessGr);]]></processor_factory_script>
+        <repeat_every/>
+        <report_processor_script display_value="SimpleBlocklistProcessor">c64ea81e9f11120034c6b6a0942e7025</report_processor_script>
+        <report_processor_strategy/>
+        <rest_message/>
+        <rest_method/>
+        <run_as display_value="Hammad Thoker">cfa9f19ecfd387100138fb251d851c7c</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_daysofweek/>
+        <run_end/>
+        <run_month/>
+        <run_period/>
+        <run_start>2026-10-19 08:03:01</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>daily</run_type>
+        <run_weekinmonth/>
+        <script><![CDATA[new sn_sec_cmn.SecurityDataIntegrationUtils().addIntegrationRun(current);]]></script>
+        <sn_ti_attack_mode/>
+        <sn_ti_indicator/>
+        <sn_ti_indicator_type/>
+        <sn_ti_observable_type/>
+        <sys_class_name>sn_ti_source</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-19 08:05:19</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>7cf39095cf84d3100138fb251d851cd1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Doppel</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sn_ti_source_7cf39095cf84d3100138fb251d851cd1</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-19 08:05:19</sys_updated_on>
+        <time_zone/>
+        <upgrade_safe>false</upgrade_safe>
+        <use_advanced>false</use_advanced>
+        <use_rest_message>false</use_rest_message>
+        <weight/>
+    </sn_ti_source>
+</record_update>

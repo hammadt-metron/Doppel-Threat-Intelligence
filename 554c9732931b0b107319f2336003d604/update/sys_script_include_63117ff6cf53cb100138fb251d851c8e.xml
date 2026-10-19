@@ -15,7 +15,10 @@ DoppelIOCImport.prototype = {
         this.STAGING_TABLE = 'x_doppe_doppel_t_0_staging';
         this.CONFIG_TABLE = 'x_doppe_doppel_t_0_doppel_configuration';
         this.NO_MATCH_TEXT = 'No Doppel alert for this value';
+        this.DETAILS_TABLE = 'x_doppe_doppel_t_0_doppel_observable_details';
+        this.SOURCE_NAME = 'Doppel';   // Threat Intelligence Source record (sn_ti_source) shipped with the app
         this._config = null;
+        this._doppelSourceId = null;
     },
 
     // ---------------------------------------------------------------
@@ -266,7 +269,8 @@ DoppelIOCImport.prototype = {
             source: alert.source || '',
             notes: alert.notes || '',
             created_at: alert.created_at || '',
-            last_activity_timestamp: alert.last_activity_timestamp || '',
+            // the list API sends last_activity_timestamp; the single-alert API (GET /alert) sends last_activity
+            last_activity_timestamp: alert.last_activity_timestamp || alert.last_activity || '',
             doppel_link: alert.doppel_link || '',
             screenshot_url: alert.screenshot_url || '',
             message: alert.message || '',
@@ -293,28 +297,46 @@ DoppelIOCImport.prototype = {
     // ---------------------------------------------------------------
 
 	searchLocal: function (value) {
-        var P = 'x_doppe_doppel_t_0_';
+        // Doppel's view of this value, from the Doppel Observable Details table (one row per observable)
         var obs = new GlideRecord('sn_ti_observable');
         obs.addQuery('value', value);
-        obs.addQuery(P + 'doppel_owned', true);
-        obs.addNotNullQuery(P + 'alert_id');
         obs.setLimit(1);
         obs.query();
         if (!obs.next()) return null;
-        var link = new GlideRecord('sn_ti_m2m_observable_indicator');
-        link.addQuery('observable', obs.getUniqueValue());
-        link.addQuery('indicator.' + P + 'doppel_owned', true);
-        link.setLimit(1);
-        link.query();
+        var obsId = obs.getUniqueValue();
+
+        var det = new GlideRecord(this.DETAILS_TABLE);
+        det.addQuery('observable', obsId);
+        det.addNotNullQuery('alert_id');
+        det.setLimit(1);
+        det.query();
+        if (!det.next()) return null;
+
+        // has_indicator: a linked indicator that Doppel owns (Indicator Source row for the Doppel source)
+        var hasIndicator = false;
+        var srcId = this._getDoppelSourceId();
+        if (srcId) {
+            var link = new GlideRecord('sn_ti_m2m_observable_indicator');
+            link.addQuery('observable', obsId);
+            link.query();
+            while (!hasIndicator && link.next()) {
+                var is = new GlideRecord('sn_ti_m2m_indicator_source');
+                is.addQuery('indicator', link.getValue('indicator'));
+                is.addQuery('source', srcId);
+                is.setLimit(1);
+                is.query();
+                hasIndicator = is.hasNext();
+            }
+        }
         return {
-            observable_sys_id: obs.getUniqueValue(),
-            has_indicator: link.hasNext(),
-            alert_id: obs.getValue(P + 'alert_id') || '',
-            brand: obs.getValue(P + 'brand') || '',
-            product_type: obs.getValue(P + 'product') || '',
-            queue_state: obs.getValue(P + 'queue_state') || '',
-            entity_state: obs.getValue(P + 'entity_state') || '',
-            doppel_link: obs.getValue(P + 'doppel_link') || ''
+            observable_sys_id: obsId,
+            has_indicator: hasIndicator,
+            alert_id: det.getValue('alert_id') || '',
+            brand: det.getValue('brand') || '',
+            product_type: det.getValue('product') || '',
+            queue_state: det.getValue('queue_state') || '',
+            entity_state: det.getValue('entity_state') || '',
+            doppel_link: det.getValue('doppel_link') || ''
         };
     },
 
@@ -737,10 +759,12 @@ DoppelIOCImport.prototype = {
         var r = this.getLatestDoppelResult(obsId);
         if (r && r.getValue('external_link')) return r.getValue('external_link');
 
-        // Fallback: Doppel link stored on the imported observable
-        var obs = new GlideRecord('sn_ti_observable');
-        if (obs.get(obsId)) return obs.getValue('x_doppe_doppel_t_0_doppel_link') || '';
-        return '';
+        // Fallback: Doppel link from the import (Doppel Observable Details)
+        var det = new GlideRecord(this.DETAILS_TABLE);
+        det.addQuery('observable', obsId);
+        det.setLimit(1);
+        det.query();
+        return det.next() ? (det.getValue('doppel_link') || '') : '';
     },
 
     canSubmitToDoppel: function (obsGr) {
@@ -777,6 +801,97 @@ DoppelIOCImport.prototype = {
         gr.addQuery('name', 'Doppel');
         gr.query();
         return gr.next() ? gr.getUniqueValue() : '';
+    },
+
+    // ---------------------------------------------------------------
+    // Doppel ownership and details
+    // Ownership uses the platform source tables (sn_ti_observable_source,
+    // sn_ti_m2m_indicator_source) with the "Doppel" sn_ti_source record.
+    // Doppel's alert details live in our own table (one row per observable).
+    // ---------------------------------------------------------------
+
+    _getDoppelSourceId: function () {
+        if (this._doppelSourceId !== null) return this._doppelSourceId;
+        var gr = new GlideRecord('sn_ti_source');
+        gr.addQuery('name', this.SOURCE_NAME);
+        gr.setLimit(1);
+        gr.query();
+        this._doppelSourceId = gr.next() ? gr.getUniqueValue() : '';
+        if (!this._doppelSourceId)
+            gs.error('DoppelIOCImport: Threat Intelligence Source "' + this.SOURCE_NAME + '" not found; source rows not written');
+        return this._doppelSourceId;
+    },
+
+    // d = { alert_id, brand, product, platform, queue_state, entity_state, last_activity, domain, doppel_link }
+    recordDoppelObservable: function (obsId, d) {
+        if (!obsId) return;
+        d = d || {};
+
+        // 1. Ownership + alert ID: one Observable Source row per observable for the Doppel source
+        var srcId = this._getDoppelSourceId();
+        if (srcId) {
+            var os = new GlideRecord('sn_ti_observable_source');
+            os.addQuery('observable', obsId);
+            os.addQuery('source', srcId);
+            os.setLimit(1);
+            os.query();
+            if (os.next()) {
+                if (os.getValue('id') != (d.alert_id || '')) {
+                    os.setValue('id', d.alert_id || '');
+                    os.update();
+                }
+            } else {
+                os.initialize();
+                os.setValue('observable', obsId);
+                os.setValue('source', srcId);
+                os.setValue('id', d.alert_id || '');
+                if (!os.insert()) gs.error('DoppelIOCImport: could not create observable source row for ' + obsId);
+            }
+        }
+
+        // 2. Doppel details: one row per observable (latest alert wins)
+        var det = new GlideRecord(this.DETAILS_TABLE);
+        det.addQuery('observable', obsId);
+        det.setLimit(1);
+        det.query();
+        var isNew = !det.next();
+        if (isNew) {
+            det.initialize();
+            det.setValue('observable', obsId);
+        }
+        var FIELDS = ['alert_id', 'brand', 'product', 'platform', 'queue_state', 'entity_state',
+                      'last_activity', 'domain', 'doppel_link'];
+        for (var i = 0; i < FIELDS.length; i++) det.setValue(FIELDS[i], d[FIELDS[i]] || '');
+        if (isNew) {
+            if (!det.insert()) gs.error('DoppelIOCImport: could not create Doppel details row for ' + obsId);
+        } else {
+            det.update(); // skipped by the platform when nothing changed
+        }
+    },
+
+    // Ownership of an indicator: one Indicator Source row for the Doppel source.
+    // firstSeen / lastSeen: 'yyyy-MM-dd'
+    recordDoppelIndicator: function (indicatorId, firstSeen, lastSeen) {
+        var srcId = this._getDoppelSourceId();
+        if (!indicatorId || !srcId) return;
+        var is = new GlideRecord('sn_ti_m2m_indicator_source');
+        is.addQuery('indicator', indicatorId);
+        is.addQuery('source', srcId);
+        is.setLimit(1);
+        is.query();
+        var isNew = !is.next();
+        if (isNew) {
+            is.initialize();
+            is.setValue('indicator', indicatorId);
+            is.setValue('source', srcId);
+        }
+        if (firstSeen && !is.getValue('first_seen')) is.setValue('first_seen', firstSeen);
+        if (lastSeen) is.setValue('last_seen', lastSeen);
+        if (isNew) {
+            if (!is.insert()) gs.error('DoppelIOCImport: could not create indicator source row for ' + indicatorId);
+        } else {
+            is.update();
+        }
     },
 
     // ---------------------------------------------------------------
@@ -950,13 +1065,13 @@ DoppelIOCImport.prototype = {
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>41</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-17 18:13:24</sys_updated_on>
+        <sys_updated_on>2026-10-19 09:29:57</sys_updated_on>
     </sys_script_include>
 </record_update>

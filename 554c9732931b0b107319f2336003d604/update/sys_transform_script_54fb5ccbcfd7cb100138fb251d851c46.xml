@@ -59,10 +59,28 @@
         obs.setValue(F.lastActivity, source.u_last_activity_timestamp.toString());
         obs.setValue(F.domain, rootDomain);
 
+        var obsSysId = '';
         if (isNewObs) {
-            if (!obs.insert()) log.error('Failed to insert observable for entity: ' + entity);
+            obsSysId = obs.insert();
+            if (!obsSysId) log.error('Failed to insert observable for entity: ' + entity);
         } else {
             obs.update(); // skipped by the platform when nothing changed
+            obsSysId = obs.getUniqueValue();
+        }
+
+        // NEW (refactor, dual-write): Doppel source row + Doppel details row
+        if (obsSysId) {
+            imp.recordDoppelObservable(obsSysId, {
+                alert_id: alertId,
+                brand: source.u_brand.toString(),
+                product: product,
+                platform: source.u_platform.toString(),
+                queue_state: source.u_queue_state.toString(),
+                entity_state: source.u_entity_state.toString(),
+                last_activity: source.u_last_activity_timestamp.toString(),
+                domain: rootDomain,
+                doppel_link: source.u_doppel_link.toString()
+            });
         }
     }
 
@@ -106,14 +124,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 12:20:29</sys_created_on>
         <sys_id>54fb5ccbcfd7cb100138fb251d851c46</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>onBefore</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_transform_script_54fb5ccbcfd7cb100138fb251d851c46</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-09 07:33:12</sys_updated_on>
+        <sys_updated_on>2026-10-19 08:52:02</sys_updated_on>
         <when>onBefore</when>
     </sys_transform_script>
 </record_update>
