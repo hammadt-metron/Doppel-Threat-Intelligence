@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="d5c29ffacf1b8b100138fb251d851c9b" label="Indicator of Compromise" max_length="40" name="sn_ti_indicator" text_index="true" type="collection">
-        <element label="Doppel owned" max_length="40" name="x_doppe_doppel_t_0_doppel_owned" type="boolean"/>
-    </element>
-</database>

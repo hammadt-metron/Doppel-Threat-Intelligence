@@ -5,7 +5,6 @@
         <order>100</order>
         <script><![CDATA[(function runTransformScript(source, map, log, target) {
 
-    var RELATED_INDICATOR_FIELD = 'x_doppe_doppel_t_0_related_indicator';
     if (!target || !target.sys_id) {
         log.info('Doppel onAfter: no target record (row was likely ignored onBefore) — skipping.');
         return;
@@ -36,7 +35,7 @@
         }
     }
 
-    // NEW (refactor, dual-write): mark the indicator as Doppel's (sn_ti_m2m_indicator_source)
+    // Mark the indicator as Doppel's (Indicator Source row, sn_ti_m2m_indicator_source)
     var firstSeen = source.u_created_at ? source.u_created_at.toString().substring(0, 10) : '';
     var lastSeen = source.u_last_activity_timestamp ? source.u_last_activity_timestamp.toString().substring(0, 10) : '';
     new x_doppe_doppel_t_0.DoppelIOCImport().recordDoppelIndicator(indicatorSysId, firstSeen, lastSeen);
@@ -122,14 +121,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 12:21:08</sys_created_on>
         <sys_id>6a1cd00fcfd7cb100138fb251d851c91</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>onAfter</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_transform_script_6a1cd00fcfd7cb100138fb251d851c91</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-19 08:52:31</sys_updated_on>
+        <sys_updated_on>2026-10-19 10:52:55</sys_updated_on>
         <when>onAfter</when>
     </sys_transform_script>
 </record_update>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysrule_view">
+    <sysrule_view action="DELETE">
+        <active>false</active>
+        <advanced>false</advanced>
+        <condition table="sn_ti_indicator">x_doppe_doppel_t_0_doppel_owned=true^EQ<item endquery="false" field="x_doppe_doppel_t_0_doppel_owned" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <description/>
+        <device_type>browser</device_type>
+        <match_conditions>ALL</match_conditions>
+        <name>Doppel TI indicator view rule</name>
+        <order>100</order>
+        <overrides_user_preference>true</overrides_user_preference>
+        <script><![CDATA[(function overrideView(view, is_list) {
+
+	// Add your code here
+	answer = null;  // set the new view to answer
+
+})(view, is_list);]]></script>
+        <sys_class_name>sysrule_view</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-07 10:33:47</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>8d434fd1cf3b8b100138fb251d851c91</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Doppel TI indicator view rule</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sysrule_view_8d434fd1cf3b8b100138fb251d851c91</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-19 09:48:35</sys_updated_on>
+        <table>sn_ti_indicator</table>
+        <view>doppel_ti</view>
+    </sysrule_view>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</application>
+        <file_path/>
+        <instance_id>d60d8da5ebdab610cbbffceacad0cd56</instance_id>
+        <instance_name>ven08841</instance_name>
+        <name>sysrule_view_8d434fd1cf3b8b100138fb251d851c91</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sysrule_view"&gt;&lt;sysrule_view action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;advanced&gt;false&lt;/advanced&gt;&lt;condition table="sn_ti_indicator"&gt;x_doppe_doppel_t_0_doppel_owned=true^EQ&lt;item endquery="false" field="x_doppe_doppel_t_0_doppel_owned" goto="false" newquery="false" operator="=" or="false" value="true"/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/condition&gt;&lt;description/&gt;&lt;device_type&gt;browser&lt;/device_type&gt;&lt;match_conditions&gt;ALL&lt;/match_conditions&gt;&lt;name&gt;Doppel TI indicator view rule&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;overrides_user_preference&gt;true&lt;/overrides_user_preference&gt;&lt;script&gt;&lt;![CDATA[(function overrideView(view, is_list) {
+
+	// Add your code here
+	answer = null;  // set the new view to answer
+
+})(view, is_list);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sysrule_view&lt;/sys_class_name&gt;&lt;sys_created_by&gt;hammad-thoker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-10-07 10:33:47&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;8d434fd1cf3b8b100138fb251d851c91&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Doppel TI indicator view rule&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0"&gt;554c9732931b0b107319f2336003d604&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Doppel-Threat-Intelligence"&gt;554c9732931b0b107319f2336003d604&lt;/sys_scope&gt;&lt;sys_update_name&gt;sysrule_view_8d434fd1cf3b8b100138fb251d851c91&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;hammad-thoker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-10-19 09:48:35&lt;/sys_updated_on&gt;&lt;table&gt;sn_ti_indicator&lt;/table&gt;&lt;view&gt;doppel_ti&lt;/view&gt;&lt;/sysrule_view&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-350590228</payload_hash>
+        <record_name>Doppel TI indicator view rule</record_name>
+        <reverted_from/>
+        <source>fd2b7fbe937bc3107319f2336003d638</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-19 09:48:35</sys_created_on>
+        <sys_id>5b1c6099cf48d3100138fb251d851c53</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a153901b9f0000001</sys_recorded_at>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-19 09:48:35</sys_updated_on>
+        <type>View Rule</type>
+        <update_guid>1b1c60990248d31082e74d5e73f45752</update_guid>
+        <update_guid_history>1b1c60990248d31082e74d5e73f45752:-350590228,936e1c61de334b1027156d9a75ed527b:1961879595,ee4e5861c0334b107a279c9fd3869f91:-350590228,906387d5c8f78b10942b817f0b982bd8:1961879595</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-19 11:21:46</sys_created_on>
+        <sys_db_object display_value="" name="sysrule_view">sysrule_view</sys_db_object>
+        <sys_id>b0cf418261da4048a02f67a9dc7f1c40</sys_id>
+        <sys_metadata>8d434fd1cf3b8b100138fb251d851c91</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Doppel TI indicator view rule</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_parent display_value="Sn Ti Indicator">d5c29ffacf1b8b100138fb251d851c9b</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_scope_delete display_value="">36a8be0b3d234e28930356d857d36840</sys_scope_delete>
+        <sys_update_name>sysrule_view_8d434fd1cf3b8b100138fb251d851c91</sys_update_name>
+        <sys_update_version display_value="sysrule_view_8d434fd1cf3b8b100138fb251d851c91">5b1c6099cf48d3100138fb251d851c53</sys_update_version>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-19 11:21:46</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

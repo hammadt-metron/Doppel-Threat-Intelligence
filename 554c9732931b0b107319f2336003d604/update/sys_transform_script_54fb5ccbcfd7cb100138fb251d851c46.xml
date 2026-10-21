@@ -15,18 +15,6 @@
 	// Observable: only for products that are real IOCs (see ingest_products)
     var entity = source.u_entity ? source.u_entity.toString() : '';
     if (entity && ingested) {
-        var F = {   // observable column names (check against sys_dictionary)
-            owned: 'x_doppe_doppel_t_0_doppel_owned',
-            alertId: 'x_doppe_doppel_t_0_alert_id',
-            brand: 'x_doppe_doppel_t_0_brand',
-            product: 'x_doppe_doppel_t_0_product',
-            platform: 'x_doppe_doppel_t_0_platform',
-            queue: 'x_doppe_doppel_t_0_queue_state',
-            entityState: 'x_doppe_doppel_t_0_entity_state',
-            link: 'x_doppe_doppel_t_0_doppel_link',
-            lastActivity: 'x_doppe_doppel_t_0_last_activity',
-            domain: 'x_doppe_doppel_t_0_domain'
-        };
         var obs = new GlideRecord('sn_ti_observable');
         obs.addQuery('value', entity);
         obs.query();
@@ -38,7 +26,6 @@
             }
             obs.setValue('value', entity);
             obs.setValue('finding', 'Suspicious');
-            obs.setValue(F.owned, true);
         }
 
         // Root domain from entity_content (domains alerts only)
@@ -48,27 +35,15 @@
             if (ec && ec.root_domain && ec.root_domain.domain) rootDomain = String(ec.root_domain.domain);
         } catch (eEc) { /* unparseable entity_content: leave domain empty */ }
 
-        // Doppel details from the latest alert for this value
-        obs.setValue(F.alertId, alertId);
-        obs.setValue(F.brand, source.u_brand.toString());
-        obs.setValue(F.product, product);
-        obs.setValue(F.platform, source.u_platform.toString());
-        obs.setValue(F.queue, source.u_queue_state.toString());
-        obs.setValue(F.entityState, source.u_entity_state.toString());
-        obs.setValue(F.link, source.u_doppel_link.toString());
-        obs.setValue(F.lastActivity, source.u_last_activity_timestamp.toString());
-        obs.setValue(F.domain, rootDomain);
-
         var obsSysId = '';
         if (isNewObs) {
             obsSysId = obs.insert();
             if (!obsSysId) log.error('Failed to insert observable for entity: ' + entity);
         } else {
-            obs.update(); // skipped by the platform when nothing changed
             obsSysId = obs.getUniqueValue();
         }
 
-        // NEW (refactor, dual-write): Doppel source row + Doppel details row
+        // Doppel ownership (Observable Source row) + Doppel details row, latest alert wins
         if (obsSysId) {
             imp.recordDoppelObservable(obsSysId, {
                 alert_id: alertId,
@@ -109,8 +84,6 @@
         return;
     }
 
-	target.x_doppe_doppel_t_0_doppel_owned = true;
-
     var created = source.u_created_at ? source.u_created_at.toString().substring(0, 10) : '';
     var lastAct = source.u_last_activity_timestamp ? source.u_last_activity_timestamp.toString().substring(0, 10) : '';
     if (created && !target.first_seen) target.first_seen = created;
@@ -124,14 +97,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 12:20:29</sys_created_on>
         <sys_id>54fb5ccbcfd7cb100138fb251d851c46</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>onBefore</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_transform_script_54fb5ccbcfd7cb100138fb251d851c46</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-19 08:52:02</sys_updated_on>
+        <sys_updated_on>2026-10-19 10:52:27</sys_updated_on>
         <when>onBefore</when>
     </sys_transform_script>
 </record_update>
