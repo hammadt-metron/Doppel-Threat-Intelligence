@@ -6,20 +6,20 @@
         <effective_weight>1</effective_weight>
         <more_info_visited>false</more_info_visited>
         <previous_status>0</previous_status>
-        <progress>100</progress>
-        <related_log_entry display_value="2026-10-06 05:07:24">463f8e8dcfbfc7100138fb251d851c90</related_log_entry>
-        <status>2</status>
+        <progress>33.3333333</progress>
+        <related_log_entry display_value="2026-10-19 06:43:49">01f1e599cf0017100138fb251d851cdc</related_log_entry>
+        <status>1</status>
         <sys_class_name>gsw_status_of_content</sys_class_name>
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-06 10:35:16</sys_created_on>
         <sys_id>e02a758193b387107319f2336003d6b3</sys_id>
-        <sys_mod_count>44</sys_mod_count>
-        <sys_name>2</sys_name>
+        <sys_mod_count>60</sys_mod_count>
+        <sys_name>1</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>gsw_status_of_content_e02a758193b387107319f2336003d6b3</sys_update_name>
-        <sys_updated_by>tanvi.karale@metronlabs.com</sys_updated_by>
-        <sys_updated_on>2026-10-06 12:07:24</sys_updated_on>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-19 13:43:49</sys_updated_on>
     </gsw_status_of_content>
 </record_update>
