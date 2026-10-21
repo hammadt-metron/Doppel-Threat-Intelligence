@@ -3,122 +3,137 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>observable</element>
-            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">42ae2891cf88d3100138fb251d851cb8</list_id>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
-            <sys_id>02ae2891cf88d3100138fb251d851cb9</sys_id>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>ddf496b5cf801b100138fb251d851c33</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>alert_id</element>
-            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">42ae2891cf88d3100138fb251d851cb8</list_id>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
-            <sys_id>86ae2891cf88d3100138fb251d851cb9</sys_id>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>55f496b5cf801b100138fb251d851c34</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>brand</element>
-            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">42ae2891cf88d3100138fb251d851cb8</list_id>
+            <element>observable.type</element>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
-            <sys_id>0eae2891cf88d3100138fb251d851cb9</sys_id>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>d9f496b5cf801b100138fb251d851c34</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>product</element>
-            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">42ae2891cf88d3100138fb251d851cb8</list_id>
+            <element>brand</element>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
-            <sys_id>82ae2891cf88d3100138fb251d851cba</sys_id>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>51f496b5cf801b100138fb251d851c35</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>queue_state</element>
-            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">42ae2891cf88d3100138fb251d851cb8</list_id>
+            <element>product</element>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
             <sum>false</sum>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
-            <sys_id>0aae2891cf88d3100138fb251d851cba</sys_id>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>d5f496b5cf801b100138fb251d851c35</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>entity_state</element>
-            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">42ae2891cf88d3100138fb251d851cb8</list_id>
+            <element>queue_state</element>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>5</position>
             <sum>false</sum>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
-            <sys_id>8eae2891cf88d3100138fb251d851cba</sys_id>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>5df496b5cf801b100138fb251d851c35</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>last_activity</element>
-            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">42ae2891cf88d3100138fb251d851cb8</list_id>
+            <element>entity_state</element>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>6</position>
             <sum>false</sum>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
-            <sys_id>06ae2891cf88d3100138fb251d851cbb</sys_id>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>d1f496b5cf801b100138fb251d851c36</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>doppel_link</element>
-            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">42ae2891cf88d3100138fb251d851cb8</list_id>
+            <element>last_activity</element>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>7</position>
             <sum>false</sum>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
-            <sys_id>8aae2891cf88d3100138fb251d851cbb</sys_id>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>59f496b5cf801b100138fb251d851c36</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>doppel_link</element>
+            <list_id display_value="x_doppe_doppel_t_0_doppel_observable_details" element="NULL" name="x_doppe_doppel_t_0_doppel_observable_details" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">5df496b5cf801b100138fb251d851c32</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
+            <sys_id>ddf496b5cf801b100138fb251d851c36</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -132,10 +147,10 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>hammad-thoker</sys_created_by>
-            <sys_created_on>2026-10-19 09:59:41</sys_created_on>
+            <sys_created_on>2026-10-21 06:43:37</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>42ae2891cf88d3100138fb251d851cb8</sys_id>
+            <sys_id>5df496b5cf801b100138fb251d851c32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_doppe_doppel_t_0_doppel_observable_details</sys_name>
             <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
@@ -143,7 +158,7 @@
             <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
             <sys_update_name>sys_ui_list_x_doppe_doppel_t_0_doppel_observable_details_null</sys_update_name>
             <sys_updated_by>hammad-thoker</sys_updated_by>
-            <sys_updated_on>2026-10-19 09:59:41</sys_updated_on>
+            <sys_updated_on>2026-10-21 06:43:37</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>

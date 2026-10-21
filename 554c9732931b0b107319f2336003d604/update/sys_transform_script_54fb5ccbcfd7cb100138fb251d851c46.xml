@@ -54,7 +54,9 @@
                 entity_state: source.u_entity_state.toString(),
                 last_activity: source.u_last_activity_timestamp.toString(),
                 domain: rootDomain,
-                doppel_link: source.u_doppel_link.toString()
+                doppel_link: source.u_doppel_link.toString(),
+                audit_logs: source.u_audit_logs.toString(),        // latest 5 entries (JSON)
+                screenshot_url: source.u_screenshot_url.toString() // signed link, valid ~1 h after import
             });
         }
     }
@@ -97,14 +99,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 12:20:29</sys_created_on>
         <sys_id>54fb5ccbcfd7cb100138fb251d851c46</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>onBefore</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_transform_script_54fb5ccbcfd7cb100138fb251d851c46</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-19 10:52:27</sys_updated_on>
+        <sys_updated_on>2026-10-21 06:41:38</sys_updated_on>
         <when>onBefore</when>
     </sys_transform_script>
 </record_update>

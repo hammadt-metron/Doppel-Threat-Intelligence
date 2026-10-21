@@ -224,6 +224,34 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>audit_logs</element>
+            <position>16</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-21 06:39:55</sys_created_on>
+            <sys_id>8b149635cf801b100138fb251d851ccc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_observable_details" sys_domain="global" view="Default view">09f8b459cfc8d3100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-21 06:39:55</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>screenshot_url</element>
+            <position>17</position>
+            <sys_created_by>hammad-thoker</sys_created_by>
+            <sys_created_on>2026-10-21 06:40:32</sys_created_on>
+            <sys_id>5c445e35cf801b100138fb251d851c92</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_doppe_doppel_t_0_doppel_observable_details" sys_domain="global" view="Default view">09f8b459cfc8d3100138fb251d851cfa</sys_ui_section>
+            <sys_updated_by>hammad-thoker</sys_updated_by>
+            <sys_updated_on>2026-10-21 06:40:32</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>
