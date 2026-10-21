@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_doppe_doppel_t_0_App_Privacy_Policy.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<div style="max-width:960px;padding:16px 24px;font-size:14px;line-height:1.5;">
+  <h1>App Privacy Policy</h1>
+  <p>This privacy policy describes how data is handled by the Doppel Threat Intelligence app for ServiceNow. It is provided for transparency in line with data privacy and regulatory standards.</p>
+
+  <h2>1. What data is collected</h2>
+  <ul>
+    <li>Threat alerts from the customer's Doppel account: alert ID, the reported value (URL, domain, email address, phone number, social media profile), brand, product, platform, queue and entity state, severity, score, notes, tags, timestamps, a link to Doppel Vision, a screenshot link, and the latest entries of the alert's audit history.</li>
+    <li>Details Doppel collected about the reported value, for example domain registration and hosting data, social media profile details, or marketplace listing details.</li>
+    <li>For dark web alerts, the data Doppel reports for the finding, which can include leaked email addresses, credentials and partial payment card data.</li>
+    <li>Names or email addresses of people who worked on an alert in Doppel (for example assignee, uploader, audit history).</li>
+    <li>Configuration data: Doppel API credentials (API key and user API key, or OAuth client ID and client secret), an access token, and import settings.</li>
+  </ul>
+
+  <h2>2. When data is sent to Doppel</h2>
+  <p>Data is sent from ServiceNow to Doppel only when:</p>
+  <ul>
+    <li>the app imports alerts on its schedule, or tests the connection (read requests);</li>
+    <li>an analyst runs Threat Lookup on an observable (the observable value is sent to Doppel);</li>
+    <li>a playbook uses the Doppel actions to look up, create or update an alert (the value, brand, state changes, comments or tags provided in the playbook are sent to Doppel).</li>
+  </ul>
+
+  <h2>3. How the data is used</h2>
+  <ul>
+    <li>To create and update threat intelligence observables, indicators, indicator metadata and threat lookup results in ServiceNow.</li>
+    <li>To keep indicators in line with Doppel's alert lifecycle (for example deactivating taken-down threats).</li>
+    <li>To give analysts Doppel's verdict and a link to the alert in Doppel Vision.</li>
+    <li>To authenticate requests to the Doppel API.</li>
+  </ul>
+
+  <h2>4. Whether the data is shared with other parties</h2>
+  <p>Data is exchanged only between the customer's ServiceNow instance and the customer's Doppel account. It is not shared with any other third party.</p>
+
+  <h2>5. How the data is transferred, stored and secured</h2>
+  <ul>
+    <li>All communication with Doppel uses HTTPS.</li>
+    <li>Credentials and access tokens are stored in encrypted fields in ServiceNow and are never shown after entry.</li>
+    <li>Imported data is stored in the customer's ServiceNow instance and is subject to the instance's access controls; the app's data is visible only to users with the app's roles.</li>
+    <li>Indicators are deactivated rather than deleted, so history is kept until the customer removes it.</li>
+    <li>Authentication with Doppel uses API keys or OAuth 2.0 client credentials.</li>
+  </ul>
+
+  <p>This policy may be updated to reflect changes in data handling or regulatory requirements. Customers are advised to review it regularly.</p>
+</div>
+</j:jelly>]]></html>
+        <name>App_Privacy_Policy</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-21 07:08:06</sys_created_on>
+        <sys_id>b7c9d2f1cfc01b100138fb251d851c82</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>App_Privacy_Policy</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_ui_page_b7c9d2f1cfc01b100138fb251d851c82</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-21 07:08:06</sys_updated_on>
+    </sys_ui_page>
+</record_update>
