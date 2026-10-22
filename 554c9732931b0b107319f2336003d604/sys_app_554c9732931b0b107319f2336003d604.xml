@@ -13,7 +13,7 @@
         <license_category>none</license_category>
         <license_definition/>
         <license_model>none</license_model>
-        <logo/>
+        <logo>a834af82cf889b100138fb251d851c7e</logo>
         <menu/>
         <name>Doppel-Threat-Intelligence</name>
         <package_json/>
@@ -33,9 +33,9 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 07:42:02</sys_created_on>
         <sys_id>554c9732931b0b107319f2336003d604</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-21 09:01:33</sys_updated_on>
+        <sys_updated_on>2026-10-22 07:08:18</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
@@ -45,4 +45,44 @@
         <version>1.0.6</version>
     </sys_app>
     <sys_translated_text action="delete_multiple" query="documentkey=554c9732931b0b107319f2336003d604"/>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#3366</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>logo</file_name>
+        <hash>76f73b5c3bff62134de6412cf71070755e4ec6bb917cf0d79ae98a4572e25868</hash>
+        <image_height>400</image_height>
+        <image_width>400</image_width>
+        <size_bytes>3893</size_bytes>
+        <size_compressed>3842</size_compressed>
+        <state>available</state>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-22 07:08:18</sys_created_on>
+        <sys_id>a834af82cf889b100138fb251d851c7e</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-22 07:08:18</sys_updated_on>
+        <table_name>ZZ_YYsys_app</table_name>
+        <table_sys_id>554c9732931b0b107319f2336003d604</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAA/w==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="a834af82cf889b100138fb251d851c7e">a834af82cf889b100138fb251d851c7e</sys_attachment>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-22 07:08:18</sys_created_on>
+        <sys_id>e834af82cf889b100138fb251d851c7e</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>5112</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="a834af82cf889b100138fb251d851c7e">a834af82cf889b100138fb251d851c7e</sys_attachment>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-22 07:08:18</sys_created_on>
+        <sys_id>ac34af82cf889b100138fb251d851c7e</sys_id>
+    </sys_attachment_doc>
 </record_update>

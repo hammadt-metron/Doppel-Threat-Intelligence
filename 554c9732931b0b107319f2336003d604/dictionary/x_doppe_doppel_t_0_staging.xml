@@ -17,7 +17,7 @@
         <element attributes="edge_encryption_enabled=true,import_attribute_name=screenshot_url" label="Screenshot URL" max_length="4000" name="u_screenshot_url" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=source" label="Source" max_length="100" name="u_source" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=tags" label="Tags" max_length="4000" name="u_tags" type="string"/>
-        <element attributes="edge_encryption_enabled=true,import_attribute_name=audit_logs" label="Audit Logs" max_length="4000" name="u_audit_logs" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=audit_logs" label="Audit Logs" max_length="1000000" name="u_audit_logs" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=product" label="Product" max_length="100" name="u_product" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=notes" label="Notes" max_length="4000" name="u_notes" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=created_at" label="Created At" max_length="40" name="u_created_at" type="string"/>

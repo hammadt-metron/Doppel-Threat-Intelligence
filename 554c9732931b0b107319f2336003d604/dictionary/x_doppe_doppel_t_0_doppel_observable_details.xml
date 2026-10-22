@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="c017501dcf84d3100138fb251d851c42" label="Doppel Observable Details" max_length="40" name="x_doppe_doppel_t_0_doppel_observable_details" type="collection">
         <element label="Brand" max_length="100" name="brand" type="string"/>
-        <element label="Audit logs" max_length="4000" name="audit_logs" type="string"/>
+        <element label="Audit logs" max_length="1000000" name="audit_logs" type="string"/>
         <element label="Queue state" max_length="40" name="queue_state" type="string"/>
         <element label="Product" max_length="40" name="product" type="string"/>
         <element label="Domain" max_length="255" name="domain" type="string"/>
