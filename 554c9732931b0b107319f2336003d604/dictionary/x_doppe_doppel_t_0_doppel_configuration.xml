@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="564660c5cf33c7100138fb251d851c5e" label="Doppel TI Configuration" max_length="40" name="x_doppe_doppel_t_0_doppel_configuration" type="collection">
+        <element label="Name" mandatory="true" max_length="100" name="name" type="string"/>
         <element label="Last test result" max_length="500" name="last_test_result" read_only="true" type="string"/>
         <element label="V2 token meta" max_length="255" name="v2_token_meta" type="string"/>
         <element default="true" label="High" max_length="40" name="promote_severity_high" type="boolean"/>
