@@ -207,12 +207,6 @@ DoppelIOCImport.prototype = {
         return this._cfg().products.indexOf(String(product || '').toLowerCase()) > -1;
     },
 
-    fetchAndTransform: function (maxPages) {
-        // Staging rows are transformed synchronously as they are inserted (import set mode: Synchronous),
-        // so no separate transform call and no Global-scope helper is needed.
-        return this.importAlerts(maxPages);
-    },
-
     _fetchPage: function (page, since, pageSize) {
         var headers = this._getAuthHeaders();
         if (!headers) {
@@ -741,39 +735,6 @@ DoppelIOCImport.prototype = {
         return false;
     },
 
-    getLatestDoppelResult: function (obsId) {
-        var r = new GlideRecord('sn_ti_lookup_result');
-        r.addQuery('observable', obsId);
-        var vendorId = this._getDoppelIntegrationItemId();
-        if (vendorId) {
-            r.addQuery('vendor', vendorId);
-        } else {
-            r.addQuery('source_engine', 'Doppel');
-        }
-        r.orderByDesc('sys_created_on');
-        r.setLimit(1);
-        r.query();
-        return r.next() ? r : null;
-    },
-
-	getLatestDoppelLink: function (obsId) {
-        var r = this.getLatestDoppelResult(obsId);
-        if (r && r.getValue('external_link')) return r.getValue('external_link');
-
-        // Fallback: Doppel link from the import (Doppel Observable Details)
-        var det = new GlideRecord(this.DETAILS_TABLE);
-        det.addQuery('observable', obsId);
-        det.setLimit(1);
-        det.query();
-        return det.next() ? (det.getValue('doppel_link') || '') : '';
-    },
-
-    canSubmitToDoppel: function (obsGr) {
-        if (!this._isDoppelSupported(obsGr.getDisplayValue('type'), obsGr.getValue('value'))) return false;
-        var r = this.getLatestDoppelResult(obsGr.getUniqueValue());
-        return !!r && r.getValue('result') == this.NO_MATCH_TEXT;
-    },
-
     _upsertLookupResult: function (obsId, vendorId, finding, resultText, details, link, raw, execId, ignoreRollup) {
         var r = new GlideRecord('sn_ti_lookup_result');
         r.initialize();
@@ -1077,13 +1038,13 @@ DoppelIOCImport.prototype = {
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-21 06:37:57</sys_updated_on>
+        <sys_updated_on>2026-10-26 07:09:48</sys_updated_on>
     </sys_script_include>
 </record_update>
