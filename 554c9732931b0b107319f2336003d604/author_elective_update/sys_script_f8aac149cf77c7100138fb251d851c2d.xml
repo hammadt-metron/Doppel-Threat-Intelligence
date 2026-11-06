@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_doppe_doppel_t_0_doppel_configuration</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Doppel TI - store loaded values</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+    g_scratchpad.doppelTestedSig = JSON.stringify([
+        current.getValue('api_version') || 'v1',
+        current.getValue('organisation_code') || '',
+        current.getValue('client_id') || '',
+        '', '', '' // password fields are always empty in the browser after loading
+    ]);
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-06 07:08:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f8aac149cf77c7100138fb251d851c2d</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Doppel TI - store loaded values</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_update_name>sys_script_f8aac149cf77c7100138fb251d851c2d</sys_update_name>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-18 06:52:49</sys_updated_on>
+        <template/>
+        <when>before_display</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=f8aac149cf77c7100138fb251d851c2d"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</application>
+        <file_path/>
+        <instance_id>d60d8da5ebdab610cbbffceacad0cd56</instance_id>
+        <instance_name>ven08841</instance_name>
+        <name>sys_script_f8aac149cf77c7100138fb251d851c2d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_doppe_doppel_t_0_doppel_configuration&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Doppel TI - store loaded values&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous) {
+    g_scratchpad.doppelTestedSig = JSON.stringify([
+        current.getValue('api_version') || 'v1',
+        current.getValue('organisation_code') || '',
+        current.getValue('client_id') || '',
+        '', '', '' // password fields are always empty in the browser after loading
+    ]);
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;hammad-thoker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-10-06 07:08:49&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;f8aac149cf77c7100138fb251d851c2d&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Doppel TI - store loaded values&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0"&gt;554c9732931b0b107319f2336003d604&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Doppel-Threat-Intelligence"&gt;554c9732931b0b107319f2336003d604&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_f8aac149cf77c7100138fb251d851c2d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;hammad-thoker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-10-18 06:52:49&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before_display&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=f8aac149cf77c7100138fb251d851c2d"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-188149859</payload_hash>
+        <record_name>Doppel TI - store loaded values</record_name>
+        <reverted_from/>
+        <source>fd2b7fbe937bc3107319f2336003d638</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-10-18 06:52:49</sys_created_on>
+        <sys_id>3a4a327ccf4c13100138fb251d851c8b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a14dc8d3c50000001</sys_recorded_at>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-10-18 06:52:49</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>764a327c564c13100ae20d57ca40438a</update_guid>
+        <update_guid_history>764a327c564c13100ae20d57ca40438a:-188149859,0df6dc741548df10951351b0c9531e6a:-282677806,fd5e00b4c608df1085eb08261932be6a:2109844431,250d04f0b008df10d69d3699f9cba14e:-282677806,f6cd0101c8b7c7104e569a1ba7cad670:2109844431,f75c8d0dd877c710918f4943629f8d80:-601581975,50eac9490977c7102c7bd721ebc9df23:-406040599</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-11-06 08:57:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>09cf271ba7b9410690ac66e517ff8009</sys_id>
+        <sys_metadata>f8aac149cf77c7100138fb251d851c2d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Doppel TI - store loaded values</sys_name>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_parent display_value="Doppel TI Configuration">564660c5cf33c7100138fb251d851c5e</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_scope_delete display_value="">36a8be0b3d234e28930356d857d36840</sys_scope_delete>
+        <sys_update_name>sys_script_f8aac149cf77c7100138fb251d851c2d</sys_update_name>
+        <sys_update_version display_value="sys_script_f8aac149cf77c7100138fb251d851c2d">3a4a327ccf4c13100138fb251d851c8b</sys_update_version>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-11-06 08:57:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

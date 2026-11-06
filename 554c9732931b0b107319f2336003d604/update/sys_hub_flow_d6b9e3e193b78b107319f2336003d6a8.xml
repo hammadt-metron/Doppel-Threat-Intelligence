@@ -4,7 +4,7 @@
         <acls/>
         <active>true</active>
         <annotation/>
-        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=1456000,viewActivatedIn=naturalLanguage</attributes>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=2516264000,viewActivatedIn=naturalLanguage</attributes>
         <authored_on_release_version>28100</authored_on_release_version>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
@@ -15,7 +15,7 @@
         <flow_priority>MEDIUM</flow_priority>
         <generation_source/>
         <internal_name>doppel__check_or_submit</internal_name>
-        <label_cache>[{"name":"subflow.value","label":"Input➛value","type":"string","base_type":"string","usedInstances":{"d0849b0c-9d84-4332-b82b-a2ac5ab77448":["value"],"47c1bef4-1d9b-41da-9696-fb98ca9e530a":["entity"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"81fa7417-8b99-41e3-bcf7-80f48617267a"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.hit","label":"1 - Doppel - Search Indicator➛hit","reference_display":"hit","type":"string","base_type":"string","usedInstances":{"f61f35ac-70ac-4878-b9c6-00a1ccfe4cea":["condition"]},"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"05730c2d-2d75-44a2-98d8-4fb2a360f224"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.alert_id","label":"1 - Doppel - Search Indicator➛alert_id","reference_display":"alert_id","type":"string","base_type":"string","usedInstances":{"1af98abb-11c1-40d0-8a54-e1b232a17f4a":["alert_id-1"]},"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"ea1f6d7c-1228-46de-bfab-e257ca50dcbf"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.doppel_link","label":"1 - Doppel - Search Indicator➛doppel_link","reference_display":"doppel_link","type":"string","base_type":"string","usedInstances":{"1af98abb-11c1-40d0-8a54-e1b232a17f4a":["doppel_link-2"]},"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"1bb22534-b29b-4402-a389-3adcbfc0b277"}},{"name":"subflow.brand","label":"Input➛brand","type":"string","base_type":"string","usedInstances":{"47c1bef4-1d9b-41da-9696-fb98ca9e530a":["brand"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"fcef0a96-3a03-4e3d-a8cd-2fb109de7dcf"}}]</label_cache>
+        <label_cache>[{"name":"subflow.value","label":"Input➛value","type":"string","base_type":"string","usedInstances":{"d0849b0c-9d84-4332-b82b-a2ac5ab77448":["value"],"47c1bef4-1d9b-41da-9696-fb98ca9e530a":["entity"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"81fa7417-8b99-41e3-bcf7-80f48617267a"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.alert_id","label":"1 - Doppel - Search Indicator➛alert_id","reference_display":"alert_id","type":"string","base_type":"string","usedInstances":{"1af98abb-11c1-40d0-8a54-e1b232a17f4a":["alert_id-1"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"ea1f6d7c-1228-46de-bfab-e257ca50dcbf"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.hit","label":"1 - Doppel - Search Indicator➛hit","reference_display":"hit","type":"string","base_type":"string","usedInstances":{"f61f35ac-70ac-4878-b9c6-00a1ccfe4cea":["condition"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"05730c2d-2d75-44a2-98d8-4fb2a360f224"}},{"name":"47c1bef4-1d9b-41da-9696-fb98ca9e530a.doppel_link","label":"5 - Doppel - Create Alert➛doppel_link","reference_display":"doppel_link","type":"string","base_type":"string","usedInstances":{},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"853b1293-9bd8-4372-b5c9-065aa126b74f"}},{"name":"subflow.brand","label":"Input➛brand","type":"string","base_type":"string","usedInstances":{"47c1bef4-1d9b-41da-9696-fb98ca9e530a":["brand"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"fcef0a96-3a03-4e3d-a8cd-2fb109de7dcf"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.doppel_link","label":"1 - Doppel - Search Indicator➛doppel_link","reference_display":"doppel_link","type":"string","base_type":"string","usedInstances":{"1af98abb-11c1-40d0-8a54-e1b232a17f4a":["doppel_link-2"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"1bb22534-b29b-4402-a389-3adcbfc0b277"}},{"name":"47c1bef4-1d9b-41da-9696-fb98ca9e530a.alert_id","label":"5 - Doppel - Create Alert➛alert_id","reference_display":"alert_id","type":"string","base_type":"string","usedInstances":{},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"5a0c024f-33d8-419d-a75c-4c6acb91fa57"}},{"name":"47c1bef4-1d9b-41da-9696-fb98ca9e530a.error","label":"5 - Doppel - Create Alert➛error","reference_display":"error","type":"string","base_type":"string","usedInstances":{},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"fadd55ee-ff3d-434c-8ba0-a9201560fcb0"}}]</label_cache>
         <master_snapshot>964fa7ad93b78b107319f2336003d69d</master_snapshot>
         <master_snapshot_digest/>
         <name>Doppel - Check or Submit</name>
@@ -36,7 +36,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>d6b9e3e193b78b107319f2336003d6a8</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>Doppel - Check or Submit</sys_name>
         <sys_overrides/>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
@@ -44,11 +44,11 @@
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_hub_flow_d6b9e3e193b78b107319f2336003d6a8</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:07</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:34</sys_updated_on>
         <type>subflow</type>
         <updation_source/>
         <version>2</version>
-        <version_record>4f4f2bad93b78b107319f2336003d646</version_record>
+        <version_record>e6ca950fcf9c5f100138fb251d851c8e</version_record>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=d6b9e3e193b78b107319f2336003d6a8"/>
     <sys_variable_value action="delete_multiple" query="document_key=d6b9e3e193b78b107319f2336003d6a8"/>
@@ -595,13 +595,13 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-08 08:06:16</sys_created_on>
         <sys_id>593ba3a593b78b107319f2336003d6ed</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:04</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:31</sys_updated_on>
         <ui_id>d0849b0c-9d84-4332-b82b-a2ac5ab77448</ui_id>
         <updation_source/>
-        <values>H4sIAAAAAAAA/91UUW+bMBD+L34GZiCEkLdJU6RJ2yqtXV+qChlzTiwZQ41Jm0X8950DJG26ZVWlvewJ3fnu83ff+eNuT2RJliRMgc4LCLM4TRdFSNM4zEQUx3NK43IepsQjmlWAlVumOsBw+C7Jft92hVD1Y3DI9D2elbJtFNvdXijhG6lKA5os7+490jCD6BYMWe7PjuyugVyxAhQiXVsj9Rrb30p6apxYnw3hwDFsJ9jalI5D6BF4sqBLwGsEUy14pGK6ZLY2O7K0psOEAVZeabU7VmyktghGXO1TK38i8oJS6ioF4DwchtNjmI86DWm+qSWHq8bKWg8Zywo19vBadZX+NrB3CoNgnbKTwpjpWsSDxpF2NEZO4npTP36fLlxJfZhvPFQ1Z+oYMYsqFJ2F1i2hkzeozZdz3UFBhfh5xZoGM3lj6q08YCLFKlgrDAK3auTSyrUOGHfzBCgdC1aY/3RI3zIj3XBfEQabvfG656vo5A8tHzr47DadLWhZ8pD5WRim/iyJUr+g0dxncxqlWZTEWZKR/iBt/tC5oQaRRjnyQVEsaLmRjf2IpLZwnHxIuqnHR73/XV3f997kFnHp4UXF6aGJ2uCekZaBdvPMNeFrl7hX9W5j3GDzh5WjeTTH3zlOzeck/8B9NEtR1wqYPrkluuyWMfMWu8z+C7O82MU/N8xpHS8cA0nIOeXCx3+k8GdcJH4hEuGHNIpnjBc85eK9junvfwH8wbCrNwYAAA==</values>
+        <values>H4sIAAAAAAAA/9VUXW+bMBT9L34OzIYQQt4mTZUmbau0dn2pKmTMdWLJGGpM2iziv+86QLJmW1b1YdKekI/vx7nn+nC/J6okK8JSoIsCWBan6bJgNI1ZJqM4XlAalwuWkhkxvAKM3HLdAR6H74rs921XSF0/hQek7/GuVG2j+e7uQojYKF1aMGR1/zAjDbdY3YElq/3Zlds1kGtegMZKN84qs8b015KeEifWZ0P44nhsp7K1LT0HNiPw7MCUgG0k1y3MSMVNyV1td2TlbIeABV5eG707RmyUcViM+NjnVn3HyktKqY+UgPMIGG6Px3zUaYDFplYCrhunajMgjhd6zBG17irzZWDvFQbJO+0mhRHpWqwHjSftaYyc5M2mfvo6NbxS5jDfeKlrwfXxxB2qUHQOWr+ETt2eaTMgn843ARoq7JhXvGkQyRtbb9WhC5KuwrXGQ+iXj+xatTYhF37CEMXk4RXiHw7wHbfKj/sZy2Cyb/fNqMcOPvpNZ0taloLxIGMsDeZJlAYFjRYBX9AozaIkzpKM9Adp88fODzWINMqRD4piQCusatx7pLCF4+QD6KceH/X+d3F9388mt8hLDy8qTg9N1hb3jLQstJufXMN+dYl/VW82xi0mv7vyNI/m+DvHKfmc5B+4j2Yp6loDNye3RJfdMiKvscv8fzfLSZuXbnmxnn/iGEiYEFTIAP+RMpgLmQSFTGTAaBTPuShEKuRbHdM//ABO/Ax7NwYAAA==</values>
     </sys_hub_action_instance_v2>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=593ba3a593b78b107319f2336003d6ed"/>
     <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
@@ -619,17 +619,44 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-08 08:23:06</sys_created_on>
         <sys_id>fb0fef6d93b78b107319f2336003d610</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:04</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:32</sys_updated_on>
         <ui_id>47c1bef4-1d9b-41da-9696-fb98ca9e530a</ui_id>
         <updation_source/>
-        <values>H4sIAAAAAAAA/+1T22rbQBD9Fz1bRtLKuvitUAKFtoGmzUsIZlY7Gy+sV8pqlcQ1/vfOWpcENzEhhNKHvGnnpjNnzrnaBUoEyyAvEROeiZLxvOBxlLO4lAljWRQxkQEPZoGBDVIlGqfclt53oDsf2O3ajktd388Pkf2eckK1jYbt5YmSaq20sGiC5dX1LGjA0niHNljujlJu2+BKA0dNky6cVeaG2l+LemycYB+v4cfTux0H11Z4FPEswAeHRiD9SIJucRZswAhwtd0GS2c7ClgEcW70dqpYK+NoWOBrH1r1myYXURT5Som0UYV9dnquBqb6cLWuVYXnjVO16SMOuB56qlp3G/O9h+85RgmddiPHFOlamoeNB+1hDJjkxbq+/zH+8EyZw35DUtcV6OkFjljgncPWn6FTP4mbr8fMo8YNzV9toGkosmpsfacOMwniZn6j6TH3xyYsrboxc6j8PnOiDuZnFP98CF+CVX65bzSGmmfD756eolO/jLrt8Iu/NUt4KURRhTFkMkwjKUMuMA/jslhUC8nKoiyC/YHa1W3nl+pJGuhY9YxSQVtZ1bhPBOoOp837oN96EAZ9PVO43+9ng2P4Se3xJ47hlnTzrGEOmdOGeSx5D8O8AvTYOKI+WuIFuySn7TJEPvzy7/ySx4uSiQjCJI4i8gtnIY8XEEKGgCwpJZf5W/0ymUCe1JNkj/pp687SNR9d8Lfo30njr8A0Nk6gjkG+oHL2ofL/TeUySyVdNWQ5kMqxiEJYZBjGWZqkabrIoEzfrPLrP/n6OFQeCQAA</values>
+        <values>H4sIAAAAAAAA/+1TTW/bMAz9LzrHgW05/shtwFBgwLYC69ZLUQSUTTUCFNmV5bZZkP8+Kv5okbVBURTDDr1JTyT1SL53tWOqYkuWFYixSKuCiywXUZjxqJAx52kY8ioFwWbMwAYpEo1Tbkv3O9CdB3a7thNS1/fzA7Lf01ul2kbD9vJESLlWurJo2PLqesYasFTeoWXL3dGT2za40iBQU6ULZ5W5ofTXsh4TJ9rHbfjydG/HwrWtPItoxvDBoamQPpKgW5yxDZgKXG23bOlsR4BFqM6N3k4Ra2UcFWM+9qFVv6lyHoahj5RIHZXYv07X1TCpHi7XtSrxvHGqNj3iQOghp6x1tzHfe/p+xiih026cMSFdS/Ww8aQ9jYGTvFjX9z/GD8+UOfQ3POq6BD3dwNEUROew9Wvo1M+j2fTI1+NdoMYN/bjaQNMQsmpsfacOvxDpzfxG02Xu10/sWnVj5lD6Duc0TJifEf75AF+CVb7db1SGkv13v4y67fCL3zWPRVFVeRlEkMogCaUMRIVZEBX5olxIXuRFzvaH0a5uO99UP6RhHKt+ohTQllY17hNRuMOp8x70XQ/CoNMzgfv9fjY4RpzUnnjiGGFJN88a5vBy2jCPIe9hmFeQHhNH1kdNvGCX+LRdBuTDL//OL1m0KHgVQhBHYUh+ETwQ0QICSBGQx4UUMnurXyYTyJN6kvxRP23dWdrmowv+Fv07afwVnMbEidQxyRdUzj9U/r+pXKaJpK0GPANSOeZhAIsUgyhN4iRJFikUyZtVfv0HlDjTYh4JAAA=</values>
     </sys_hub_action_instance_v2>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=fb0fef6d93b78b107319f2336003d610"/>
     <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=d6b9e3e193b78b107319f2336003d6a8"/>
-    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=d6b9e3e193b78b107319f2336003d6a8^sys_idNOT IN617c632993b78b107319f2336003d6e1,7a2e67e993b78b107319f2336003d6a7,b70def2993b78b107319f2336003d6f6"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=d6b9e3e193b78b107319f2336003d6a8^sys_idNOT IN232fc147cf5c5f100138fb251d851c2c,617c632993b78b107319f2336003d6e1,7a2e67e993b78b107319f2336003d6a7,b70def2993b78b107319f2336003d6f6"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">a32fc147cf5c5f100138fb251d851c2a</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Doppel - Check or Submit">d6b9e3e193b78b107319f2336003d6a8</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>6</order>
+        <outputs_assigned>outcome,alert_id,doppel_link,error</outputs_assigned>
+        <parent_ui_id>7fded305-9d54-412e-9d79-17b10c4598c9</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-11-06 09:06:52</sys_created_on>
+        <sys_id>232fc147cf5c5f100138fb251d851c2c</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-11-06 09:57:32</sys_updated_on>
+        <ui_id>521c4001-16e2-4b1a-8927-209ed50466e1</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Xy27bMBD8F51Ng3qLvgUoAgRoG6BJeykKgY9VTISWFIly4hr+9y4tKXadB5I4hxxysc0hdzkz2gHktVd1tu5se1mdtK2+Kr3Z77WnlTfzZBzwJA1iFoo0Ez5NQ58VQRgmlIYqCbk38Uq+ADyJLWSFvybekpvOIW0nFtpaUIgp3daGr349siXn2qgG3KV/Jl7NG+xnofFm64Mtu6ohN1yAwQ4XttHlFZa/lOZYuOP5gLi7wJEbW1eNcjz8iQd3FkqFdGcFNy1MvAUvFbdVs7pHGuDqvDQ7YK5Li908d/iu1X+xdUYpdScLQFES+t37ZT6Y1MNyXmkJ57XVVdkjlgsz1MjKdIvyey/A2QsF74wd7UWka7Ef1I61ozFwKi7m1e2P8cJTXW4FDpumktzcr7hFG0RnoXVPotOXB+b0yNfDxwEGFnhjvuB1jUheN9VSb29B0ovplcHFtDDVLbJzozbl0imcopt8eor4ly38izfayf2GbbDYXfez1DcdnLnHnYlYJD4HojjPSMQ4JzwSjFCgcRBKSUOg3mZrbX7TOVG9SYMdee8oHmhlo2t7ghSWMCjfTIbRT+lzM+XT3QRxA43Ntdqb/fU6SqUvoIiIr5ggka84YQlLSCFYJjmDOKR8OlZuNg8z8pYW75GlF+geC/eEP7TiiTQFn2n6YGmiPEuVEClJZABuzARhRRESGuCcQRADz7Kj01REz05VuhshVSFJkxtdXr8+UHvFR2TqsMt7xOoFBoyF/zvwqC1PhCv8DNcHC1ciI+YzCSTFbxIlKSMC/NB9sCSMM5HB8eHKnn/9iXdTBE1TNa+P1bbsiEDt6t8jSi+QOxaOeg/kPxGf6DM+Hyw+LIGIZYFPkqQISFTEPr7pFYzINAg4lUxGmf/m+OCU6dL97+knbjkwGZYKpG6R8KXDzvbOqRVOk5b70G3VXDupO2zzD4tPCBpVDQAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
     <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
         <attributes/>
         <block display_value="">8a4fa7ad93b78b107319f2336003d628</block>
@@ -648,13 +675,13 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-08 08:11:45</sys_created_on>
         <sys_id>617c632993b78b107319f2336003d6e1</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:04</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:32</sys_updated_on>
         <ui_id>f61f35ac-70ac-4878-b9c6-00a1ccfe4cea</ui_id>
         <updation_source/>
-        <values>H4sIAAAAAAAA/+1VXW/aMBT9K8jPIQr5oMBbtQpp0rZKa9WXrYpubAesOXZmO1CG+O+7zgdFK2io2uPe8Llf59ycK/ZEN65unH3Ut9aKlSKLb88BEcpj+HtPBCMLUkZQTuZ0QpN4msRRFM/SSTFNiknMEuCQkIAoqDhmUq2YcEKrvAUCsgHZ+MBSN4qNhBrd6brmEiNM2FrC7uliAl0LyQzvOdVgsKPjhiz2f4Tcrua5hAKrFuTBGaFWWH4t86Hww0B99KlFLmvy8xC3wyRtmKc1iQLCXxxXjOPoEqTlAalAMXDa7I6I4cDulXwF1kI5bEd88osVv7B3nGU+seSokfIueHzm/eY6mK61oPy+9gQ7xEEh+xqqZVOpL50Ov3NeQiPdsHNEGov9eO1JexY9pfJhrbdfh4FLoVqBfVBqCvL4AodrKBrHrf8wXPIKG+UV1DUuJ6+N3oi2GLlU4UriIyyl3uJQ77cQqCce4o4gXCJ+18JPYIRX8RnbYHFHswAraN56E9s5gxIO7Vryn40n1AnspeTdNjDBUiNqd4tzNrxnfQh6Y88hK7NJlJ23Rzo9Y4ITT+/3LJql8yKi4zmbpeM0SeJxMYuLMcRAMyhubtJ0Fq6FOxy+N1GUsJb0G+u/u8+/uJArVvDmQs6v5cJZxH85C6/lyquIouj/WZyehbB5Z+9eWzv83Vfx7K3dTbCdbxinwiKRR499HP4VfGCHBhD0FNpq88NLeMUOvwGn1rinXwYAAA==</values>
+        <values>H4sIAAAAAAAA/+1UXWvbMBT9K0XPjpG/0iRvZSUw2FZYS1+2Yq4lORGTJc+Sk2Yh/31X/khDm7BR9ri36NyPc871IXtiWle3zj6YG2vlSpPFt6eASO0x/L0nGipBFoQZzaWTRucdEJANqNYXlqbV/Erqq1tT10JhhUtbK9g9Xmxga6l4IwauGhrc6ERDFvtXJberRa6gwKkFuXeN1CsclxxfJYUymrOIJfE0iSmNZ2lUTJMiinkCAhLsGwc/jNKvPnVIcNGT50Pcjkym4V5WRAMinp3QXCB1CcqKgFSgOTjT7I5II4DfafUCrKV2uI745mcrf+HuOMt8YynQIxN98fjMh8v1MFsbycRd7QX2iINCDTPMqLbSX3of/uaihFa58eaItBb3idqL9ioGSeX92my/joRLqTuDQ1EZBur4AodnKFonrP8wQokKF+UV1DUeJ68bs5HdMGqpwpXCR1gqs0VSn6MQmBce4o0gXCJ+28GP0Ejv4jOuweFeZgFWsrzLHK5zDVo4dGfJf7ZeUG9wsJL318AGyxpZuxvk2YhB9SF4G9iTrO73nM7SeUHZZM5n6SRNknhSzOJiAjGwDIrr6zSdhWvpDofvLaUJ78S8ifS79/yL5M8hK7OIZueTn07PJf9M5i/HPf5D3L2Xv0w7pfR/3E/jLm3ex3bw1pG/O+1PPto9g+1zwwWTFoU8eOzj+C/uCzsMgGSn0NY0P7yFF+zwGyXUX9IPBgAA</values>
         <workflow_reference/>
     </sys_hub_flow_logic_instance_v2>
     <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
@@ -675,10 +702,10 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-08 08:19:13</sys_created_on>
         <sys_id>7a2e67e993b78b107319f2336003d6a7</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:04</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:32</sys_updated_on>
         <ui_id>7fded305-9d54-412e-9d79-17b10c4598c9</ui_id>
         <updation_source/>
         <values>H4sIAAAAAAAA/6tWyi8tKSgtKQ7JdywuzkzPU7KKjtVRyswDiUHYZYlFmYlJOalQbkpqcmZxZn5eCEjME0ldSmVeYm5mMrJQeX5RdlpOfjlCrBYAD1ouqHEAAAA=</values>
@@ -702,13 +729,13 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-08 08:14:22</sys_created_on>
         <sys_id>b70def2993b78b107319f2336003d6f6</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:04</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:32</sys_updated_on>
         <ui_id>1af98abb-11c1-40d0-8a54-e1b232a17f4a</ui_id>
         <updation_source/>
-        <values>H4sIAAAAAAAA/6WRT2vDMAzFv4vPSSmpS9Pcety97DJGkf90E/FsYzsJxfi7z2brZrpD2XaTfnp66KFIzBTsFPzRHLzHF02Gp0g0vEkylBE3uWrIDGoqZNRm0bkX6K2Cy+MN5q+ohJPF5Lkhnju04cADzll0BuVlar7MQUkXTigq9xjFuqd7tubtXvS0pZtN17K+Yy10wLfAdjtK+9V1M6Wfl/zF4u7VV0iGmKoEwlgr1UmhHn8folr+R45bl/sPyBh1efiHZAaHwJT8bIXk6NHoY2EPlU5ccmjkNVqMG8/KLN8svQPVvXDATgIAAA==</values>
+        <values>H4sIAAAAAAAA/+1WTW/bMAz9Lz7HgfwRf/RWYChQYFuBtetlGAxKohuhiuzactIsyH8fVdtJlq5F1/XQQy9J+CSSj098QDZe1dm6s+1Vddq26sZ4Jz82npLeiSdmISRpOMsjnmY8YGkU5GUYRQljkUwi8CaegQXSTSohKvo18ZagO4fcmmplKJaqrTWsr49gMVdaNuia/Zx4NTRUx2LjnWyOjuy6xkIDR03Zl7ZR5obSX0pvTNzze0TYNSCgHUtXjXQ8gomH9xaNRGpVgm5x4i3ASLBVs94hDYK8MHoPzJWxVM1zl+9b9YtKZ4wxd7NEGkpgf7oLi0GgHhbzSgm8qK2qTI9Y4HrIEZXuFuZrP4CTFkvotB2lJaRrqR7WjrWjMXAqL+fV6tvY8EyZhwGHQ10J0LsILMnAO4ute4lOXR2J0yOfj58DNS6oY7GAuiakqJtqqR66EOnF9EZTMC11tSJ2bsWmINyEU1ITpmeEf3qAr6FRbtwvVIaSXbvvRt11eO6eO+MzngSAvgTI/DgH8CHmuc+QzcJICBYh87YP0hZ3nRuqF2mQo+gVpQutaFRtT4nCEofJt5Nh5VP23E4FbL9BoLGxBSXtd36zkSyLc86En8ss9uMoCn2ehdyHEMQMeJrGcTYdM7fbx/54TYm38NIL5h4TDwZ/LMUTbgo/3PTO3MQgSyXnqZ+IEP04kNzPyzLyWcjzDMMZQpa91k0jSFNvd84q42c3LN2vk6yIsC60Mrf/bq6D5P/w13GVt7DYCwQYE/9U4K+yPGG06MNo78xoiYjzIBfop/Ttx0ma+xyDyH3kSTTLeIavNtqWNk4Z9+et377lwGQIJQrVEuErh50f3JNr2iklDqFV1dy6UffY9je8EQnJGgoAAA==</values>
         <workflow_reference/>
     </sys_hub_flow_logic_instance_v2>
     <sys_hub_pill_compound action="delete_multiple" query="attached_to=d6b9e3e193b78b107319f2336003d6a8"/>
@@ -868,7 +895,7 @@
         <description/>
         <flow_priority>MEDIUM</flow_priority>
         <internal_name>doppel__check_or_submit</internal_name>
-        <label_cache>[{"name":"subflow.value","label":"Input➛value","type":"string","base_type":"string","usedInstances":{"d0849b0c-9d84-4332-b82b-a2ac5ab77448":["value"],"47c1bef4-1d9b-41da-9696-fb98ca9e530a":["entity"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"81fa7417-8b99-41e3-bcf7-80f48617267a"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.hit","label":"1 - Doppel - Search Indicator➛hit","reference_display":"hit","type":"string","base_type":"string","usedInstances":{"f61f35ac-70ac-4878-b9c6-00a1ccfe4cea":["condition"]},"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"05730c2d-2d75-44a2-98d8-4fb2a360f224"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.alert_id","label":"1 - Doppel - Search Indicator➛alert_id","reference_display":"alert_id","type":"string","base_type":"string","usedInstances":{"1af98abb-11c1-40d0-8a54-e1b232a17f4a":["alert_id-1"]},"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"ea1f6d7c-1228-46de-bfab-e257ca50dcbf"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.doppel_link","label":"1 - Doppel - Search Indicator➛doppel_link","reference_display":"doppel_link","type":"string","base_type":"string","usedInstances":{"1af98abb-11c1-40d0-8a54-e1b232a17f4a":["doppel_link-2"]},"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"1bb22534-b29b-4402-a389-3adcbfc0b277"}},{"name":"subflow.brand","label":"Input➛brand","type":"string","base_type":"string","usedInstances":{"47c1bef4-1d9b-41da-9696-fb98ca9e530a":["brand"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"fcef0a96-3a03-4e3d-a8cd-2fb109de7dcf"}}]</label_cache>
+        <label_cache>[{"name":"subflow.value","label":"Input➛value","type":"string","base_type":"string","usedInstances":{"d0849b0c-9d84-4332-b82b-a2ac5ab77448":["value"],"47c1bef4-1d9b-41da-9696-fb98ca9e530a":["entity"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"81fa7417-8b99-41e3-bcf7-80f48617267a"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.alert_id","label":"1 - Doppel - Search Indicator➛alert_id","reference_display":"alert_id","type":"string","base_type":"string","usedInstances":{"1af98abb-11c1-40d0-8a54-e1b232a17f4a":["alert_id-1"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"ea1f6d7c-1228-46de-bfab-e257ca50dcbf"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.hit","label":"1 - Doppel - Search Indicator➛hit","reference_display":"hit","type":"string","base_type":"string","usedInstances":{"f61f35ac-70ac-4878-b9c6-00a1ccfe4cea":["condition"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"05730c2d-2d75-44a2-98d8-4fb2a360f224"}},{"name":"47c1bef4-1d9b-41da-9696-fb98ca9e530a.doppel_link","label":"5 - Doppel - Create Alert➛doppel_link","reference_display":"doppel_link","type":"string","base_type":"string","usedInstances":{},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"853b1293-9bd8-4372-b5c9-065aa126b74f"}},{"name":"subflow.brand","label":"Input➛brand","type":"string","base_type":"string","usedInstances":{"47c1bef4-1d9b-41da-9696-fb98ca9e530a":["brand"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"fcef0a96-3a03-4e3d-a8cd-2fb109de7dcf"}},{"name":"d0849b0c-9d84-4332-b82b-a2ac5ab77448.doppel_link","label":"1 - Doppel - Search Indicator➛doppel_link","reference_display":"doppel_link","type":"string","base_type":"string","usedInstances":{"1af98abb-11c1-40d0-8a54-e1b232a17f4a":["doppel_link-2"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"1bb22534-b29b-4402-a389-3adcbfc0b277"}},{"name":"47c1bef4-1d9b-41da-9696-fb98ca9e530a.alert_id","label":"5 - Doppel - Create Alert➛alert_id","reference_display":"alert_id","type":"string","base_type":"string","usedInstances":{},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"5a0c024f-33d8-419d-a75c-4c6acb91fa57"}},{"name":"47c1bef4-1d9b-41da-9696-fb98ca9e530a.error","label":"5 - Doppel - Create Alert➛error","reference_display":"error","type":"string","base_type":"string","usedInstances":{},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"fadd55ee-ff3d-434c-8ba0-a9201560fcb0"}}]</label_cache>
         <master>true</master>
         <name>Doppel - Check or Submit</name>
         <natlang/>
@@ -885,7 +912,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>964fa7ad93b78b107319f2336003d69d</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -893,7 +920,7 @@
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name/>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:05</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:34</sys_updated_on>
         <type>subflow</type>
         <version>2</version>
     </sys_hub_flow_snapshot>
@@ -1476,7 +1503,34 @@
     </sys_hub_action_instance_v2>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=ae4fe7ad93b78b107319f2336003d660"/>
     <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=964fa7ad93b78b107319f2336003d69d"/>
-    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=964fa7ad93b78b107319f2336003d69d^sys_idNOT IN624fe7ad93b78b107319f2336003d659,e24fe7ad93b78b107319f2336003d65d,ea4fe7ad93b78b107319f2336003d65b"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=964fa7ad93b78b107319f2336003d69d^sys_idNOT IN06ca550fcf9c5f100138fb251d851c49,624fe7ad93b78b107319f2336003d659,e24fe7ad93b78b107319f2336003d65d,ea4fe7ad93b78b107319f2336003d65b"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">a32fc147cf5c5f100138fb251d851c2a</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Doppel - Check or Submit">964fa7ad93b78b107319f2336003d69d</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>6</order>
+        <outputs_assigned>outcome,alert_id,doppel_link,error</outputs_assigned>
+        <parent_ui_id>7fded305-9d54-412e-9d79-17b10c4598c9</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-11-06 09:57:33</sys_created_on>
+        <sys_id>06ca550fcf9c5f100138fb251d851c49</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-11-06 09:57:34</sys_updated_on>
+        <ui_id>521c4001-16e2-4b1a-8927-209ed50466e1</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1XXU/bMBT9L3muq3wn5g0xTUJim7QxXqapurZvwMJNQuIAXdX/vusmaQudEF23F8RLGx/72ucc3yMlS6/qbN3Z9rI6bVt9XXonP5aeVt6JJ5MQ0ixMeCSyXAR+FgW8CKMo9f1IpRF4E6+EOdJK2kJW9DTx7sF0Dmk7MdfWoiJM6bY2sLj6w5S80UY16A79OfFqaGg/i413QhRKeijBXOjylqr2Fr+WogGB5gnHPdJ2Ua+J2UaX18P4Yij7NoJVoxyxYOLho8VSEf+TAkyLE28OpQJbNYsN0iCoL6XZAjckp1cxh8dW/6Lzct/33coCSZPEfnYznA2u9XDxASwQlU7arsHRjkpLbHs3FBbQGXu2i/ULvtRWV2VfYkGYsboy3bz83FvhbTYYL4mQriUSWDupjvsgpPh2Uz18HVl+1OXalWHSVBLMZgSWvBOddXyWXqcvn9ncI3tGo8E5nTibQ10TMqub6l6vTyHS8+m1ocG0MNUDsXMNOwXpFE7pCmD6kfAPa/gKGu3kfqJtqNgd973Udx2eu8bJRSLSAJApgJzFHIBBLDjz0U/CSEo/Qt9bTbx20Z4ZaNutUXRDs7vOyextGwya9R67Etno2p4SqXscvFhNhkhl/kv9Gvjb7gSDjZ1ptZOp5TLOZCCwiFmguGBxoIDxlKesEDyXwDGJfJiOlavVfvb+ZotjM/oKzWNGd0Tv23BISsP3lL6FlPqQZ0qIjKUyRNesgvGiiJgfUrdimCDk+X9IaRG/2LHZtj1VRbTNzLj+PzioO8VHZPX5LsfG9RXix7g+Vf9HSw4JbfQe2rcQ2lTGPOASWUb/LE4zzgQGkfvhaZTkIsf/Edr85VfBZNuh2DRVc3hc12VHBHVbf2xEXyF1jOio9Zn0Q2IZv8fyLcSSpxjzPAxYmhYhi4skoDfegjOZhSH4kss4D/5hLF2vlu67sr+Z+4Hb5vKkbknCpcPOd9apBXWqlrvQQ9XcOvFbbPUbrQS1PbUOAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
     <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
         <attributes/>
         <block display_value="">8a4fa7ad93b78b107319f2336003d628</block>
@@ -1495,13 +1549,13 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-08 08:24:06</sys_created_on>
         <sys_id>624fe7ad93b78b107319f2336003d659</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_scope/>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:06</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:34</sys_updated_on>
         <ui_id>f61f35ac-70ac-4878-b9c6-00a1ccfe4cea</ui_id>
         <updation_source/>
-        <values>H4sIAAAAAAAA/+1VXW/aMBT9K8jPIconBd4qENKkbpXWqi9bFd3YDlhz7Cx2oAzx33edhA+tVKPbHveGz72+95wTH7EjurFVY82jvjVGLBWZfnn2iFAOw987IhiZkiKAIpzQkMbRKI6CIBonYT6K8zBiMXCIiUcUlBw7qVZMWKFV1gIeWYNsXGGhG8UGQg3muqq4xAoTppKwfXqzga6EZDXvOVVQ40TLazLd/VK6lqOEHAdPyexAcnDXIm+zt9vK4cbWQi37810/5eEA6po5VmHgEf5iuWIc+RQgDfdICYqB1fX2iNQc2L2SJ2AllMVxxDW/GPEDF0Zp6hoLjhIp74rHY9Yb18HFHCwglYbapu5b6UoLyk1nDuMFNNLOzrGu4b5yUrsrFnJ5uK1lU6pPnSPkOODwnRBpDJLglVPqqPc6ioeV3nw+sFwI1brSF6WmII8nsOhd3ljHZ0e45CUOykqoKnQ0q2q9Fu1l5FL6S4kHv5B6g0vdG/WBOuI+Ggv+AvF5Cz9BLZyKjzgGL3c0czCCZu17xnFoEyd7j5itmUkw5iQS3c2+N45iJ7kXl3X+uCu0FpW9xc1r3uvYe308JpAWaRikl59eMrrwwM6SsduxYJxM8oAOJ2ycDJM4job5OMqHEAFNIb+5SZKxvxJ2v//aBEHMWhmvAvTHc96XsyvEvsrZZQPeE67oN+FyUq7MVhAE/8P11+ESJusi0Wtrl//DbD27gHQ7j15TYZDao8M+HP6hXGGLj0vQc2ij629O1Anb/wRlSgXZ6wYAAA==</values>
+        <values>H4sIAAAAAAAA/+1VXW/aMBT9K5WfQxTyQYG3CoQ0qVulterLVkU3tgPWHDuLHSiL+O+7zgeglmrrtse94XO/zrm5RzRE17asrXnQN8aItSLzL08eEcph+LshCgpO5oRqxYQVWqUt4JEtyNoFVrpW7Eqoq6UuSy4xwoQpJewf30ygGyFZxftZJVTY0fKKzJsXIcGwPg8gH8/omEbhJAqDIJzG42wSZeOQRcAhwoYSMmw8J4uB5NVti3hvsrf70uHGVkKt+/dt3+V+AHXFHKtx4BH+bLliHPnkIA33SAGKgdXV/ohUHNidkidgI5TFdsQlPxvxAweGSeISc44SKe+Cx2faL66D8yVYQCo1tXXVp9KNFpSbbjmM51BLuzjHuoS70kntSixkcqjWsi7Up24j5Nhg+E6I1AZJ8NIpddR7Hfn9Ru8+DyxXQrVb6YNSU5DHF1jcXVZbx6chXPICG6UFlCVuNC0rvRVtMXIp/LXEh59LvcOh7vZ8oI64j4sFf4X4soUfoRJOxUdsg8UdzQyMoGl7p9gO18TJwSNmbxYSjDmJxO2m32tHsZPci0u7/bgSWonS3uDkLe91HLzXZ3928U3Dgmk8ywI6mrFpPIqjKBxl0zAbQQg0gez6Oo6n/kbYw+FrHQQRa+m9MsYf93mff2aQ5Mk4SC77J55c8s8F57zTNOEvTOOk/KZngiD4b5q/No0waXfqvbZ2+D/0zJMzSDfzuGsqDFJ7cNiH4R/FBfZ4XIKeQztdfXOiTtjhJ2HflbibBgAA</values>
         <workflow_reference/>
     </sys_hub_flow_logic_instance_v2>
     <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
@@ -1522,10 +1576,10 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-08 08:24:06</sys_created_on>
         <sys_id>e24fe7ad93b78b107319f2336003d65d</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_scope/>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:06</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:34</sys_updated_on>
         <ui_id>7fded305-9d54-412e-9d79-17b10c4598c9</ui_id>
         <updation_source/>
         <values>H4sIAAAAAAAA/6tWyi8tKSgtKQ7JdywuzkzPU7KKjtVRyswDiUHYZYlFmYlJOalQbkpqcmZxZn5eCEjME0ldSmVeYm5mMrJQeX5RdlpOfjlCrBYAD1ouqHEAAAA=</values>
@@ -1549,13 +1603,13 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-08 08:24:06</sys_created_on>
         <sys_id>ea4fe7ad93b78b107319f2336003d65b</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_scope/>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:06</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:34</sys_updated_on>
         <ui_id>1af98abb-11c1-40d0-8a54-e1b232a17f4a</ui_id>
         <updation_source/>
-        <values>H4sIAAAAAAAA/+1Wy07jMBT9l6zrynk0D3YIhITEDNLAsBmNoutHwMK1Q+K0dKr++1yTtA10hMTACrFp4xPf63OO75GyDmzn6s611/a4bdWtCY5+rQMDcxkc+Vfc4tMkWIDuPHJv7NLgWqi21rC6eQHzO6VFI32T35Oghgb7ONkER+tAGXwwoC+UuceKg81KIMpnEaRZNCtiluUspFkcFlUUxymlsUhjwCoNTOpn3A7IulXtgdY1ytwO64uh7GoL2kZ4YuEkkI9OGiHx/Ap0KyfBHIwAZ5vVDmkkiEuj98AdyulVzOGxVX/wvJxS6ndWEjVx2b/dLcvBsR6uTsEBUum46xq5tcMqLtveDSEr6LQ7GWP9hsvaKWv6EgdMb6ut7ubme29FsGuwvSBEuhZJyNpL9dwHIdXVnV3+2LI8U+bJleGlthz0bgUOvWOd83zWQaeuX9jcIwdGSy3neGI5h7pGpKwbu1BPpyDp+fRW42JaabtEdn4Ap8C9wileAUzPED99gm+gUV7uN2yDxf64n0Y9dPLcD07OZiwNQRIBkJOkACCQsIJQSWdRzDmNJQ02k6BdtSca2nZvFN5Q+dB5mb1tg0Fl77Ev4Y2q3TGSWsjBi81kFxHQsnElDu8+I+u1oHlSMMpJIfKEJHEcEZZHjEAEfAYsy5Ikn24rN5vDPP1Pi/dmL6OvZS+ko+yNRB/a8Jb0RV/p+wzpo5BngrGMpDySJAkFI0VVxYRGrMhlNJOQ5x+Xvi2IPmxGSRQWqelS+xl/cxhHxe/I48su741klbwayWwUyefq/2nJW4IZfwXzMwQz5UkRFlySDP9JkmYFYTKM/U+RxrOc5fIDg7nxc2v8x2R/M4uB2+7yuGpRwrXHzkf7xArnVfExtLTNvRe/xzZ/AaxKmxGqCgAA</values>
+        <values>H4sIAAAAAAAA/+1Wy07jMBT9F6/rynk0D3YIhITEDNLAsBmNqutHwMJ1QuK0dKr++1yTpC3tCMHACrFp4xNf33OO75GyImXrqtY11+Vx0+hbS45+rYiW5IiISQhJGk7yiKcZD1gaBXkRRlHCWCSTCMiIWJgp3IlHiBKfRmQOpvXIvS0XFtdSN5WB5c0eLO60kbXyzX6PSAU1nuNUTY6wtcUHC+ZC23usONj8WmoGuDLPuB2QdcvKA42rtb3t1xd92dUAlrX0xIIRUY9OWamwfwGmUSMyAyvBlfVyg9QK5KU1W+AO5XQqZvDY6D/YL2OM+Z2FQk1CdW83y2nvWAcXp+AAqbTCtbUa7Ci1UE3nhlQFtMad7GLdhsvK6dJ2JQ64GapL087s984KsjlguCBE2gZJqMpL9dx7IcXVXbn4MbA80/bJlf6lKQWYzQocesdb5/msSKuv92zukAOjlVEz7DidQVUhMq3qcq6fuiDp2fjW4GJcmHKB7PygjkF4hWO8AhifIX76BN9Arb3cb3gMFvt2P61+aNW5H5yMT3gSgKISIKNxDkAh5jllik3CSAgWKUbWI9IsmxMDTbM1Cm9o+tB6mZ1tvUHTzmNfImpduWMkNVe9F+tRH6WUvTSvAdtOJxhVuykWbbO0WkmWxTlnguYyi2kcRSHlWcgphCAmwNM0jrPxULleH+buf454b0ZfoXnI6I7oQxvektLwK6WfIaUMslRyntJEhIrGgeQ0L4qIspDnmQonCrLs41I6gOjDepPYIn5xetPtqMoSJZip8Vl4c2h3it+R2/1T3hvdV4gfovtc/T8teUuAo68Af4YAJyLOg1womuI/jZM0p1wFkf/Jk2iS8Ux9YIDXfm6t/4jtbmbec9tcntANSrj22PnOPrnEedViF1qU9b0Xv8XWfwHZxc64IgsAAA==</values>
         <workflow_reference/>
     </sys_hub_flow_logic_instance_v2>
     <sys_hub_pill_compound action="delete_multiple" query="attached_to=964fa7ad93b78b107319f2336003d69d"/>
@@ -1710,7 +1764,7 @@
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=d6b9e3e193b78b107319f2336003d6a8"/>
     <sys_flow_subflow_plan action="delete_multiple" query="plan_id=d6b9e3e193b78b107319f2336003d6a8^sys_idNOT INfe4fe7ad93b78b107319f2336003d6c2"/>
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
-        <plan>com.snc.process_flow.engine.ProcessPlan@152866cd</plan>
+        <plan>com.snc.process_flow.engine.ProcessPlan@68ceb16c</plan>
         <plan_id display_value="Doppel - Check or Submit">d6b9e3e193b78b107319f2336003d6a8</plan_id>
         <snapshot>964fa7ad93b78b107319f2336003d69d</snapshot>
         <sys_created_by>hammad-thoker</sys_created_by>
@@ -1718,10 +1772,10 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>fe4fe7ad93b78b107319f2336003d6c2</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-10-08 08:24:07</sys_updated_on>
+        <sys_updated_on>2026-11-06 09:57:34</sys_updated_on>
     </sys_flow_subflow_plan>
 </record_update>
