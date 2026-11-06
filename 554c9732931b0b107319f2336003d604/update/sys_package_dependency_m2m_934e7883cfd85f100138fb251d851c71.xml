@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="Threat Intelligence Security Center for Security Operations" source="sn_sec_tisc">67af77db43721110baf06e434ab8f2ad</dependency>
+        <min_version>4.8.1</min_version>
+        <sys_created_by>hammad-thoker</sys_created_by>
+        <sys_created_on>2026-11-06 07:55:44</sys_created_on>
+        <sys_id>934e7883cfd85f100138fb251d851c71</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
+        <sys_updated_by>hammad-thoker</sys_updated_by>
+        <sys_updated_on>2026-11-06 10:31:10</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>
