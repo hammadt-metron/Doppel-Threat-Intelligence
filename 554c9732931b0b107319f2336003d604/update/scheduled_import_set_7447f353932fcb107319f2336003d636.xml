@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scheduled_import_set">
     <scheduled_import_set action="INSERT_OR_UPDATE">
-        <active>false</active>
+        <active>true</active>
         <advanced>false</advanced>
         <business_calendar/>
         <concurrent_import>false</concurrent_import>
@@ -31,8 +31,125 @@
 
 })(import_set_row);]]></partition_script>
         <partition_size/>
-        <post_script/>
-        <post_script_bool>false</post_script_bool>
+        <post_script><![CDATA[(function () {
+    var prefix = 'DOPPEL ITEM 2 | ';
+    var property = 'x_doppe_doppel_t_0.import_watermark';
+
+    if (typeof import_set === 'undefined' || !import_set ||
+        import_set.getValue('state') !== 'processed') {
+        gs.warn(prefix + 'watermark held: import set not processed');
+        return;
+    }
+
+    var setId = import_set.getUniqueValue();
+    var marker = new GlideRecord('x_doppe_doppel_t_0_staging');
+    marker.addQuery('sys_import_set', setId);
+    marker.addNotNullQuery('u_import_checkpoint');
+    marker.setLimit(2);
+    marker.query();
+
+    if (!marker.next()) {
+        gs.info(prefix + 'no checkpoint to commit');
+        return;
+    }
+
+    var checkpoint;
+    try {
+        checkpoint = JSON.parse(marker.getValue('u_import_checkpoint'));
+    } catch (e) {
+        gs.warn(prefix + 'watermark held: invalid checkpoint');
+        return;
+    }
+
+    if (marker.hasNext() || !checkpoint ||
+        typeof checkpoint.previous !== 'string' ||
+        typeof checkpoint.candidate !== 'string' ||
+        !checkpoint.candidate || checkpoint.candidate < checkpoint.previous ||
+        typeof checkpoint.expectedRows !== 'number' || checkpoint.expectedRows < 1 ||
+        marker.getValue('sys_import_state') !== 'ignored') {
+        gs.warn(prefix + 'watermark held: checkpoint validation failed');
+        return;
+    }
+
+    var run = new GlideRecord('sys_import_set_run');
+    run.addQuery('set', setId);
+    run.addQuery('sys_transform_map.name', 'Doppel Alert to TI Indicator');
+    run.setLimit(2);
+    run.query();
+
+    if (!run.next() || run.hasNext() ||
+        run.getValue('state') !== 'complete' ||
+        run.getValue('errors') !== '0' ||
+        run.getValue('skipped') !== '0' ||
+        Number(run.getValue('total')) !== checkpoint.expectedRows) {
+        gs.warn(prefix + 'watermark held: transform outcome did not match checkpoint');
+        return;
+    }
+
+	var importErrors = new GlideRecord('import_log');
+	if (!importErrors.isValidField('import_set') || !importErrors.isValidField('level')) {
+		gs.warn(prefix + 'watermark held: Import Log fields unavailable');
+		return;
+	}
+
+	importErrors.addQuery('import_set', setId);
+	importErrors.addQuery('level', '2');
+	importErrors.setLimit(1);
+	importErrors.query();
+
+	if (importErrors.hasNext()) {
+		gs.warn(prefix + 'watermark held: error in Import Log');
+		return;
+	}
+
+    if (gs.getProperty(property, '') !== checkpoint.previous) {
+        gs.warn(prefix + 'watermark held: starting value changed');
+        return;
+    }
+
+	var rows = new GlideRecord('x_doppe_doppel_t_0_staging');
+	rows.addQuery('sys_import_set', setId);
+	rows.addNullQuery('u_import_checkpoint');
+	rows.addQuery('sys_import_state', 'IN', 'inserted,updated,ignored');
+	rows.query();
+
+	if (rows.getRowCount() !== checkpoint.expectedRows - 1) {
+		gs.warn(prefix + 'watermark held: staging row outcomes did not match checkpoint');
+		return;
+	}
+
+	while (rows.next()) {
+		rows.setValue('u_doppel_processing_status', 'confirmed');
+		if (!rows.update()) {
+			gs.error(prefix + 'watermark held: could not confirm staging row');
+			return;
+		}
+	}
+
+	if (checkpoint.candidate === checkpoint.previous) {
+		gs.info(prefix + 'watermark unchanged; staging rows confirmed');
+		return;
+	}
+
+    var importer = new x_doppe_doppel_t_0.DoppelIOCImport();
+    if (importer._setProperty(property, checkpoint.candidate) &&
+        gs.getProperty(property, '') === checkpoint.candidate) {
+        gs.info(prefix + 'watermark committed | import_set=' + import_set.getValue('number'));
+		if (!checkpoint.previous) {
+			var config = importer._configRecord();
+			if (config && config.getValue('initial_import_since')) {
+				config.setValue('initial_import_since', 'NULL');
+				config.setWorkflow(false);
+				if (!config.update()) {
+					gs.warn(prefix + 'could not clear the initial retry window');
+				}
+			}
+		}
+    } else {
+        gs.error(prefix + 'watermark write could not be verified');
+    }
+})();]]></post_script>
+        <post_script_bool>true</post_script_bool>
         <pre_script/>
         <pre_script_bool>false</pre_script_bool>
         <record_source>regular</record_source>
@@ -55,14 +172,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-01 09:13:43</sys_created_on>
         <sys_id>7447f353932fcb107319f2336003d636</sys_id>
-        <sys_mod_count>63</sys_mod_count>
+        <sys_mod_count>72</sys_mod_count>
         <sys_name>Doppel Alert Import</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>scheduled_import_set_7447f353932fcb107319f2336003d636</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-11-06 11:29:52</sys_updated_on>
+        <sys_updated_on>2026-11-21 18:12:33</sys_updated_on>
         <time_zone/>
         <upgrade_safe>false</upgrade_safe>
         <use_child_connection>false</use_child_connection>

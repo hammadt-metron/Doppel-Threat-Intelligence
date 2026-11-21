@@ -23,6 +23,7 @@
         <element default="60" label="Import interval (minutes)" mandatory="true" max_length="40" name="import_interval_minutes" type="integer"/>
         <element default="true" label="Import all Doppel products" max_length="40" name="import_all_doppel_products" type="boolean"/>
         <element default="true" label="Telco" max_length="40" name="import_telco" type="boolean"/>
+        <element label="Initial import since" max_length="32" name="initial_import_since" type="string"/>
         <element default="true" label="Dark web" max_length="40" name="import_dark_web" type="boolean"/>
         <element default="true" label="Needs confirmation" max_length="40" name="promote_queue_needs_confirmation" type="boolean"/>
         <element default="true" label="Ecommerce" max_length="40" name="import_ecommerce" type="boolean"/>
