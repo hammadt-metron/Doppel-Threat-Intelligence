@@ -6,7 +6,6 @@
         <element default="true" label="High" max_length="40" name="promote_severity_high" type="boolean"/>
         <element default="true" label="Paid ads" max_length="40" name="import_paid_ads" type="boolean"/>
         <element default="true" label="Domains" max_length="40" name="import_domains" type="boolean"/>
-        <element label="User API key" max_length="255" name="user_api_key" type="password2"/>
         <element default="true" label="Mobile apps" max_length="40" name="import_mobile_apps" type="boolean"/>
         <element default="true" label="Taken down" max_length="40" name="malicious_queue_taken_down" type="boolean"/>
         <element label="Monitoring" max_length="40" name="malicious_queue_monitoring" type="boolean"/>
@@ -14,11 +13,9 @@
         <element default="true" label="Monitoring" max_length="40" name="promote_queue_monitoring" type="boolean"/>
         <element default="true" label="Email" max_length="40" name="import_email" type="boolean"/>
         <element label="Medium" max_length="40" name="promote_severity_medium" type="boolean"/>
-        <element label="API key" max_length="255" name="api_key" type="password2"/>
         <element label="Connectivity verified" max_length="40" name="connectivity_verified" read_only="true" type="boolean"/>
+        <element label="Import retry state" max_length="255" name="import_retry_state" type="string"/>
         <element label="Parked" max_length="40" name="promote_entity_parked" type="boolean"/>
-        <element label="Client secret" max_length="255" name="client_secret" type="password2"/>
-        <element label="Client ID" max_length="100" name="client_id" type="string"/>
         <element default="true" label="Actioned" max_length="40" name="promote_queue_actioned" type="boolean"/>
         <element default="60" label="Import interval (minutes)" mandatory="true" max_length="40" name="import_interval_minutes" type="integer"/>
         <element default="true" label="Import all Doppel products" max_length="40" name="import_all_doppel_products" type="boolean"/>

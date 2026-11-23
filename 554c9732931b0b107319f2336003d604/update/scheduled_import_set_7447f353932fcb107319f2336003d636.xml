@@ -32,7 +32,7 @@
 })(import_set_row);]]></partition_script>
         <partition_size/>
         <post_script><![CDATA[(function () {
-    var prefix = 'DOPPEL ITEM 2 | ';
+    var prefix = 'DoppelIOCImport: ';
     var property = 'x_doppe_doppel_t_0.import_watermark';
 
     if (typeof import_set === 'undefined' || !import_set ||
@@ -126,15 +126,21 @@
 		}
 	}
 
+	var importer = new x_doppe_doppel_t_0.DoppelIOCImport();
+	if (!importer._persistImportBoundary(checkpoint.candidate)) {
+		gs.warn(prefix + 'watermark held: could not persist import confirmations');
+		return;
+	}
+
 	if (checkpoint.candidate === checkpoint.previous) {
 		gs.info(prefix + 'watermark unchanged; staging rows confirmed');
 		return;
 	}
 
-    var importer = new x_doppe_doppel_t_0.DoppelIOCImport();
     if (importer._setProperty(property, checkpoint.candidate) &&
         gs.getProperty(property, '') === checkpoint.candidate) {
         gs.info(prefix + 'watermark committed | import_set=' + import_set.getValue('number'));
+		importer._pruneImportConfirmations(checkpoint.candidate);
 		if (!checkpoint.previous) {
 			var config = importer._configRecord();
 			if (config && config.getValue('initial_import_since')) {
@@ -172,14 +178,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-10-01 09:13:43</sys_created_on>
         <sys_id>7447f353932fcb107319f2336003d636</sys_id>
-        <sys_mod_count>72</sys_mod_count>
+        <sys_mod_count>75</sys_mod_count>
         <sys_name>Doppel Alert Import</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>scheduled_import_set_7447f353932fcb107319f2336003d636</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-11-21 18:12:33</sys_updated_on>
+        <sys_updated_on>2026-11-22 14:47:32</sys_updated_on>
         <time_zone/>
         <upgrade_safe>false</upgrade_safe>
         <use_child_connection>false</use_child_connection>

@@ -14,6 +14,7 @@ DoppelIOCImport.prototype = {
     initialize: function() {
         this.STAGING_TABLE = 'x_doppe_doppel_t_0_staging';
         this.CONFIG_TABLE = 'x_doppe_doppel_t_0_doppel_configuration';
+		this.CONFIRMATION_TABLE = 'x_doppe_doppel_t_0_import_confirmation';
         this.NO_MATCH_TEXT = 'No Doppel alert for this value';
         this.DETAILS_TABLE = 'x_doppe_doppel_t_0_doppel_observable_details';
         this.SOURCE_NAME = 'Doppel'; // Threat Intelligence Source record (sn_ti_source) shipped with the app
@@ -35,11 +36,7 @@ DoppelIOCImport.prototype = {
         var c = {
             found: false,
             version: 'v1',
-            apiKey: '',
-            userKey: '',
             orgCode: '',
-            clientId: '',
-            clientSecret: '',
             products: ALL_PRODUCTS.slice(),
             historicalDays: 7,
             pageSize: 200,
@@ -55,11 +52,7 @@ DoppelIOCImport.prototype = {
         if (gr.next()) {
             c.found = true;
             c.version = gr.getValue('api_version') == 'v2' ? 'v2' : 'v1';
-            c.apiKey = gr.api_key.getDecryptedValue() || '';
-            c.userKey = gr.user_api_key.getDecryptedValue() || '';
             c.orgCode = String(gr.getValue('organisation_code') || '').trim();
-            c.clientId = String(gr.getValue('client_id') || '').trim();
-            c.clientSecret = gr.client_secret.getDecryptedValue() || '';
             // "Import all Doppel products" ticked → every product; otherwise only the ticked ones
             c.products = this._isTrue(gr.getValue('import_all_doppel_products')) ?
                 ALL_PRODUCTS.slice() :
@@ -101,18 +94,15 @@ DoppelIOCImport.prototype = {
         return c;
     },
 
-    // Test Connectivity: use values typed on the form (not yet saved) on top of the stored ones.
+    // Test Connectivity can override the API version and organization for one request.
     withConfig: function(override) {
         var c = this._cfg();
-        var storedClientId = c.clientId;
-        for (var k in override) {
-            if (override.hasOwnProperty(k)) c[k] = override[k];
+        if (override.version === 'v1' || override.version === 'v2') c.version = override.version;
+        if (typeof override.orgCode === 'string') {
+            c.orgCode = override.orgCode.trim();
         }
-        this._config = c;
         this._v2Token = null;
         this._v2TokenExpiry = null;
-        // Mint a new v2 token only if new v2 credentials are being tested
-        this._forceNewToken = !!(override.clientSecret || (override.clientId && override.clientId != storedClientId));
         return this;
     },
 
@@ -133,6 +123,18 @@ DoppelIOCImport.prototype = {
     // ---------------------------------------------------------------
 
     importAlerts: function(maxPages, importSetTable) {
+		var retryConfig = this._configRecord();
+		if (!retryConfig || !retryConfig.isValidField('import_retry_state')) {
+			gs.error('DoppelIOCImport: import stopped; retry state unavailable');
+			return 0;
+		}
+
+		var retry = this._readImportRetryState(retryConfig);
+		if (Date.now() < retry.nextAttemptAt) {
+			gs.info('DoppelIOCImport: import deferred until ' +
+				new Date(retry.nextAttemptAt).toISOString());
+			return 0;
+		}
         var watermarkAtStart = gs.getProperty('x_doppe_doppel_t_0.import_watermark', '');
         var since = watermarkAtStart || this._getImportSince(!!importSetTable && !maxPages);
         if (!since) {
@@ -157,14 +159,28 @@ DoppelIOCImport.prototype = {
                 complete = false;
                 break;
             } // test runs never move the watermark
-            var body = this._fetchPage(page, since, pageSize);
-            if (!body) {
-                complete = false;
-                gs.error('DoppelIOCImport: failed to fetch page ' + page + ', stopping this run');
-                break;
-            }
-            totalPages = (body.metadata && body.metadata.total_pages) || 0;
-            var alerts = body.alerts || [];
+            var result = this._fetchPage(page, since, pageSize);
+			if (!result || !result.body) {
+				if (result) {
+					var failures = Math.min(retry.failures + 1, 4);
+					var interval = parseInt(retryConfig.getValue('import_interval_minutes'), 10) || 60;
+					var backoffMs = Math.max(5, interval) * 60000 * Math.pow(2, failures - 1);
+					var delayMs = Math.max(backoffMs, result.retryAfterMs);
+
+					this._writeImportRetryState(retryConfig, {
+						failures: failures,
+						nextAttemptAt: Date.now() + delayMs
+					});
+				}
+
+				complete = false;
+				gs.error('DoppelIOCImport: failed to fetch page ' + page + ', stopping this run');
+				break;
+			}
+
+			var body = result.body;
+            totalPages = body.metadata.total_pages;
+			var alerts = body.alerts;
             // NEW: one line per page so the run's progress is visible
             gs.info('DoppelIOCImport: page ' + (page + 1) + '/' + totalPages + ' fetched | alerts on page=' + alerts.length +
                 (page == 0 && body.metadata ? ' | total alerts in window=' + body.metadata.count : ''));
@@ -182,7 +198,7 @@ DoppelIOCImport.prototype = {
 
                     var versionKey = JSON.stringify([row.alert_id, ts]);
                     if (importSetTable && (stagedVersions[versionKey] ||
-                            this._hasConfirmedAlertVersion(row.alert_id, ts))) {
+                            this._hasConfirmedAlertVersion(row.alert_id, ts, watermarkAtStart))) {
                         duplicates++;
                         if (ts > maxActivity) maxActivity = ts;
                         continue;
@@ -203,6 +219,10 @@ DoppelIOCImport.prototype = {
             }
             page++;
         }
+
+		if (page >= totalPages && retry.failures) {
+			this._writeImportRetryState(retryConfig, {});
+		}
 
         if (importSetTable && !maxPages && complete && maxActivity &&
             (!watermarkAtStart || staged > 0 || maxActivity > since)) {
@@ -294,45 +314,79 @@ DoppelIOCImport.prototype = {
     },
 
     _fetchPage: function(page, since, pageSize) {
-        var headers = this._getAuthHeaders();
-        if (!headers) {
-            gs.error('DoppelIOCImport: _fetchPage aborted for page ' + page + ' — no valid auth headers');
-            return null;
-        }
-        var MAX_ATTEMPTS = 3;
-        for (var attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-            try {
-                var r = new sn_ws.RESTMessageV2();
-                r.setLogLevel('basic');
-                r.setEndpoint(this._getApiBase() + '/alerts');
-                r.setHttpMethod('GET');
-                for (var key in headers) {
-                    r.setRequestHeader(key, headers[key]);
-                }
-                r.setQueryParameter('page', page.toString());
-                r.setQueryParameter('page_size', String(pageSize || 30));
-                if (since) r.setQueryParameter('last_activity_timestamp', since);
-                r.setHttpTimeout(30000);
+		var headers = this._getAuthHeaders();
+		if (!headers) {
+			gs.error('DoppelIOCImport: _fetchPage aborted for page ' + page + ' — no valid auth headers');
+			return null;
+		}
 
-                var response = r.execute();
-                var httpStatus = response.getStatusCode();
-                if (httpStatus == 200) {
-                    return JSON.parse(response.getBody());
-                }
+		try {
+			var r = new sn_ws.RESTMessageV2();
+			r.setLogLevel('basic');
+			r.setEndpoint(this._getApiBase() + '/alerts');
+			r.setHttpMethod('GET');
+			for (var key in headers) r.setRequestHeader(key, headers[key]);
+			r.setQueryParameter('page', String(page));
+			r.setQueryParameter('page_size', String(pageSize || 30));
+			if (since) r.setQueryParameter('last_activity_timestamp', since);
+			r.setHttpTimeout(30000);
 
-                // 429 (rate limit), 5xx (Doppel server error) and 0 (no response) are worth retrying
-                var retryable = (httpStatus == 429 || httpStatus >= 500 || httpStatus == 0);
-                gs.warn('DoppelIOCImport: page ' + page + ' attempt ' + attempt + '/' + MAX_ATTEMPTS +
-                    ' → HTTP ' + httpStatus);
-                if (!retryable) return null; // e.g. 400/401/403: retrying won't help
-            } catch (e) {
-                gs.warn('DoppelIOCImport: page ' + page + ' attempt ' + attempt + '/' + MAX_ATTEMPTS +
-                    ' → request or response processing failed');
-            }
-        }
-        gs.error('DoppelIOCImport: page ' + page + ' failed after ' + MAX_ATTEMPTS + ' attempts');
-        return null;
-    },
+			var response = r.execute();
+			var status = response.getStatusCode();
+			if (status === 200) {
+				var body = JSON.parse(response.getBody());
+				var total = body && body.metadata && body.metadata.total_pages;
+				if (response.haveError() || !body || !Array.isArray(body.alerts) ||
+					typeof total !== 'number' || total < 0 || total % 1 !== 0 ||
+					(body.alerts.length ? page >= total : (page !== 0 || total > 1))) {
+					gs.warn('DoppelIOCImport: page ' + page + ' returned an invalid alerts response');
+					return {retryAfterMs: 0};
+				}
+				return {body: body};
+			}
+
+			gs.warn('DoppelIOCImport: page ' + page + ' returned HTTP ' + status);
+			if (status === 429 || status === 503) {
+				return {retryAfterMs: this._parseImportRetryAfter(response.getHeader('Retry-After'))};
+			}
+			return status === 0 || (status >= 500 && status <= 599) ? {retryAfterMs: 0} : null;
+		} catch (e) {
+			gs.warn('DoppelIOCImport: page ' + page + ' request or response processing failed');
+			return {retryAfterMs: 0};
+		}
+	},
+
+	_parseImportRetryAfter: function(header) {
+		var value = String(header || '').trim();
+		if (!value) return 0;
+
+		var now = Date.now();
+		var delayMs = /^\d+$/.test(value) ? Number(value) * 1000 : Date.parse(value) - now;
+		return isFinite(delayMs) && delayMs > 0
+			? Math.min(delayMs, 8640000000000000 - now)
+			: 0;
+	},
+
+	_readImportRetryState: function(config) {
+		try {
+			var state = JSON.parse(config.getValue('import_retry_state') || '{}');
+			if (state && state.failures >= 1 && state.failures <= 4 &&
+				typeof state.nextAttemptAt === 'number' && isFinite(state.nextAttemptAt) &&
+				state.nextAttemptAt > 0 && state.nextAttemptAt <= 8640000000000000) {
+				return state;
+			}
+		} catch (e) {
+			gs.warn('DoppelIOCImport: could not read the saved import retry state');
+		}
+		return {failures: 0, nextAttemptAt: 0};
+	},
+
+	_writeImportRetryState: function(config, state) {
+		config.setValue('import_retry_state', JSON.stringify(state));
+		if (!config.update()) {
+			gs.error('DoppelIOCImport: could not save the import retry state');
+		}
+	},
 
     // Keep only the fields needed to identify and classify a leak alert in ServiceNow.
     _minimizeLeakAlert: function(alert) {
@@ -483,6 +537,7 @@ DoppelIOCImport.prototype = {
                 r.setRequestHeader(key, headers[key]);
             }
             r.setQueryParameter('entity', entityValue);
+			r.setHttpTimeout(15000);
             var response = r.execute();
             var status = response.getStatusCode();
             var body = response.getBody();
@@ -528,6 +583,7 @@ DoppelIOCImport.prototype = {
                 r.setRequestHeader(key, headers[key]);
             }
             r.setQueryParameter('id', alertId);
+			r.setHttpTimeout(15000);
             var response = r.execute();
             var status = response.getStatusCode();
             var body = response.getBody();
@@ -579,6 +635,7 @@ DoppelIOCImport.prototype = {
             if (brand) payload.brand = brand;
             if (source) payload.source = source;
             r.setRequestBody(JSON.stringify(payload));
+			r.setHttpTimeout(15000);
             var response = r.execute();
             var status = response.getStatusCode();
             var body = response.getBody();
@@ -770,13 +827,15 @@ DoppelIOCImport.prototype = {
     testConnection: function() {
         var c = this._cfg();
         var version = c.version;
+        var credentials = this._authCredentials();
         var missing = [];
+        if (!this._getDoppelOrigin()) missing.push('Doppel API connection URL');
         if (version == 'v2') {
-            if (!c.clientId) missing.push('Client ID');
-            if (!c.clientSecret) missing.push('Client secret');
+            if (!credentials.clientId) missing.push('Client ID');
+            if (!credentials.clientSecret) missing.push('Client secret');
         } else {
-            if (!c.apiKey) missing.push('API key');
-            if (!c.userKey) missing.push('User API key');
+            if (!credentials.apiKey) missing.push('API key');
+            if (!credentials.userKey) missing.push('User API key');
         }
         if (missing.length) {
             return {
@@ -788,7 +847,7 @@ DoppelIOCImport.prototype = {
             };
         }
 
-        var headers = this._getAuthHeaders();
+        var headers = this._getAuthHeaders(true);
         if (!headers) {
             return {
                 success: false,
@@ -1143,24 +1202,88 @@ DoppelIOCImport.prototype = {
     // Authentication
     // ---------------------------------------------------------------
 
-    _getAuthHeaders: function() {
+    _getAliasSysId: function(name) {
+        var alias = new GlideRecord('sys_alias');
+        alias.addQuery('id', 'x_doppe_doppel_t_0.' + name);
+        alias.setLimit(1);
+        alias.query();
+        return alias.next() ? alias.getUniqueValue() : '';
+    },
+
+    _getDoppelOrigin: function() {
+        var expectedOrigin = 'https://api.doppel.com';
+        if (typeof this._doppelOrigin !== 'undefined') return this._doppelOrigin;
+
+        this._doppelOrigin = '';
+        try {
+            var aliasId = this._getAliasSysId('Doppel_TI_API');
+            var connection = aliasId && new sn_cc.ConnectionInfoProvider().getConnectionInfo(aliasId);
+            var origin = connection ? String(connection.getAttribute('connection_url') || '') : '';
+            origin = origin.trim().replace(/\/+$/, '');
+            // Only the approved Doppel origin may receive credentials or tokens.
+            if (origin === expectedOrigin) this._doppelOrigin = origin;
+        } catch (e) {
+            gs.warn('DoppelIOCImport: could not resolve the Doppel connection alias');
+        }
+        return this._doppelOrigin;
+    },
+
+    _authCredentials: function() {
         var c = this._cfg();
+        if (this._aliasCredentials && this._aliasCredentials.version === c.version) {
+            return this._aliasCredentials;
+        }
+
+        var credentials = {version: c.version};
+        try {
+            var provider = new sn_cc.StandardCredentialsProvider();
+            if (c.version === 'v2') {
+                var clientAlias = this._getAliasSysId('Doppel_V2_Client_Credentials');
+                var client = clientAlias && provider.getCredentialByAliasID(clientAlias);
+                if (client) {
+                    credentials.clientId = String(client.getAttribute('user_name') || '').trim();
+                    credentials.clientSecret = String(client.getAttribute('password') || '');
+                }
+            } else {
+                var apiAlias = this._getAliasSysId('Doppel_V1_API_Key');
+                var userAlias = this._getAliasSysId('Doppel_V1_User_API_Key');
+                var apiCredential = apiAlias && provider.getCredentialByAliasID(apiAlias);
+                var userCredential = userAlias && provider.getCredentialByAliasID(userAlias);
+                if (apiCredential) credentials.apiKey = String(apiCredential.getAttribute('api_key') || '');
+                if (userCredential) credentials.userKey = String(userCredential.getAttribute('api_key') || '');
+            }
+        } catch (e) {
+            gs.warn('DoppelIOCImport: could not resolve the Doppel credential aliases');
+        }
+        this._aliasCredentials = credentials;
+        return credentials;
+    },
+
+    _getAuthHeaders: function(testOnly) {
+        if (!this._getDoppelOrigin()) {
+            gs.error('DoppelIOCImport: Doppel connection URL missing or invalid, request not sent');
+            return null;
+        }
+        var c = this._cfg();
+        var credentials = this._authCredentials();
         var headers = {};
 
         if (c.version == 'v2') {
-            var token = this._getCachedV2AccessToken(this._forceNewToken);
+            var token = testOnly
+				? this._getV2AccessToken()
+				: this._getCachedV2AccessToken();
             if (!token) {
                 gs.error('DoppelIOCImport: _getAuthHeaders — could not obtain v2 access token');
                 return null;
             }
             headers['Authorization'] = 'Bearer ' + token;
         } else {
-            if (!c.apiKey || !c.userKey) {
+            if (!credentials.apiKey || !credentials.userKey) {
                 gs.error('DoppelIOCImport: v1 credentials missing (API key / user API key), request not sent');
                 return null;
             }
-            headers['x-api-key'] = c.apiKey;
-            headers['x-user-api-key'] = c.userKey;
+            headers['x-api-key'] = credentials.apiKey;
+            headers['x-user-api-key'] = credentials.userKey;
             // Required by Doppel only when the user belongs to more than one organisation
             if (c.orgCode) headers['x-organization-code'] = c.orgCode;
         }
@@ -1182,30 +1305,29 @@ DoppelIOCImport.prototype = {
     },
 
     _getApiBase: function() {
-        return this._cfg().version == 'v2' ? 'https://api.doppel.com/v2' : 'https://api.doppel.com/v1';
+        return this._getDoppelOrigin() + (this._cfg().version === 'v2' ? '/v2' : '/v1');
     },
 
     // v2 token is cached on the configuration record (24 h validity) so runs don't each mint one.
     // Doppel allows only a few token requests per client per hour.
-    _getCachedV2AccessToken: function(forceNew) {
+    _getCachedV2AccessToken: function() {
         var now = new GlideDateTime().getNumericValue();
-        var c = this._cfg();
+        var c = this._authCredentials();
         this._v2RetryAfterMs = 0;
-        if (!forceNew) {
-            if (this._v2Token && this._v2TokenExpiry && now < this._v2TokenExpiry) return this._v2Token;
-            var cache = this._readTokenCache();
-            if (cache.clientId == c.clientId) {
-                if (cache.token && now < cache.expires) {
-                    this._v2Token = cache.token;
-                    this._v2TokenExpiry = cache.expires;
-                    return cache.token;
-                }
-                if (cache.retryAfter && now < cache.retryAfter) {
-                    this._v2RetryAfterMs = cache.retryAfter - now;
-                    gs.warn('DoppelIOCImport: Doppel token limit reached; no token request for another ' +
-                        Math.ceil(this._v2RetryAfterMs / 60000) + ' min');
-                    return null;
-                }
+        if (!c.clientId || !c.clientSecret) return null;
+        if (this._v2Token && this._v2TokenExpiry && now < this._v2TokenExpiry) return this._v2Token;
+        var cache = this._readTokenCache();
+        if (cache.clientId === c.clientId && cache.credentialSource === 'alias') {
+            if (cache.token && now < cache.expires) {
+                this._v2Token = cache.token;
+                this._v2TokenExpiry = cache.expires;
+                return cache.token;
+            }
+            if (cache.retryAfter && now < cache.retryAfter) {
+                this._v2RetryAfterMs = cache.retryAfter - now;
+                gs.warn('DoppelIOCImport: Doppel token limit reached; no token request for another ' +
+                    Math.ceil(this._v2RetryAfterMs / 60000) + ' min');
+                return null;
             }
         }
         var token = this._getV2AccessToken();
@@ -1215,8 +1337,7 @@ DoppelIOCImport.prototype = {
             this._writeTokenCache(c.clientId, token, this._v2TokenExpiry, 0);
             var until = new GlideDateTime();
             until.setNumericValue(this._v2TokenExpiry);
-            gs.info('DoppelIOCImport: new v2 access token obtained' +
-                (forceNew ? ' (testing new credentials)' : ' (no valid cached token)') +
+            gs.info('DoppelIOCImport: new v2 access token obtained (no valid cached token)' +
                 ' | reused until ' + until.getValue() + ' UTC');
         } else if (this._v2RetryAfterMs) {
             this._writeTokenCache(c.clientId, null, 0, now + this._v2RetryAfterMs);
@@ -1225,8 +1346,10 @@ DoppelIOCImport.prototype = {
     },
 
     _getV2AccessToken: function() {
-        var c = this._cfg();
+        var c = this._authCredentials();
+        var origin = this._getDoppelOrigin();
         this._v2RetryAfterMs = 0;
+        if (!origin) return null;
         if (!c.clientId || !c.clientSecret) {
             gs.error('DoppelIOCImport: _getV2AccessToken failed — Client ID or Client secret is empty');
             return null;
@@ -1234,7 +1357,7 @@ DoppelIOCImport.prototype = {
         try {
             var r = new sn_ws.RESTMessageV2();
             r.setLogLevel('basic');
-            r.setEndpoint('https://api.doppel.com/oauth/token');
+            r.setEndpoint(origin + '/oauth/token');
             r.setHttpMethod('POST');
             r.setRequestHeader('Content-Type', 'application/json');
             r.setRequestHeader('x-doppel-client', this._getClientHeaderValue());
@@ -1286,6 +1409,7 @@ DoppelIOCImport.prototype = {
         var out = {
             token: '',
             clientId: '',
+            credentialSource: '',
             expires: 0,
             retryAfter: 0
         };
@@ -1294,6 +1418,7 @@ DoppelIOCImport.prototype = {
         try {
             var meta = JSON.parse(gr.getValue('v2_token_meta') || '{}');
             out.clientId = meta.clientId || '';
+            out.credentialSource = meta.credentialSource || '';
             out.expires = meta.expires || 0;
             out.retryAfter = meta.retryAfter || 0;
         } catch (e) {
@@ -1309,22 +1434,94 @@ DoppelIOCImport.prototype = {
         if (token !== null) gr.v2_token.setDisplayValue(token);
         gr.setValue('v2_token_meta', JSON.stringify({
             clientId: clientId,
+            credentialSource: 'alias',
             expires: expires,
             retryAfter: retryAfter
         }));
-        gr.setWorkflow(false); // don't run the validate / schedule-sync business rules
-        gr.update();
+        if (!gr.update()) {
+			gs.warn('DoppelIOCImport: could not persist the v2 token cache');
+		}
     },
 
-    _hasConfirmedAlertVersion: function(alertId, timestamp) {
-        var row = new GlideRecord(this.STAGING_TABLE);
-        row.addQuery('u_alert_id', alertId);
-        row.addQuery('u_last_activity_timestamp', timestamp);
-        row.addQuery('u_doppel_processing_status', 'confirmed');
-        row.setLimit(1);
-        row.query();
-        return row.hasNext();
-    },
+    _hasConfirmedAlertVersion: function(alertId, timestamp, watermark) {
+		var isBoundary = timestamp === watermark;
+		if (isBoundary && this._hasImportConfirmation(alertId, timestamp)) return true;
+
+		var row = new GlideRecord(this.STAGING_TABLE);
+		row.addQuery('u_alert_id', alertId);
+		row.addQuery('u_last_activity_timestamp', timestamp);
+		row.addQuery('u_doppel_processing_status', 'confirmed');
+		row.setLimit(1);
+		row.query();
+
+		if (!row.hasNext()) return false;
+		if (isBoundary && !this._rememberImportConfirmation(alertId, timestamp)) {
+			throw new Error('Could not persist import confirmation');
+		}
+		return true;
+	},
+
+	_hasImportConfirmation: function(alertId, timestamp) {
+		var row = new GlideRecord(this.CONFIRMATION_TABLE);
+		row.addQuery('alert_id', alertId);
+		row.addQuery('activity_timestamp', timestamp);
+		row.setLimit(1);
+		row.query();
+		return row.hasNext();
+	},
+
+	_rememberImportConfirmation: function(alertId, timestamp) {
+		if (this._hasImportConfirmation(alertId, timestamp)) return true;
+
+		var row = new GlideRecord(this.CONFIRMATION_TABLE);
+		row.initialize();
+		row.setValue('alert_id', alertId);
+		row.setValue('activity_timestamp', timestamp);
+		return !!row.insert() || this._hasImportConfirmation(alertId, timestamp);
+	},
+
+	_persistImportBoundary: function(timestamp) {
+		if (!timestamp) return false;
+
+		var rows = new GlideRecord(this.STAGING_TABLE);
+		rows.addQuery('u_last_activity_timestamp', timestamp);
+		rows.addQuery('u_doppel_processing_status', 'confirmed');
+		rows.query();
+
+		while (rows.next()) {
+			var alertId = rows.getValue('u_alert_id');
+			if (!alertId || !this._rememberImportConfirmation(alertId, timestamp)) return false;
+		}
+
+		var confirmed = new GlideRecord(this.CONFIRMATION_TABLE);
+		confirmed.addQuery('activity_timestamp', timestamp);
+		confirmed.setLimit(1);
+		confirmed.query();
+		return confirmed.hasNext();
+	},
+
+	_pruneImportConfirmations: function(watermark) {
+		var rows = new GlideRecord(this.CONFIRMATION_TABLE);
+		if (!watermark || !rows.isValidField('activity_timestamp')) return;
+
+		rows.addQuery('activity_timestamp', '<', watermark);
+		rows.deleteMultiple();
+	},
+
+	_findImportSchedule: function() {
+		var schedule = new GlideRecord('scheduled_import_set');
+		if (!schedule.isValidField('sys_scope') || !schedule.isValidField('data_source')) {
+			return null;
+		}
+
+		schedule.addQuery('name', 'Doppel Alert Import');
+		schedule.addQuery('sys_scope.scope', 'x_doppe_doppel_t_0');
+		schedule.addQuery('data_source.name', 'Doppel Alerts');
+		schedule.setLimit(2);
+		schedule.query();
+
+		return schedule.next() && !schedule.hasNext() ? schedule : null;
+	},
 
     type: 'DoppelIOCImport'
 };]]></script>
@@ -1332,13 +1529,13 @@ DoppelIOCImport.prototype = {
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>58</sys_mod_count>
+        <sys_mod_count>67</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-11-21 18:12:02</sys_updated_on>
+        <sys_updated_on>2026-11-23 09:20:34</sys_updated_on>
     </sys_script_include>
 </record_update>

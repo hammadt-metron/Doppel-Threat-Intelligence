@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="a0b37c5893b453107319f2336003d65b" label="Doppel Import Confirmation" max_length="40" name="x_doppe_doppel_t_0_import_confirmation" type="collection">
+        <element label="Activity timestamp" max_length="40" name="activity_timestamp" type="string"/>
+        <element label="Alert ID" max_length="100" name="alert_id" type="string"/>
+        <index name="index" unique="true">
+            <element name="activity_timestamp"/>
+            <element name="alert_id"/>
+        </index>
+    </element>
+</database>
