@@ -2,7 +2,7 @@
     <gsw_content_information action="INSERT_OR_UPDATE">
         <active>true</active>
         <article><![CDATA[<p>Open each applicable alias and click New in its Connections or Credentials related list.</p>
-<ul style="list-style-position: inside;"><li><strong>Both API versions</strong> — Under <strong>Doppel_TI_API </strong>create an active HTTP(s) Connection with the URL <code><a href="https://api.doppel.com" rel="nofollow">https://api.doppel.com</a></code>. Leave Credential blank.</li><li><strong>API v2 </strong>— Under <strong>Doppel_V2_Client_Credentials</strong>, create an active Basic Auth Credential. Enter the Doppel Client ID as User name and the Client Secret as Password.</li><li><strong>API v1 </strong>— Create an active API Key Credential under each of <strong>Doppel_V1_API_Key</strong> and <strong>Doppel_V2_User_API_Key</strong>. Enter the corresponding key in API Key. Leave API Key Header and API Key Prefix blank.</li></ul>
+<ul style="list-style-position: inside;"><li><strong>Both API versions</strong> — Under <strong>Doppel_TI_API </strong>create an active HTTP(s) Connection with the URL <code><a href="https://api.doppel.com" rel="nofollow">https://api.doppel.com</a></code>. Leave Credential blank.</li><li><strong>API v2 </strong>— Under <strong>Doppel_V2_Client_Credentials</strong>, create an active Basic Auth Credential. Enter the Doppel Client ID as User name and the Client Secret as Password.</li><li><strong>API v1 </strong>— Create an active API Key Credential under each of <strong>Doppel_V1_API_Key</strong> and <strong>Doppel_V1_User_API_Key</strong>. Enter the corresponding key in API Key. Leave API Key Header and API Key Prefix blank.</li></ul>
 <p>Mark this task complete, then continue to Configure Doppel.</p>]]></article>
         <best_practice_acceptable>false</best_practice_acceptable>
         <dependent_on_contents>8eeaa4b8cfff07100138fb251d851c85</dependent_on_contents>
@@ -35,14 +35,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-11-25 08:33:47</sys_created_on>
         <sys_id>1c4db28993301b107319f2336003d67d</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Configure Doppel Connection and Credentials</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>gsw_content_information_1c4db28993301b107319f2336003d67d</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-11-25 08:44:38</sys_updated_on>
+        <sys_updated_on>2026-11-26 07:59:27</sys_updated_on>
         <table/>
         <title>Configure Doppel Connection and Credentials</title>
         <weight>1</weight>
