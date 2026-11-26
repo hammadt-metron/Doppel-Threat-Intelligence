@@ -9,12 +9,16 @@
 		return;
 	}
 
-    if (!target || !target.sys_id) {
-        log.info('Doppel onAfter: no target record (row was likely ignored onBefore) — skipping.');
-        return;
-    }
+    if (!target || !target.sys_id) return;
     var indicatorSysId = target.sys_id.toString();
     var imp = new x_doppe_doppel_t_0.DoppelIOCImport();
+    var entityContent;
+    try {
+        entityContent = imp.parseEntityContent(source.getValue('u_entity_content'));
+    } catch (e) {
+        log.error('Doppel onAfter: invalid entity_content JSON for staging row ' + source.getUniqueValue());
+        return;
+    }
     var confidence = imp.scoreToConfidence(source.u_score ? source.u_score.toString() : ''); // '' when Doppel sends no score
 
     // (a) Link observable ↔ indicator through the platform M2M table (sn_ti_m2m_observable_indicator)
@@ -40,10 +44,12 @@
                 link.setValue('observable', obs.getUniqueValue());
                 link.setValue('indicator', indicatorSysId);
                 link.setValue('confidence', confidence);
-                if (!link.insert()) log.error('Doppel onAfter: could not link observable ' + entity + ' to indicator ' + indicatorSysId);
+                if (!link.insert()) log.error('Doppel onAfter: could not link observable to indicator ' + indicatorSysId +
+                    ' for staging row ' + source.getUniqueValue());
             }
         } else {
-            log.error('Doppel onAfter: observable not found for ' + entity + ' while linking ' + indicatorSysId);
+            log.error('Doppel onAfter: observable not found for staging row ' + source.getUniqueValue() +
+                ' while linking indicator ' + indicatorSysId);
         }
     }
 
@@ -54,13 +60,6 @@
 
     // (b) entity_content → metadata: every field of every top-level key, named <prefix><field>.
     // Unknown keys (e.g. email, crypto) get "entity_<key>_".
-    var entityContent = null;
-    try {
-        entityContent = source.u_entity_content ? JSON.parse(source.u_entity_content.toString()) : null;
-    } catch (e) {
-        log.error('Doppel onAfter: failed to parse entity_content for indicator ' + indicatorSysId + ': ' + e.message);
-    }
-
     var PREFIX = {
         root_domain: 'entity_', telco: 'entity_telco_', social_media_user: 'entity_social_',
         social_media_post: 'entity_post_', mobile_app: 'entity_app_', ecommerce: 'entity_ecom_',
@@ -80,7 +79,7 @@
             else if (v && typeof v == 'object')
                 v = JSON.stringify(v);
             v = (v == null) ? '' : String(v);
-            if (v && v != '{}') extractedEntityFields[prefix + field] = v.substring(0, 255);
+            if (v && v != '{}') extractedEntityFields[prefix + field] = v;
         }
     }
 
@@ -107,11 +106,23 @@
     for (var k in extractedEntityFields) metaFields[k] = extractedEntityFields[k];
 
     var pending = Object.create(null);
+    var maxMetadataLength = 255;
+    var oversizedCount = 0;
 	for (var fieldName in metaFields) {
 		var rawVal = metaFields[fieldName];
-		if (rawVal == null || rawVal.toString() === '') continue;
-		pending[fieldName] = rawVal.toString();
+		if (rawVal == null) continue;
+		var value = rawVal.toString();
+		if (!value) continue;
+		if (value.length > maxMetadataLength) {
+			oversizedCount++;
+			continue;
+		}
+		pending[fieldName] = value;
 	}
+    if (oversizedCount) {
+        log.warn('Doppel onAfter: skipped ' + oversizedCount + ' metadata value(s) exceeding ' +
+            maxMetadataLength + ' characters for indicator ' + indicatorSysId);
+    }
 
 	if (Object.keys(pending).length === 0) return;
 
@@ -143,14 +154,14 @@
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 12:21:08</sys_created_on>
         <sys_id>6a1cd00fcfd7cb100138fb251d851c91</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>onAfter</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_transform_script_6a1cd00fcfd7cb100138fb251d851c91</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-11-22 09:13:29</sys_updated_on>
+        <sys_updated_on>2026-11-24 08:43:30</sys_updated_on>
         <when>onAfter</when>
     </sys_transform_script>
 </record_update>

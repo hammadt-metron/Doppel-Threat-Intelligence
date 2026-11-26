@@ -11,6 +11,14 @@
 	}
 
     var imp = new x_doppe_doppel_t_0.DoppelIOCImport();
+    var entityContent;
+    try {
+        entityContent = imp.parseEntityContent(source.getValue('u_entity_content'));
+    } catch (e) {
+        log.error('Doppel onBefore: invalid entity_content JSON for staging row ' + source.getUniqueValue());
+        ignore = true;
+        return;
+    }
 
     var alertId = source.u_alert_id ? source.u_alert_id.toString() : '';
     var product = source.u_product ? source.u_product.toString().toLowerCase() : '';
@@ -43,16 +51,13 @@
         }
 
         // Root domain from entity_content (domains alerts only)
-        var rootDomain = '';
-        try {
-            var ec = source.u_entity_content ? JSON.parse(source.u_entity_content.toString()) : null;
-            if (ec && ec.root_domain && ec.root_domain.domain) rootDomain = String(ec.root_domain.domain);
-        } catch (eEc) { /* unparseable entity_content: leave domain empty */ }
+        var rootDomain = entityContent && entityContent.root_domain && entityContent.root_domain.domain ?
+            String(entityContent.root_domain.domain) : '';
 
         var obsSysId = '';
         if (isNewObs) {
             obsSysId = obs.insert();
-            if (!obsSysId) log.error('Failed to insert observable for entity: ' + entity);
+            if (!obsSysId) log.error('Doppel onBefore: could not insert observable for staging row ' + source.getUniqueValue());
         } else {
             obsSysId = obs.getUniqueValue();
         }
@@ -78,7 +83,7 @@
     // Indicator decision
     var decision = ingested
         ? imp.getIndicatorDecision(source.u_queue_state, source.u_entity_state, source.u_severity)
-        : { action: 'exclude', reason: 'product "' + product + '" is not in ingest_products' };
+        : { action: 'exclude' };
 
     var hasIndicator = !!alertId && action === 'update';
 
@@ -91,7 +96,6 @@
         target.active = false;
         target.revoked = true;
     } else if (!hasIndicator) {
-        log.info('Skipping indicator for ' + alertId + ' — ' + decision.reason);
         ignore = true;
         return;
     }
@@ -101,22 +105,19 @@
     if (created && !target.first_seen) target.first_seen = created;
     if (lastAct) target.last_seen = lastAct;
 
-    log.info('Indicator ' + (hasIndicator ? 'update' : 'create') + ' for ' + alertId +
-             ' — ' + decision.action + ': ' + decision.reason);
-
 })(source, map, log, target);]]></script>
         <sys_class_name>sys_transform_script</sys_class_name>
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 12:20:29</sys_created_on>
         <sys_id>54fb5ccbcfd7cb100138fb251d851c46</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>onBefore</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_transform_script_54fb5ccbcfd7cb100138fb251d851c46</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-11-22 09:17:36</sys_updated_on>
+        <sys_updated_on>2026-11-24 08:42:14</sys_updated_on>
         <when>onBefore</when>
     </sys_transform_script>
 </record_update>

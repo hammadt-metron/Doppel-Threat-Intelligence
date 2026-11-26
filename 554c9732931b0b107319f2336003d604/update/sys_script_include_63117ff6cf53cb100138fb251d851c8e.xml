@@ -181,9 +181,6 @@ DoppelIOCImport.prototype = {
 			var body = result.body;
             totalPages = body.metadata.total_pages;
 			var alerts = body.alerts;
-            // NEW: one line per page so the run's progress is visible
-            gs.info('DoppelIOCImport: page ' + (page + 1) + '/' + totalPages + ' fetched | alerts on page=' + alerts.length +
-                (page == 0 && body.metadata ? ' | total alerts in window=' + body.metadata.count : ''));
             for (var i = 0; i < alerts.length; i++) {
                 try {
                     var row = this._toStagingRow(alerts[i]);
@@ -425,6 +422,33 @@ DoppelIOCImport.prototype = {
         };
     },
 
+    parseEntityContent: function(value) {
+        if (!value) return null;
+        var content = JSON.parse(String(value));
+        if (content === null) return null;
+        if (typeof content !== 'object' || Array.isArray(content)) {
+            throw new Error('Expected a JSON object for entity_content');
+        }
+        return content;
+    },
+
+    _serializeEntityContent: function(content) {
+        if (content == null) return '';
+        var maxLength = 4000;
+        var serialized = JSON.stringify(content);
+        if (serialized.length <= maxLength) return serialized;
+
+        var domain = content.root_domain && content.root_domain.domain;
+        var reduced = typeof domain === 'string' && domain ?
+            JSON.stringify({ root_domain: { domain: domain } }) : '';
+        if (reduced.length > maxLength) reduced = '';
+
+        gs.warn('DoppelIOCImport: entity_content exceeds ' + maxLength +
+            ' characters (length=' + serialized.length + '); ' +
+            (reduced ? 'retaining root domain only' : 'omitting entity_content'));
+        return reduced;
+    },
+
     _toStagingRow: function(alert) {
         var minimized = this._minimizeLeakAlert(alert);
         if (minimized !== alert && (!minimized.id || !minimized.entity)) return null;
@@ -455,7 +479,7 @@ DoppelIOCImport.prototype = {
             tags: alert.tags ? JSON.stringify(alert.tags) : '',
             // Doppel sends audit_logs newest first; keep only the latest 5 entries
             audit_logs: alert.audit_logs ? JSON.stringify(alert.audit_logs.slice(0, 5)) : '',
-            entity_content: alert.entity_content ? JSON.stringify(alert.entity_content) : '',
+            entity_content: this._serializeEntityContent(alert.entity_content),
             entity_ip_address: ip
         };
     },
@@ -612,7 +636,63 @@ DoppelIOCImport.prototype = {
         }
     },
 
+    _isAlertEntity: function(entity) {
+        // Accept compact phone numbers and common visual separators.
+        if (/^\+?(?:[0-9]|\([0-9]+\))(?:[ .-]?(?:[0-9]|\([0-9]+\)))*$/.test(entity)) {
+            var phone = entity.replace(/[ ().-]/g, '');
+            return /^\+?[0-9]{7,15}$/.test(phone);
+        }
+
+        if (/[\s\x00-\x1f\x7f\\<>"]|%(?![0-9a-f]{2})/i.test(entity)) return false;
+        var url = /^https?:\/\/(\[[^\]]+\]|[^:/?#]+)(?::([0-9]{1,5}))?(?:[/?#].*)?$/i.exec(entity);
+        if (!url || (url[2] && Number(url[2]) > 65535)) return false;
+
+        var host = url[1];
+        if (host.charAt(0) === '[') {
+            var address = host.slice(1, -1);
+            var tail = address.slice(address.lastIndexOf(':') + 1);
+            if (tail.indexOf('.') !== -1) {
+                if (!this._isAlertIPv4(tail)) return false;
+                address = address.slice(0, -tail.length) + '0:0';
+            }
+            var halves = address.split('::');
+            if (halves.length > 2) return false;
+            var groups = (halves[0] ? halves[0].split(':') : [])
+                .concat(halves[1] ? halves[1].split(':') : []);
+            return groups.every(function(group) { return /^[0-9a-f]{1,4}$/i.test(group); }) &&
+                (halves.length === 2 ? groups.length < 8 : groups.length === 8);
+        }
+
+        host = host.replace(/\.$/, '');
+        if (/^[0-9.]+$/.test(host)) return this._isAlertIPv4(host);
+        return host.length <= 253 && host.split('.').every(function(label) {
+            return /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i.test(label);
+        });
+    },
+
+    _isAlertIPv4: function(host) {
+        var octets = host.split('.');
+        return octets.length === 4 && octets.every(function(octet) {
+            return /^(?:0|[1-9][0-9]{0,2})$/.test(octet) && Number(octet) <= 255;
+        });
+    },
+
     createAlertInDoppel: function(entityValue, brand, source) {
+        var ENTITY_MAX_LENGTH = 2048;
+        var entity = typeof entityValue === 'string' ? entityValue.trim() : '';
+        if (!entity) return {
+            success: false,
+            error: 'entity is required and must be a string'
+        };
+        if (entity.length > ENTITY_MAX_LENGTH) return {
+            success: false,
+            error: 'entity exceeds the ' + ENTITY_MAX_LENGTH + ' character limit'
+        };
+        if (!this._isAlertEntity(entity)) return {
+            success: false,
+            error: 'entity must be a valid HTTP(S) URL or a phone number with 7 to 15 digits'
+        };
+
         var headers = this._getAuthHeaders();
         if (!headers) {
             return {
@@ -630,7 +710,7 @@ DoppelIOCImport.prototype = {
             }
             r.setRequestHeader('Content-Type', 'application/json');
             var payload = {
-                entity: entityValue
+                entity: entity
             };
             if (brand) payload.brand = brand;
             if (source) payload.source = source;
@@ -671,6 +751,7 @@ DoppelIOCImport.prototype = {
     },
 
     updateAlertInDoppel: function(alertId, changes) {
+        var COMMENT_MAX_LENGTH = 2000;
         var QUEUE = ['doppel_review', 'needs_confirmation', 'actioned', 'taken_down', 'monitoring', 'archived'];
         var ENTITY = ['active', 'down', 'parked', 'suspicious', 'unclassified', 'unrelated', 'related', 'unknown'];
         changes = changes || {};
@@ -683,7 +764,15 @@ DoppelIOCImport.prototype = {
         var body = {};
         var q = String(changes.queue_state || '').trim();
         var e = String(changes.entity_state || '').trim();
-        var c = String(changes.comment || '').trim();
+        if (changes.comment != null && typeof changes.comment !== 'string') return {
+            success: false,
+            error: 'comment must be a string'
+        };
+        var c = (changes.comment || '').trim();
+        if (c.length > COMMENT_MAX_LENGTH) return {
+            success: false,
+            error: 'comment exceeds the ' + COMMENT_MAX_LENGTH + ' character limit'
+        };
         var ta = String(changes.tag_action || '').trim();
         var tn = String(changes.tag_name || '').trim();
 
@@ -918,7 +1007,6 @@ DoppelIOCImport.prototype = {
     // ---------------------------------------------------------------
 
     runCapabilityThreatLookup: function(inputParams, executionSysId) {
-        gs.info('DOPPEL LOOKUP | started');
         // Values of the sn_ti_observable.finding choice list (values, not labels)
         var FINDING = {
             MALICIOUS: 'Malicious',
@@ -1529,13 +1617,13 @@ DoppelIOCImport.prototype = {
         <sys_created_by>hammad-thoker</sys_created_by>
         <sys_created_on>2026-09-17 09:15:23</sys_created_on>
         <sys_id>63117ff6cf53cb100138fb251d851c8e</sys_id>
-        <sys_mod_count>67</sys_mod_count>
+        <sys_mod_count>70</sys_mod_count>
         <sys_name>DoppelIOCImport</sys_name>
         <sys_package display_value="Doppel-Threat-Intelligence" source="x_doppe_doppel_t_0">554c9732931b0b107319f2336003d604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Doppel-Threat-Intelligence">554c9732931b0b107319f2336003d604</sys_scope>
         <sys_update_name>sys_script_include_63117ff6cf53cb100138fb251d851c8e</sys_update_name>
         <sys_updated_by>hammad-thoker</sys_updated_by>
-        <sys_updated_on>2026-11-23 09:20:34</sys_updated_on>
+        <sys_updated_on>2026-11-24 08:40:13</sys_updated_on>
     </sys_script_include>
 </record_update>
